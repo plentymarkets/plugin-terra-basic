@@ -13,7 +13,7 @@ const autoprefixer = require('autoprefixer');
 const helpers = require('./helpers');
 
 const METADATA = {
-    baseUrl: '/plenty/ui-backend/'
+    baseUrl: '/'
 };
 
 module.exports = function (options) {
