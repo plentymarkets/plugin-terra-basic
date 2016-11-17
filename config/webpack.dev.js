@@ -12,55 +12,55 @@ const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 3000;
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
-  host: HOST,
-  port: PORT,
-  ENV: ENV,
-  HMR: HMR
+    host: HOST,
+    port: PORT,
+    ENV: ENV,
+    HMR: HMR
 });
 
 
 module.exports = function (options) {
-  return webpackMerge(commonConfig({env: ENV}), {
+    return webpackMerge(commonConfig({env: ENV}), {
 
-    // devtool: 'source-map',
-    devtool: 'cheap-module-source-map',
+        // devtool: 'source-map',
+        devtool: 'cheap-module-source-map',
 
-    output: {
-      path: helpers.root('dist'),
-      filename: '[name].bundle.js',
-      chunkFilename: '[id].chunk.js'
-    },
+        output: {
+            path: helpers.root('dist'),
+            filename: '[name].bundle.js',
+            chunkFilename: '[id].chunk.js'
+        },
 
-    plugins: [
+        plugins: [
 
-      new ExtractTextPlugin({
-        filename: '[name].css',
-        allChunks: true
-      }),
+            new ExtractTextPlugin({
+                filename: '[name].css',
+                allChunks: true
+            }),
 
-      // NOTE: when adding more properties, make sure you include them in custom-typings.d.ts
-      new DefinePlugin({
-        'ENV': JSON.stringify(METADATA.ENV),
-        'HMR': METADATA.HMR,
-        'process.env': {
-          'ENV': JSON.stringify(METADATA.ENV),
-          'NODE_ENV': JSON.stringify(METADATA.ENV),
-          'HMR': METADATA.HMR
+            // NOTE: when adding more properties, make sure you include them in custom-typings.d.ts
+            new DefinePlugin({
+                'ENV': JSON.stringify(METADATA.ENV),
+                'HMR': METADATA.HMR,
+                'process.env': {
+                    'ENV': JSON.stringify(METADATA.ENV),
+                    'NODE_ENV': JSON.stringify(METADATA.ENV),
+                    'HMR': METADATA.HMR
+                }
+            })
+
+        ],
+
+        devServer: {
+            port: METADATA.port,
+            host: METADATA.host,
+            historyApiFallback: true,
+            watchOptions: {
+                aggregateTimeout: 300,
+                poll: 1000
+            },
+            outputPath: helpers.root('dist')
         }
-      })
 
-    ],
-
-    devServer: {
-      port: METADATA.port,
-      host: METADATA.host,
-      historyApiFallback: true,
-      watchOptions: {
-        aggregateTimeout: 300,
-        poll: 1000
-      },
-      outputPath: helpers.root('dist')
-    }
-
-  });
+    });
 }

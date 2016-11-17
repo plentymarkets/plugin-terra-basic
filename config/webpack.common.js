@@ -47,23 +47,23 @@ module.exports = function (options) {
                 },
                 {
                     test: /\.html$/,
-                    loader: 'html',
+                    loader: 'html-loader',
                     exclude: [helpers.root('src/index.html')]
                 },
-                {
-                    test: /\.css$/,
-                    exclude: helpers.root('src', 'app'),
-                    loader: ExtractTextPlugin
-                        .extract({
-                            fallbackLoader: "style-loader",
-                            loader: ['css', 'postcss']
-                        })
-                },
-                {
-                    test: /\.css$/,
-                    include: helpers.root('src', 'app'),
-                    loader: 'raw!postcss'
-                },
+                // {
+                //     test: /\.css$/,
+                //     exclude: helpers.root('src', 'app'),
+                //     loader: ExtractTextPlugin
+                //         .extract({
+                //             fallbackLoader: "style-loader",
+                //             loader: ['css', 'postcss']
+                //         })
+                // },
+                // {
+                //     test: /\.css$/,
+                //     include: helpers.root('src', 'app'),
+                //     loader: 'raw!postcss'
+                // },
                 {
                     test: /\.scss$/,
                     use: [
