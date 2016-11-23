@@ -7,7 +7,7 @@ const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const helpers = require('./helpers');
@@ -31,12 +31,6 @@ module.exports = function (options) {
         },
         module: {
             rules: [
-                // {
-                //     enforce: 'pre',
-                //     test: /\.ts$/,
-                //     loader: 'tslint',
-                //     exclude: [/\.(spec|e2e)\.ts$/, /node_modules/]
-                // },
                 {
                     test: /\.ts$/,
                     loaders: [
@@ -50,29 +44,15 @@ module.exports = function (options) {
                     loader: 'html-loader',
                     exclude: [helpers.root('src/index.html')]
                 },
-                // {
-                //     test: /\.css$/,
-                //     exclude: helpers.root('src', 'app'),
-                //     loader: ExtractTextPlugin
-                //         .extract({
-                //             fallbackLoader: "style-loader",
-                //             loader: ['css', 'postcss']
-                //         })
-                // },
-                // {
-                //     test: /\.css$/,
-                //     include: helpers.root('src', 'app'),
-                //     loader: 'raw!postcss'
-                // },
                 {
                     test: /\.scss$/,
                     use: [
                         'style-loader',
                         {
-                            loader: 'css-loader',
-                            options: {
-                                importLoaders: 1
-                            }
+                            loader: 'css-loader'
+                            // options: {
+                            //     importLoaders: 1
+                            // }
                         },
                         'postcss-loader',
                         'sass-loader',
@@ -102,7 +82,7 @@ module.exports = function (options) {
                 // Bootstrap 4
                 {
                     test: /bootstrap\/dist\/js\/umd\//,
-                    loader: 'imports'
+                    loader: 'imports-loader'
                 }
             ]
         },
