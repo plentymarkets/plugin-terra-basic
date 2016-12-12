@@ -5,7 +5,6 @@ const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 
-const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
@@ -87,7 +86,6 @@ module.exports = function (options) {
             ]
         },
         plugins: [
-            new ForkCheckerPlugin(),
 
             new CommonsChunkPlugin({
                 name: ['app', 'vendor', 'polyfills'],
