@@ -53,7 +53,8 @@ module.exports = function (options) {
                                 query: {
                                     modules: false,
                                     sourceMap: false,
-                                    localIdentName: '[hash:base64:5]'
+                                    localIdentName: '[hash:base64:5]',
+                                    minimize: false
                                 }
                             },
                             'postcss-loader',
