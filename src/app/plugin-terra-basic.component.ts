@@ -2,7 +2,11 @@ import {
     Component,
     ChangeDetectionStrategy
 } from '@angular/core';
-import { Locale } from 'angular2localization';
+import {
+    Locale,
+    LocalizationService,
+    LocaleService
+} from 'angular2localization';
 
 @Component({
                selector:        'plugin-terra-basic-app',
@@ -13,5 +17,11 @@ import { Locale } from 'angular2localization';
 
 export class PluginTerraBasicComponent extends Locale
 {
+    public constructor( public local:LocaleService,
+                        public localization:LocalizationService)
+    {
+        super(local, localization);
+        
+    }
     
 }
