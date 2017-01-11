@@ -19,7 +19,7 @@
     "@angular/platform-browser": "~2.3.0",
     "@angular/platform-browser-dynamic": "~2.3.0",
     "@angular/router": "3.3.0",
-    "@plentymarkets/terra-components": "^0.0.152",
+    "@plentymarkets/terra-components": "^0.0.161",
     "angular2-moment": "^1.0.0-beta.1",
     "angular2localization": "^1.1.1",
     "assets-webpack-plugin": "^3.5.0",

@@ -143,7 +143,7 @@ module.exports = function (options) {
                         formattersDirectory: "./node_modules/tslint-loader/formatters/"
                     },
                     sassResources: [
-                        helpers.root('node_modules/@plentymarkets/terra-components/app/assets/styles/_variables.scss').toString()
+                        helpers.root('./node_modules/@plentymarkets/terra-components/app/assets/styles/_variables.scss').toString()
                     ]
                 }
             })
