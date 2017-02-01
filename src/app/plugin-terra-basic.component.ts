@@ -11,16 +11,20 @@ import {
 @Component({
                selector:        'plugin-terra-basic-app',
                template:        require('./plugin-terra-basic.component.html'),
-               styles:          [require('./plugin-terra-basic.component.scss').toString()],
+               styles:          [require('./plugin-terra-basic.component.scss')],
                changeDetection: ChangeDetectionStrategy.Default
            })
 
 export class PluginTerraBasicComponent extends Locale
 {
-    public constructor( public local:LocaleService,
-                        public localization:LocalizationService)
+    private myVariable:string;
+    
+    public constructor(public local:LocaleService,
+                       public localization:LocalizationService)
     {
         super(local, localization);
+        
+        this.myVariable = "Test123";
         
     }
     

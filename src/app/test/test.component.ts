@@ -6,12 +6,12 @@ import {
 } from '@angular/core';
 
 @Component({
-               selector: 'start',
-               template: require('./start.component.html'),
-               styles:   [require('./start.component.scss')],
+               selector: 'test',
+               template: require('./test.component.html'),
+               styles:   [require('./test.component.scss')],
            })
 
-export class StartComponent implements OnInit
+export class TestComponent implements OnInit
 {
     @Input() myTitle:string;
     

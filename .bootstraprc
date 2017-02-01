@@ -20,7 +20,7 @@ styleLoaders:
 # It depends on value of NODE_ENV environment variable
 # This param can also be set in webpack config:
 #   entry: 'bootstrap-loader/extractStyles'
-extractStyles: true
+# extractStyles: true
 # env:
 #   development:
 #     extractStyles: false
@@ -55,7 +55,7 @@ extractStyles: true
 # Import your custom styles here. You have access to all the bootstrap variables. If you require
 # your sass files separately, you will not have access to the bootstrap variables, mixins, clases, etc.
 # Usually this endpoint-file contains list of @imports of your application styles.
-appStyles: ./src/index.scss
+appStyles: ./src/index.glob.scss
 
 ### Bootstrap styles
 styles:

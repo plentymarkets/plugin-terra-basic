@@ -6,8 +6,8 @@ const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin')
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require('autoprefixer');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const helpers = require('./helpers');
 
@@ -45,28 +45,26 @@ module.exports = function (options) {
                 },
                 {
                     test: /\.scss$/,
-                    loader: ExtractTextPlugin.extract({
-                        fallbackLoader: 'style-loader',
-                        loader: [
-                            {
-                                loader: 'css-loader',
-                                query: {
-                                    modules: false,
-                                    sourceMap: false,
-                                    localIdentName: '[hash:base64:5]',
-                                    minimize: true
-                                }
-                            },
-                            'postcss-loader',
-                            {
-                                loader: 'sass-loader',
-                                query: {
-                                    sourceMap: true
-                                }
-                            },
-                            'sass-resources-loader'
-                        ]
-                    })
+                    exclude: [/\.glob\.scss$/],
+                    loaders: [
+                        'raw-loader',
+                        {
+                            loader: 'sass-loader',
+                            query: {
+                                sourceMap: true
+                            }
+                        },
+                        'sass-resources-loader'
+                    ]
+                },
+                {
+                    test: /\.glob\.scss$/,
+                    loaders: [
+                        'style-loader',
+                        'css-loader',
+                        'postcss-loader',
+                        'sass-loader'
+                    ]
                 },
                 {
                     test: /\.json$/,
@@ -140,7 +138,9 @@ module.exports = function (options) {
                 //---------------------------------------------------
             }),
 
-            new ExtractTextPlugin("[name].css"),
+            new CopyWebpackPlugin([
+                {from: 'src/app/assets', to: 'assets'}
+            ]),
 
             new LoaderOptionsPlugin({
                 debug: true,
@@ -155,7 +155,7 @@ module.exports = function (options) {
                         formattersDirectory: "./node_modules/tslint-loader/formatters/"
                     },
                     sassResources: [
-                        helpers.root('./node_modules/@plentymarkets/terra-components/app/assets/styles/_variables.scss').toString()
+                        helpers.root('./node_modules/@plentymarkets/terra-components/app/assets/styles/_variables.scss')
                     ]
                 }
             })

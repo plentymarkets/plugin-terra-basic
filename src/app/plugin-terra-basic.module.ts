@@ -10,6 +10,7 @@ import {
     LocaleModule
 } from 'angular2localization';
 import { HttpModule } from '@angular/http';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
               imports:      [
@@ -21,7 +22,8 @@ import { HttpModule } from '@angular/http';
               ],
               declarations: [
                   PluginTerraBasicComponent,
-                  StartComponent
+                  StartComponent,
+                  TestComponent
               ],
               providers:    [
                   LocaleService,
