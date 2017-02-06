@@ -54,7 +54,12 @@ module.exports = function (options) {
                                 sourceMap: true
                             }
                         },
-                        'sass-resources-loader'
+                        {
+                            loader: 'sass-resources-loader',
+                            options: {
+                                resources: helpers.root('./node_modules/@plentymarkets/terra-components/app/assets/styles/_variables.scss')
+                            }
+                        }
                     ]
                 },
                 {
@@ -115,27 +120,22 @@ module.exports = function (options) {
             new OccurrenceOrderPlugin(true),
 
             new ProvidePlugin({
-                // jQuery: 'jquery',
-                // jquery: 'jquery',
-                // $: 'jquery',
-                // "Tether": 'tether',
+                // $: "jquery",
+                // jQuery: "jquery",
+                // "window.jQuery": "jquery",
+                // Tether: "tether",
                 // "window.Tether": "tether",
-                //---------------------------------------------------
-                //------------- temporary workaround ----------------
-                // https://github.com/shakacode/bootstrap-loader/issues/172#issuecomment-247205500
-                //this requires exports-loader installed from npm
-                Tooltip: "exports?Tooltip!bootstrap/js/dist/tooltip",
-                Alert: "exports?Alert!bootstrap/js/dist/alert",
-                Button: "exports?Button!bootstrap/js/dist/button",
-                Carousel: "exports?Carousel!bootstrap/js/dist/carousel",
-                Collapse: "exports?Collapse!bootstrap/js/dist/collapse",
-                Dropdown: "exports?Dropdown!bootstrap/js/dist/dropdown",
-                Modal: "exports?Modal!bootstrap/js/dist/modal",
-                Popover: "exports?Popover!bootstrap/js/dist/popover",
-                Scrollspy: "exports?Scrollspy!bootstrap/js/dist/scrollspy",
-                Tab: "exports?Tab!bootstrap/js/dist/tab",
-                Util: "exports?Util!bootstrap/js/dist/util"
-                //---------------------------------------------------
+                Alert: "exports-loader?Alert!bootstrap/js/dist/alert",
+                Button: "exports-loader?Button!bootstrap/js/dist/button",
+                Carousel: "exports-loader?Carousel!bootstrap/js/dist/carousel",
+                Collapse: "exports-loader?Collapse!bootstrap/js/dist/collapse",
+                Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown",
+                Modal: "exports-loader?Modal!bootstrap/js/dist/modal",
+                Popover: "exports-loader?Popover!bootstrap/js/dist/popover",
+                Scrollspy: "exports-loader?Scrollspy!bootstrap/js/dist/scrollspy",
+                Tab: "exports-loader?Tab!bootstrap/js/dist/tab",
+                Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
+                Util: "exports-loader?Util!bootstrap/js/dist/util"
             }),
 
             new CopyWebpackPlugin([
@@ -153,10 +153,7 @@ module.exports = function (options) {
                         failOnHint: false,
                         resourcePath: helpers.root('./src'),
                         formattersDirectory: "./node_modules/tslint-loader/formatters/"
-                    },
-                    sassResources: [
-                        helpers.root('./node_modules/@plentymarkets/terra-components/app/assets/styles/_variables.scss')
-                    ]
+                    }
                 }
             })
         ],
