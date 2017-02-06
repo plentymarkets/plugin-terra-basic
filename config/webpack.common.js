@@ -12,7 +12,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const helpers = require('./helpers');
 
 const METADATA = {
-    baseUrl: '/'
+    baseUrl: './'
 };
 
 module.exports = function (options) {
