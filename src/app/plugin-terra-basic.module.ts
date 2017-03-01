@@ -1,8 +1,8 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { PluginTerraBasicComponent }   from './plugin-terra-basic.component';
+import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
 import { StartComponent } from './start/start.component';
-//import { TerraComponentsModule } from '@plentymarkets/terra-components/app/terra-components.module';
+import { TerraComponentsModule } from '@plentymarkets/terra-components/app/terra-components.module';
 import {
     LocalizationModule,
     LocalizationService,
@@ -18,7 +18,7 @@ import { TestComponent } from './test/test.component';
                   HttpModule,
                   LocaleModule,
                   LocalizationModule,
-                  //TerraComponentsModule.forRoot()
+                  TerraComponentsModule.forRoot()
               ],
               declarations: [
                   PluginTerraBasicComponent,
