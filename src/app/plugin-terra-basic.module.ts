@@ -3,21 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
 import { StartComponent } from './start/start.component';
 import { TerraComponentsModule } from '@plentymarkets/terra-components/app/terra-components.module';
-import {
-    LocalizationModule,
-    LocalizationService,
-    LocaleService,
-    LocaleModule
-} from 'angular2localization';
 import { HttpModule } from '@angular/http';
 import { TestComponent } from './test/test.component';
+import { TranslationModule } from 'angular-l10n';
 
 @NgModule({
               imports:      [
                   BrowserModule,
                   HttpModule,
-                  LocaleModule,
-                  LocalizationModule,
+                  TranslationModule.forRoot(),
                   TerraComponentsModule.forRoot()
               ],
               declarations: [
@@ -25,10 +19,7 @@ import { TestComponent } from './test/test.component';
                   StartComponent,
                   TestComponent
               ],
-              providers:    [
-                  LocaleService,
-                  LocalizationService
-              ],
+              providers:    [],
               bootstrap:    [
                   PluginTerraBasicComponent
               ]

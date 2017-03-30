@@ -104,11 +104,12 @@ module.exports = function (options) {
                 name: ['app', 'vendor', 'polyfills'],
                 minChunks: Infinity
             }),
-
-            new ContextReplacementPlugin(
-                // The (\\|\/) piece accounts for path separators in *nix and Windows
-                /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-                helpers.root('./src') // location of your src
+    
+            // Workaround for angular/angular#11580
+            new webpack.ContextReplacementPlugin(
+                /angular(\\|\/)core(\\|\/)@angular/,
+                helpers.root('./src'), // location of your src
+                {} // a map of your routes
             ),
 
             new HtmlWebpackPlugin({

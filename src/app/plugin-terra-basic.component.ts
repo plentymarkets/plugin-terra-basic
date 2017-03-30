@@ -3,10 +3,9 @@ import {
     ChangeDetectionStrategy
 } from '@angular/core';
 import {
-    Locale,
-    LocalizationService,
-    LocaleService
-} from 'angular2localization';
+    Translation,
+    TranslationService
+} from 'angular-l10n';
 
 @Component({
                selector:        'plugin-terra-basic-app',
@@ -15,14 +14,13 @@ import {
                changeDetection: ChangeDetectionStrategy.Default
            })
 
-export class PluginTerraBasicComponent extends Locale
+export class PluginTerraBasicComponent extends Translation
 {
     private myVariable:string;
     
-    public constructor(public local:LocaleService,
-                       public localization:LocalizationService)
+    public constructor(public translation:TranslationService)
     {
-        super(local, localization);
+        super(translation);
         
         this.myVariable = "Test123";
         
