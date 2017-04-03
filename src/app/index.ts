@@ -1,2 +1,2 @@
-export * from './plugin-terra-basic.component';
-export * from './plugin-terra-basic.module';
+export * from './app.component';
+export * from './app.module';
