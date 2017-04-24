@@ -1,8 +1,7 @@
 import {
     Component,
-    OnInit,
-    ViewEncapsulation,
-    Input
+    Input,
+    OnInit
 } from '@angular/core';
 
 @Component({
@@ -10,7 +9,6 @@ import {
                template: require('./test.component.html'),
                styles:   [require('./test.component.scss')],
            })
-
 export class TestComponent implements OnInit
 {
     @Input() myTitle:string;
@@ -23,6 +21,4 @@ export class TestComponent implements OnInit
     ngOnInit()
     {
     }
-    
-    
 }

@@ -1,8 +1,7 @@
 import {
     Component,
-    OnInit,
-    ViewEncapsulation,
-    Input
+    Input,
+    OnInit
 } from '@angular/core';
 
 @Component({
@@ -10,19 +9,15 @@ import {
                template: require('./start.component.html'),
                styles:   [require('./start.component.scss')],
            })
-
 export class StartComponent implements OnInit
 {
     @Input() myTitle:string;
     
     constructor()
     {
-        
     }
     
     ngOnInit()
     {
     }
-    
-    
 }

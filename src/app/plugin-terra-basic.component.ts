@@ -1,6 +1,6 @@
 import {
-    Component,
-    ChangeDetectionStrategy
+    ChangeDetectionStrategy,
+    Component
 } from '@angular/core';
 import {
     Translation,
@@ -13,7 +13,6 @@ import {
                styles:          [require('./plugin-terra-basic.component.scss')],
                changeDetection: ChangeDetectionStrategy.Default
            })
-
 export class PluginTerraBasicComponent extends Translation
 {
     private myVariable:string;
@@ -23,7 +22,5 @@ export class PluginTerraBasicComponent extends Translation
         super(translation);
         
         this.myVariable = "Test123";
-        
     }
-    
 }
