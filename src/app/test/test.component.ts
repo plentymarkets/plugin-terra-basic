@@ -12,12 +12,11 @@ import {
 export class TestComponent implements OnInit
 {
     @Input() myTitle:string;
-    
+
     constructor()
     {
-        
     }
-    
+
     ngOnInit()
     {
     }

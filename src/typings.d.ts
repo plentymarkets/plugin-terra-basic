@@ -1,5 +1,5 @@
-declare const webpack: {
-  ENV: string
+declare const webpack:{
+    ENV:string
 };
 
-declare var System: any;
+declare var System:any;
