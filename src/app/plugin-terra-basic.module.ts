@@ -9,23 +9,23 @@ import { TranslationModule } from 'angular-l10n';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-              imports:      [
-                  BrowserModule,
-                  HttpModule,
-                  FormsModule,
-                  TranslationModule.forRoot(),
-                  TerraComponentsModule.forRoot()
-              ],
-              declarations: [
-                  PluginTerraBasicComponent,
-                  StartComponent,
-                  TestComponent
-              ],
-              providers:    [],
-              bootstrap:    [
-                  PluginTerraBasicComponent
-              ]
-          })
+    imports:      [
+        BrowserModule,
+        HttpModule,
+        FormsModule,
+        TranslationModule.forRoot(),
+        TerraComponentsModule.forRoot()
+    ],
+    declarations: [
+        PluginTerraBasicComponent,
+        StartComponent,
+        TestComponent
+    ],
+    providers:    [],
+    bootstrap:    [
+        PluginTerraBasicComponent
+    ]
+})
 export class PluginTerraBasicModule
 {
 }
