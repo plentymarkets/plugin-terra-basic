@@ -11,10 +11,10 @@ Learn how to create your first plentymarkets plugin https://developers.plentymar
     
 ## Run developer mode 
 
-1. **Projekt starten**
+1. **Start project**
     1. npm start
 2. **Open plugin in your Browser**
-    1. http://localhost:3000/
+    1. http://localhost:3002/
     
 ## Compile 
 
