@@ -11,8 +11,6 @@ import {
 })
 export class StartComponent implements OnInit
 {
-    @Input() myTitle:string;
-
     constructor()
     {
     }

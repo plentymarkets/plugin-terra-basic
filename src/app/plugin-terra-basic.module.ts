@@ -4,13 +4,12 @@ import {
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
-import { StartComponent } from './start/start.component';
 import { TerraComponentsModule } from '@plentymarkets/terra-components/app/terra-components.module';
 import { HttpModule } from '@angular/http';
-import { TestComponent } from './test/test.component';
 import { TranslationModule } from 'angular-l10n';
 import { FormsModule } from '@angular/forms';
 import { LocalizationConfig } from './core/localization/terra-localization.config';
+import { StartComponent } from './start/start.component';
 
 @NgModule({
     imports:      [
@@ -22,8 +21,7 @@ import { LocalizationConfig } from './core/localization/terra-localization.confi
     ],
     declarations: [
         PluginTerraBasicComponent,
-        StartComponent,
-        TestComponent
+        StartComponent
     ],
     providers:    [
         LocalizationConfig,
