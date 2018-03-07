@@ -9,7 +9,8 @@ import { HttpModule } from '@angular/http';
 import { TranslationModule } from 'angular-l10n';
 import { FormsModule } from '@angular/forms';
 import { LocalizationConfig } from './core/localization/terra-localization.config';
-import { StartComponent } from './start/start.component';
+import { StartComponent } from './views/start/start.component';
+import { StatsViewComponent } from './views/stats-view/stats-view.component';
 
 @NgModule({
     imports:      [
@@ -21,7 +22,8 @@ import { StartComponent } from './start/start.component';
     ],
     declarations: [
         PluginTerraBasicComponent,
-        StartComponent
+        StartComponent,
+        StatsViewComponent
     ],
     providers:    [
         LocalizationConfig,
