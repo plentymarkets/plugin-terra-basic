@@ -1,31 +1,103 @@
 <div class="container">
-    <div class="row">
+    <div class="row header">
         <div class="col-sm-12 center">
             <h1>Plenty Stats Plugin</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
+          <terra-base-toolbar>
+              <terra-button [inputIsPrimary]="true"
+                            inputIcon="icon-refresh"
+                            (outputClicked)="updateData()">
+              </terra-button>
+          </terra-base-toolbar>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
             <terra-portlet inputPortletHeader="My Profile">
-                <table>
-                    <tr>
-                        <td>Revenue:</td>
-                        <td>1.000.000</td>
-                    </tr>
-                    <tr>
-                        <td>Article sold:</td>
-                        <td>99943324</td>
-                    </tr>
-                    <tr>
-                        <td>Customers:</td>
-                        <td>2000</td>
-                    </tr>
-                    <tr>
-                        <td>Favorite article:</td>
-                        <td>raspberry pi 5b</td>
-                    </tr>
-                </table>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="stats-container">
+                            <strong>Username:</strong>
+                            <br>
+                            <strong>Email:</strong>
+                            <br>
+                            <strong>Plugins:</strong>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="stats-container">
+                            <span>{{this.user?.username}}</span>
+                            <br>
+                            <span>{{this.user?.email}}</span>
+                            <br>
+                            teste
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="stats-container">
+                            <strong>Username:</strong>
+                            <br>
+                            <strong>Shops:</strong>
+                            <br>
+                            <strong>Plugins:</strong>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="stats-container">
+                            test
+                            <br>
+                            test
+                            <br>
+                            teste
+                        </div>
+                    </div>
+                </div>
             </terra-portlet>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <terra-info-box [inputId]="1">
+                <div body>
+                
+                </div>
+                <div buttons>
+                    <terra-button inputIcon="icon-edit"
+                                  inputTooltipText="edit"
+                                  inputTooltipPlacement="left">
+                    </terra-button>
+                    <terra-button inputIcon="icon-delete"
+                                  inputTooltipText="delete"
+                                  inputTooltipPlacement="left"
+                                  inputIsSecondary="true">
+                    </terra-button>
+                </div>
+            </terra-info-box>
+        </div>
+        <div class="col-sm-6">
+            <terra-info-box>
+                <div body>
+                    <h4>Installed plugins:</h4>
+                    <div *ngIf="!this.plugins[0]" class="center">
+                        <terra-loading-spinner></terra-loading-spinner>
+                    </div>
+                    <table *ngIf="this.plugins[0]">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Created at</th>
+                        </tr>
+                        <tr *ngFor="let plugin of this.plugins">
+                            <td>{{plugin.id}}</td>
+                            <td>{{plugin.name}}</td>
+                            <td>{{plugin.created_at}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </terra-info-box>
         </div>
     </div>
 </div>
