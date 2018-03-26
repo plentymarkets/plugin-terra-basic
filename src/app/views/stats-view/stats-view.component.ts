@@ -3,6 +3,7 @@ import {
     OnInit
 } from '@angular/core';
 import { StatsDataService } from './stats-view.service';
+import { TerraAlertComponent } from '@plentymarkets/terra-components';
 
 interface PluginInterface
 {
@@ -32,20 +33,33 @@ export class StatsViewComponent implements OnInit
     public plugins:Array<PluginInterface>;
     public user:UserInterface;
     public webStores:Array<WebStoreInterface>;
+
+    private _alert:TerraAlertComponent;
+
     constructor(private _statsDataService:StatsDataService)
     {
+        this._alert = TerraAlertComponent.getInstance();
     }
 
     public ngOnInit():void
     {
        this.updateData();
     }
+
     public updateData():void
     {
         this.createPluginData();
         this.createUserData();
         this.createWebStoreData();
+        this._alert.addAlert(
+            {
+                msg:'Fetching data',
+                type:'info',
+                dismissOnTimeout:3000,
+                identifier: 'info'
+            });
     }
+
     private createPluginData():void
     {
         this.plugins = [];
@@ -62,10 +76,11 @@ export class StatsViewComponent implements OnInit
             }
         });
     }
+
     private createWebStoreData():void
     {
         this.webStores = [];
-        this._statsDataService.getRestCallData('/rest/webstores').subscribe((response:any) =>
+        this._statsDataService.getRestCallData('/rest/webstores').subscribe((response:Array<any>) =>
         {
             for(let store of response)
             {
@@ -78,6 +93,7 @@ export class StatsViewComponent implements OnInit
             }
         });
     }
+
     private createUserData():void
     {
         this.user = {};
