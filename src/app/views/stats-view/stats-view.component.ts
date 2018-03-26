@@ -2,18 +2,24 @@ import {
     Component,
     OnInit
 } from '@angular/core';
-import { StatsDataService } from './user-data.service';
+import { StatsDataService } from './stats-view.service';
 
-interface pluginInterface
+interface PluginInterface
 {
     name?:string;
     id?:number;
     created_at?:string;
 }
-interface userInterface
+interface UserInterface
 {
     username?:string;
     email?:string;
+}
+interface WebStoreInterface
+{
+    id?:number;
+    name?:string;
+    type?:string;
 }
 
 @Component({
@@ -23,8 +29,9 @@ interface userInterface
 })
 export class StatsViewComponent implements OnInit
 {
-    public plugins:Array<pluginInterface>;
-    public user:userInterface;
+    public plugins:Array<PluginInterface>;
+    public user:UserInterface;
+    public webStores:Array<WebStoreInterface>;
     constructor(private _statsDataService:StatsDataService)
     {
     }
@@ -37,6 +44,7 @@ export class StatsViewComponent implements OnInit
     {
         this.createPluginData();
         this.createUserData();
+        this.createWebStoreData();
     }
     private createPluginData():void
     {
@@ -50,6 +58,22 @@ export class StatsViewComponent implements OnInit
                         name: plugin.name,
                         id: plugin.id,
                         created_at: plugin.created_at
+                    });
+            }
+        });
+    }
+    private createWebStoreData():void
+    {
+        this.webStores = [];
+        this._statsDataService.getRestCallData('/rest/webstores').subscribe((response:any) =>
+        {
+            for(let store of response)
+            {
+                this.webStores.push(
+                    {
+                        id: store.id,
+                        name: store.name,
+                        type: store.type
                     });
             }
         });

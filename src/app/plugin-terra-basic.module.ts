@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { LocalizationConfig } from './core/localization/terra-localization.config';
 import { StartComponent } from './views/start/start.component';
 import { StatsViewComponent } from './views/stats-view/stats-view.component';
-import { StatsDataService } from './views/stats-view/user-data.service';
+import { StatsDataService } from './views/stats-view/stats-view.service'; // <--- imported the service
 
 @NgModule({
     imports:      [
@@ -34,7 +34,7 @@ import { StatsDataService } from './views/stats-view/user-data.service';
             deps:       [LocalizationConfig],
             multi:      true
         },
-        StatsDataService
+        StatsDataService // <--- added the service to providers
     ],
     bootstrap:    [
         PluginTerraBasicComponent
