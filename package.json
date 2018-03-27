@@ -42,6 +42,7 @@
 		"@types/uglify-js": "^2.6.29",
 		"@types/webpack": "^3.0.13",
 		"angular2-template-loader": "^0.6.2",
+		"autoprefixer": "^8.2.0",
 		"awesome-typescript-loader": "^3.2.3",
 		"codelyzer": "^3.2.1",
 		"compression-webpack-plugin": "^1.0.1",
