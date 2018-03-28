@@ -11,12 +11,8 @@ import {
 })
 export class PluginTerraBasicComponent extends Translation
 {
-    private myVariable:string;
-
     public constructor(public translation:TranslationService)
     {
         super(translation);
-
-        this.myVariable = "Test123";
     }
 }
