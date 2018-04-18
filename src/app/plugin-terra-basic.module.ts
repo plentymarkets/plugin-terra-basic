@@ -19,7 +19,7 @@ import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
         FormsModule,
         HttpClientModule,
         TranslationModule.forRoot(l10nConfig),
-        //TerraComponentsModule.forRoot()
+        TerraComponentsModule.forRoot()
     ],
     declarations: [
         PluginTerraBasicComponent,

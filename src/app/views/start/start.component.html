@@ -17,7 +17,7 @@
             <h2>{{ 'startNow' | translate:lang }}</h2>
             <br>
             <div class="center">
-                <a class="btn btn-danger" href="https://developers.plentymarkets.com/tutorials/angular-plugin" target="_blank">{{ 'startHere' | translate:lang }}</a>
+                <terra-button [inputIsSecondary]="true" [inputCaption]="'startHere' | translate:lang" (outputClicked)="onClick()"></terra-button>
             </div>
         </div>
     </div>

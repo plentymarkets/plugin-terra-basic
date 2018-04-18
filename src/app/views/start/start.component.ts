@@ -25,4 +25,9 @@ export class StartComponent implements OnInit
     public ngOnInit():void
     {
     }
+
+    public onClick():void
+    {
+        window.open('https://developers.plentymarkets.com/tutorials/angular-plugin', '_blank');
+    }
 }
