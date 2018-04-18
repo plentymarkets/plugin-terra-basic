@@ -26,7 +26,7 @@ export class StartComponent implements OnInit
     {
     }
 
-    public onClick():void
+    public redirectToDevelopersTutorial():void
     {
         window.open('https://developers.plentymarkets.com/tutorials/angular-plugin', '_blank');
     }
