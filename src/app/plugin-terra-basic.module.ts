@@ -1,36 +1,29 @@
-import {
-    APP_INITIALIZER,
-    NgModule
-} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
 import { StartComponent } from './views/start/start.component';
-import { TerraComponentsModule } from '@plentymarkets/terra-components/app/terra-components.module';
 import { HttpModule } from '@angular/http';
-import { TranslationModule } from 'angular-l10n';
+import {
+    L10nLoader,
+    TranslationModule
+} from 'angular-l10n';
 import { FormsModule } from '@angular/forms';
-import { LocalizationConfig } from './core/localization/terra-localization.config';
+import { l10nConfig } from './core/localization/l10n.config';
+import { HttpClientModule } from '@angular/common/http';
+import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
 
 @NgModule({
     imports:      [
         BrowserModule,
         HttpModule,
         FormsModule,
-        TranslationModule.forRoot(),
+        HttpClientModule,
+        TranslationModule.forRoot(l10nConfig),
         TerraComponentsModule.forRoot()
     ],
     declarations: [
         PluginTerraBasicComponent,
         StartComponent
-    ],
-    providers:    [
-        LocalizationConfig,
-        {
-            provide:    APP_INITIALIZER,
-            useFactory: initLocalization,
-            deps:       [LocalizationConfig],
-            multi:      true
-        }
     ],
     bootstrap:    [
         PluginTerraBasicComponent
@@ -38,9 +31,8 @@ import { LocalizationConfig } from './core/localization/terra-localization.confi
 })
 export class PluginTerraBasicModule
 {
-}
-
-export function initLocalization(localizationConfig:LocalizationConfig):Function
-{
-    return () => localizationConfig.load();
+    constructor(public l10nLoader:L10nLoader)
+    {
+        this.l10nLoader.load();
+    }
 }
