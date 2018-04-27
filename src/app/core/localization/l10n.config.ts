@@ -32,7 +32,7 @@ function getL10nConfig():L10nConfig
     // Definitions for i18n
     if(process.env.ENV === 'production')
     {
-        prefix = 'app/assets/lang/locale-';
+        prefix = 'assets/lang/locale-';
     }
     else
     {
