@@ -2,7 +2,6 @@
 	"name": "plugin-terra-basic",
 	"version": "0.0.1",
 	"license": "MIT",
-	"angular-cli": {},
 	"scripts": {
 		"server:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch",
 		"start": "npm run server:dev",
