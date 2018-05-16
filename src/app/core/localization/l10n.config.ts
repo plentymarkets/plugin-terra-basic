@@ -67,4 +67,3 @@ function getL10nConfig():L10nConfig
         }
     };
 }
-
