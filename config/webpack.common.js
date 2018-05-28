@@ -107,10 +107,11 @@ module.exports = function (options) {
         plugins: [
 
             // Workaround for angular/angular#11580
+            // This breaks lazy loading in AoT
             new webpack.ContextReplacementPlugin(
-                /angular(\\|\/)core(\\|\/)@angular/,
-                helpers.root('./src'), // location of your src
-                {} // a map of your routes
+                /(.+)?angular(\\|\/)core(.+)?/,
+                helpers.root('./src'),
+                {}
             ),
 
             new webpack.optimize.CommonsChunkPlugin({
@@ -147,7 +148,7 @@ module.exports = function (options) {
 
             new CopyWebpackPlugin([
                 {from: 'src/app/assets', to: 'assets'},
-                {from: 'node_modules/@plentymarkets/terra-components/app/assets/lang', to: 'assets/lang/terra-components/'}
+                {from: 'node_modules/@plentymarkets/terra-components/app/assets/lang/', to: 'assets/lang/terra-components/'}
             ]),
 
             new LoaderOptionsPlugin({
@@ -174,7 +175,8 @@ module.exports = function (options) {
             clearImmediate: false,
             setImmediate: false,
             clearTimeout: true,
-            setTimeout: true
+            setTimeout: true,
+            fs: 'empty'
         }
     }
 };

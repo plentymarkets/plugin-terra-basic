@@ -4,21 +4,27 @@ import {
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
-import { TerraComponentsModule } from '@plentymarkets/terra-components/app/terra-components.module';
-import { HttpModule } from '@angular/http';
-import { TranslationModule } from 'angular-l10n';
-import { FormsModule } from '@angular/forms';
-import { LocalizationConfig } from './core/localization/terra-localization.config';
 import { StartComponent } from './views/start/start.component';
+import { HttpModule } from '@angular/http';
+import {
+    L10nLoader,
+    TranslationModule
+} from 'angular-l10n';
+import { FormsModule } from '@angular/forms';
+import { l10nConfig } from './core/localization/l10n.config';
+import { HttpClientModule } from '@angular/common/http';
+import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
+import { RouterModule } from '@angular/router';
 import { StatsViewComponent } from './views/stats-view/stats-view.component';
-import { StatsDataService } from './views/stats-view/stats-view.service'; // <--- imported the service
 
 @NgModule({
     imports:      [
         BrowserModule,
         HttpModule,
         FormsModule,
-        TranslationModule.forRoot(),
+        HttpClientModule,
+        TranslationModule.forRoot(l10nConfig),
+        RouterModule.forRoot([]),
         TerraComponentsModule.forRoot()
     ],
     declarations: [
@@ -27,14 +33,12 @@ import { StatsDataService } from './views/stats-view/stats-view.service'; // <--
         StatsViewComponent
     ],
     providers:    [
-        LocalizationConfig,
         {
             provide:    APP_INITIALIZER,
-            useFactory: initLocalization,
-            deps:       [LocalizationConfig],
+            useFactory: initL10n,
+            deps:       [L10nLoader],
             multi:      true
-        },
-        StatsDataService // <--- added the service to providers
+        }
     ],
     bootstrap:    [
         PluginTerraBasicComponent
@@ -42,9 +46,13 @@ import { StatsDataService } from './views/stats-view/stats-view.service'; // <--
 })
 export class PluginTerraBasicModule
 {
+    constructor(public l10nLoader:L10nLoader)
+    {
+        this.l10nLoader.load();
+    }
 }
 
-export function initLocalization(localizationConfig:LocalizationConfig):Function
+function initL10n(l10nLoader:L10nLoader):Function
 {
-    return () => localizationConfig.load();
+    return ():Promise<void> => l10nLoader.load();
 }

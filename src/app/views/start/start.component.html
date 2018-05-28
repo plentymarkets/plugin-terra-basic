@@ -18,8 +18,16 @@
             <br>
             <div class="center">
                 <a class="btn btn-danger" href="https://developers.plentymarkets.com/tutorials/angular-plugin">Start here!</a>
+                
+                <h2>{{ 'startNow' | translate:lang }}</h2>
+                <br>
+                <div class="center">
+                    <terra-button [inputIsSecondary]="true"
+                                  [inputCaption]="'startHere' | translate:lang"
+                                  (outputClicked)="redirectToDevelopersTutorial()">
+                    </terra-button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
