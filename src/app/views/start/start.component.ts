@@ -1,8 +1,8 @@
 import {
     Component,
-    Input,
     OnInit
 } from '@angular/core';
+import { Language } from 'angular-l10n';
 
 @Component({
     selector: 'start',
@@ -11,6 +11,9 @@ import {
 })
 export class StartComponent implements OnInit
 {
+    @Language()
+    public lang:string;
+
     constructor()
     {
     }

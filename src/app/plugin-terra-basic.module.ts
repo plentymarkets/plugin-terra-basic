@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
 import { RouterModule } from '@angular/router';
 import { StatsViewComponent } from './views/stats-view/stats-view.component';
+import { StatsDataService } from './views/stats-view/stats-view.service';
 
 @NgModule({
     imports:      [
@@ -38,7 +39,8 @@ import { StatsViewComponent } from './views/stats-view/stats-view.component';
             useFactory: initL10n,
             deps:       [L10nLoader],
             multi:      true
-        }
+        },
+        StatsDataService
     ],
     bootstrap:    [
         PluginTerraBasicComponent
