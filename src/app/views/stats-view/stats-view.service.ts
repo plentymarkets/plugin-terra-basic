@@ -10,41 +10,30 @@ import {
 @Injectable()
 export class StatsDataService extends TerraBaseService
 {
-    public bearer:string;
-    private _basePathUrl:string;
+    // tslint:disable-next-line:max-line-length
+    private readonly token:string = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjE1MTIyMGE5OTU5NTk3MTQ2M2FjNzQ0NTg2ZjZhYjk4ZjcwYmExZGE1MjkwZTA1OTk1ZmJkYmRjNGI3NzI3MDZlMWIzOWU0YmVjMjVkZTk3In0.eyJhdWQiOiIxIiwianRpIjoiMTUxMjIwYTk5NTk1OTcxNDYzYWM3NDQ1ODZmNmFiOThmNzBiYTFkYTUyOTBlMDU5OTVmYmRiZGM0Yjc3MjcwNmUxYjM5ZTRiZWMyNWRlOTciLCJpYXQiOjE1Mjc4NDIxNTAsIm5iZiI6MTUyNzg0MjE1MCwiZXhwIjoxNTI3OTI4NTUwLCJzdWIiOiI2Iiwic2NvcGVzIjpbIioiXX0.FroJ8Qj_-BOS7siKPsqihoJg1h4CV4qKR9MR-wyJwiwnUWLOeZqq2TYvte_CoV0TTvMQUKwHenHzQX0t167Z2EGV7eDZYY4FvjUL6Laj-lydfPte5cXcXvjb-b7G0p3uZ1iDpfsCHyuDyXuWgvXbTwHLeAiBRRFHBi8cikCDc5nESlx8h9Ixm_W7n-AMkqnEHc8xSIeuLBzcroyZdMkk-daEDq7sNgEBbz_REttGm7af4KAa2sa5L3b_ULVoeuDG18HnilU6TIjX1oKTISFGm42prDexa5dvsqvN4RwPo3zdOPgE5YuIbfnOHQFjvQi_E2CQRzJ6vYgc1rtm47aB3zNTNfyfQlXxG4cFbC3xWEelX8NBGlLFfGAfhGdjVxTT95JtS68myAQwS1hT0wj8A7ZeH3rsr5Mt4N-yW5ViuOj9PeRmnDaOcarFprqcxSryazaUGKUa-nuRTY0S3RuYz9XzMFrY9JxPPzC9Vf-wqddzaIXpa_z6AQxE_VKrDF-wEW_JabOQgi5gj8UKedrHr4Qu-AJOh_StFd3NhL47mxQU9px5Mqs8jd02S0298nJYNblMmTJPZ61oCTocKD6sTM373nmfUmDppv9W_WVGEVtJOjp1Lwb4SPtWSVOhqvAplZnvf_etK9E9hMq5xD6soDdWEXOwO6L-b-MnOJUF4QI';
+    private readonly testSystemUrl:string = 'http://master.login.plentymarkets.com';
+
     constructor(private _loadingSpinnerService:TerraLoadingSpinnerService,
                 private _http:Http)
     {
-        super(_loadingSpinnerService, _http, '/rest/');
+        super(_loadingSpinnerService, _http, '', true);
+
+        this.setAuthorization();
+
         if(process.env.ENV !== 'production')
         {
-            // tslint:disable-next-line:max-line-length
-            this.bearer = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijk0OWE2Y2JiODMzZTEwZmYxYzUxZjY5MWZmMGVlZjk5OGY0MWVhYTdhMGIwZmJkMzdlYzYxZDBjNDBlNzE3ODY4MjNmMDI0YzM3NjkyNDkwIn0.eyJhdWQiOiIxIiwianRpIjoiOTQ5YTZjYmI4MzNlMTBmZjFjNTFmNjkxZmYwZWVmOTk4ZjQxZWFhN2EwYjBmYmQzN2VjNjFkMGM0MGU3MTc4NjgyM2YwMjRjMzc2OTI0OTAiLCJpYXQiOjE1MjIxNDYzNzksIm5iZiI6MTUyMjE0NjM3OSwiZXhwIjoxNTIyMjMyNzc4LCJzdWIiOiIzIiwic2NvcGVzIjpbIioiXX0.kwMA6j17gWnHqUWN2W20fxR9AJ-STaWkcHee5Nv0s9vRCNghf0CR2oaddtPxtal6rlr36S3aM-790SmHpzVifpH7S9gFbif0Ithl3pYlJIei3Vldomq6A3pYdh9S2_QgI2yyzCaivYlJ2S-Wwech5Ef54zh8I7cm7QdhIkP9nHl5w2KsgWk47UoooO0rzAX2D_tkn16GmjsyIYGIwajg8beT_qUCxsi725cDkXrJUPUKA8t5-bpEzYWC8R9dWVR87vLtR-5MehETy5okH5kk9E3maOcsdQxq-PMtuLVVfvi53GzUVKed0VgDfO3xHJ6M40NpdmOfEv4qs6juASMmx9vMAFIOrWO0c7aE8UeODhX-3cmODP9dZ3xkgwCo_StzuScA66gHYLTF8eVi2V8Of4zZ382j1l8WmUHvXrIj9_e7a-LO6cL45kTu7mGpd8CBdm_oA2akmj6sDSqrt74RFqG1gkVtH4CGYTOhoSNneqkTAuliOpn2DqqsV_AQ1uKXmSVfS0Yhktfc5l8g3PaHRrxkYjWE5ITcc3Zq1E6d9uphe6nOqLNLGYrNHlkcL9P_nguERSGSF-X2zfrur1K9RSHXhL_oJGXzxEAkVrn0q3PBzWdy-axmRdzlPN4M0AlJN9iFKxCyAtglOhVi9hBr2_wQ3mGkD3A6NBh5-oRXBm8';
-            this._basePathUrl = 'http://master.login.plentymarkets.com';
-            this.url = this._basePathUrl + this.url;
+            this.url = this.testSystemUrl + this.url;
+            this.setToHeader('Authorization', 'Bearer ' + this.token);
         }
-        this.setHeader();
     }
 
-    public getRestCallData(restRoute:string):Observable<Array <any>>
+    public getRestCallData(restRoute:string):Observable<Array<any>>
     {
-        this.setAuthorization();
-        let url:string;
-        url = this._basePathUrl + restRoute;
-
         return this.mapRequest(
-            this.http.get(url, {
-                headers: this.headers,
-                body:    ''
+            this.http.get(this.url + restRoute, {
+                headers: this.headers
             })
         );
-    }
-
-    private setHeader():void
-    {
-        if(this.bearer !== null && this.bearer.length > 0)
-        {
-            this.headers.set('Authorization', 'Bearer ' + this.bearer);
-        }
     }
 }
