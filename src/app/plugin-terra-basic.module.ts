@@ -15,6 +15,10 @@ import { l10nConfig } from './core/localization/l10n.config';
 import { HttpClientModule } from '@angular/common/http';
 import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
 import { RouterModule } from '@angular/router';
+import {
+    appRoutingProviders,
+    routing
+} from './plugin-terra-basic.routing';
 
 @NgModule({
     imports:      [
@@ -24,7 +28,8 @@ import { RouterModule } from '@angular/router';
         HttpClientModule,
         TranslationModule.forRoot(l10nConfig),
         RouterModule.forRoot([]),
-        TerraComponentsModule.forRoot()
+        TerraComponentsModule.forRoot(),
+        routing
     ],
     declarations: [
         PluginTerraBasicComponent,
@@ -36,7 +41,8 @@ import { RouterModule } from '@angular/router';
             useFactory: initL10n,
             deps:       [L10nLoader],
             multi:      true
-        }
+        },
+        appRoutingProviders
     ],
     bootstrap:    [
         PluginTerraBasicComponent
