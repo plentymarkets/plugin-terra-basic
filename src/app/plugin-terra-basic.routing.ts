@@ -20,7 +20,7 @@ const appRoutes:Routes = [
             {
                 path: '',
                 data:        {
-                    label:       'Menü'
+                    label:       'Menu'
                 },
                 redirectTo: 'start',
                 pathMatch: 'full'

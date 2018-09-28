@@ -4,10 +4,10 @@ import {
 } from '@angular/core';
 import { Language } from 'angular-l10n';
 import {
-    TerraBaseService,
     TerraNodeTreeConfig
 } from '@plentymarkets/terra-components';
 import { Router } from '@angular/router';
+import { TranslationService } from 'angular-l10n';
 
 @Component({
     selector: 'main-menu',
@@ -19,7 +19,8 @@ export class MainMenuComponent implements OnInit
     public lang:string;
 
     constructor(protected treeConfig:TerraNodeTreeConfig<{}>,
-                private router:Router)
+                private router:Router,
+                private translation:TranslationService)
     {
     }
 
@@ -27,7 +28,7 @@ export class MainMenuComponent implements OnInit
     {
         this.treeConfig.addNode({
             id:        'start',
-            name:      'Start',
+            name:      this.translation.translate('start'),
             isVisible: true,
             isActive:  this.router.isActive('plugin/start', true),
             onClick:   ():void =>
@@ -38,7 +39,7 @@ export class MainMenuComponent implements OnInit
 
         this.treeConfig.addNode({
             id:        'example',
-            name:      'Example',
+            name:      this.translation.translate('example'),
             isVisible: true,
             isActive:  this.router.isActive('plugin/example', true),
             onClick:   ():void =>

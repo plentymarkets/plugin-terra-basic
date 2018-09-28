@@ -3,6 +3,7 @@ import {
     OnInit
 } from '@angular/core';
 import { TerraButtonInterface } from '@plentymarkets/terra-components';
+import { TranslationService } from 'angular-l10n';
 
 @Component({
     selector: 'table',
@@ -12,12 +13,16 @@ export class TableComponent implements OnInit
 {
     protected noResultButtons:Array<TerraButtonInterface>;
 
+    constructor(private translation:TranslationService)
+    {
+    }
+
     public ngOnInit():void
     {
         this.noResultButtons = [];
 
         this.noResultButtons.push({
-            caption:       'Search',
+            caption:       this.translation.translate('search'),
             isPrimary:     true,
             icon:          'icon-search',
             clickFunction: ():void =>

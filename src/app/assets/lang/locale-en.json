@@ -1,4 +1,8 @@
 {
 	"startNow": "Start now with our new plenty plugin tutorial",
-	"startHere": "Start here!"
+	"startHere": "Start here!",
+	"menu": "Menu",
+	"start": "Start",
+	"example": "Example",
+	"search": "Search"
 }
