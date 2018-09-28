@@ -19,6 +19,14 @@ import {
     appRoutingProviders,
     routing
 } from './plugin-terra-basic.routing';
+import { StartViewComponent } from './views/start-view.component';
+import { RouterViewComponent } from './views/router/router-view.component';
+import { MainMenuComponent } from './views/menu/main-menu.component';
+import { TerraNodeTreeConfig } from '@plentymarkets/terra-components';
+import { ExampleViewComponent } from './views/example/example-view.component';
+import { TableComponent } from './views/example/overview/table/table.component';
+import { FilterComponent } from './views/example/overview/filter/filter.component';
+import { OverviewViewComponent } from './views/example/overview/overview-view.component';
 
 @NgModule({
     imports:      [
@@ -33,7 +41,14 @@ import {
     ],
     declarations: [
         PluginTerraBasicComponent,
-        StartComponent
+        RouterViewComponent,
+        MainMenuComponent,
+        StartViewComponent,
+        StartComponent,
+        ExampleViewComponent,
+        TableComponent,
+        FilterComponent,
+        OverviewViewComponent
     ],
     providers:    [
         {
@@ -42,7 +57,8 @@ import {
             deps:       [L10nLoader],
             multi:      true
         },
-        appRoutingProviders
+        appRoutingProviders,
+        TerraNodeTreeConfig
     ],
     bootstrap:    [
         PluginTerraBasicComponent
