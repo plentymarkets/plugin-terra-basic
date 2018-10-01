@@ -4,5 +4,7 @@
 	"menu": "Menü",
 	"start": "Start",
 	"example": "Beispiel",
-	"search": "Suchen"
+	"search": "Suchen",
+	"noResult": "Keine Ergebnisse",
+	"test": "Das ist nur ein Test"
 }

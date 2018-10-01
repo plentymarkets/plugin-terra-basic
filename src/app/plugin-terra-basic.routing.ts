@@ -20,7 +20,7 @@ const appRoutes:Routes = [
             {
                 path: '',
                 data:        {
-                    label:       'Menu'
+                    label:       'menu'
                 },
                 redirectTo: 'start',
                 pathMatch: 'full'
@@ -29,14 +29,14 @@ const appRoutes:Routes = [
                 path: 'start',
                 component: StartViewComponent,
                 data: {
-                    label: 'Start'
+                    label: 'start'
                 }
             },
             {
                 path: 'example',
                 component: ExampleViewComponent,
                 data: {
-                    label: 'Example'
+                    label: 'example'
                 }
             }
         ]

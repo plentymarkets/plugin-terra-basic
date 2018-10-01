@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import { TerraButtonInterface } from '@plentymarkets/terra-components';
 import { TranslationService } from 'angular-l10n';
+import { Language } from 'angular-l10n';
 
 @Component({
     selector: 'table',
@@ -11,6 +12,9 @@ import { TranslationService } from 'angular-l10n';
 })
 export class TableComponent implements OnInit
 {
+    @Language()
+    public lang:string;
+
     protected noResultButtons:Array<TerraButtonInterface>;
 
     constructor(private translation:TranslationService)
