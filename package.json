@@ -14,7 +14,7 @@
 	},
 	"private": true,
 	"dependencies": {
-		"@plentymarkets/terra-components": "^2.3.24"
+		"@plentymarkets/terra-components": "^2.3.26"
 	},
 	"devDependencies": {
 		"@types/jasmine": "^2.8.6",
