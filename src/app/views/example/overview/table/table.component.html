@@ -1,7 +1,6 @@
-<terra-data-table [inputHasInitialLoading]="false"
-                  [inputDataType]="'DataType'"
-                  [inputNoResultButtons]="noResultButtons"
-                  [inputNoResultTextPrimary]="'noResult' | translate:lang"
-                  [inputNoResultTextSecondary]="'test' | translate:lang">
+<terra-data-table>
+    <terra-no-result-notice [inputButtons]="noResultButtons"
+                     [inputTextPrimary]="'noResult' | translate:lang"
+                     [inputTextSecondary]="'test' | translate:lang">
+    </terra-no-result-notice>
 </terra-data-table>
-

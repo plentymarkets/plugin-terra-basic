@@ -27,7 +27,6 @@ export class TableComponent implements OnInit
 
         this.noResultButtons.push({
             caption:       this.translation.translate('search'),
-            isPrimary:     true,
             icon:          'icon-search',
             clickFunction: ():void =>
                            {
