@@ -1,0 +1,36 @@
+<terra-base-toolbar>
+    <terra-button [inputIcon]="'icon-add'"
+                  [inputTooltipText]="'Add note'"
+                  (outputClicked)="addNote()">
+    </terra-button>
+</terra-base-toolbar>
+<div class="container-fluid">
+    <div class="row">
+        <div *ngFor="let note of notes"
+             class="col-xs-12">
+            <terra-note [inputId]="note.id"
+                        [inputIsSelected]="note.id === selectedNoteId"
+                        [inputHeaderText]="createNoteHeaderText(note)"
+                        [inputNoteText]="note.text">
+                <div buttons>
+                    <terra-button [inputIcon]="'icon-edit'"
+                                  [inputTooltipText]="'edit'"
+                                  inputTooltipPlacement="left"
+                                  (outputClicked)="editNote.next(note)">
+                    </terra-button>
+                    <terra-button inputIcon="icon-delete"
+                                  [inputTooltipText]="'delete'"
+                                  inputTooltipPlacement="left"
+                                  (outputClicked)="deleteNote(note)">
+                    </terra-button>
+                </div>
+            </terra-note>
+        </div>
+    </div>
+</div>
+<terra-overlay
+    [inputOverlayTitle]="'Delete note?'"
+    [inputPrimaryButtonInterface]="confirmDeleteOverlay.primaryButtonInterface"
+    [inputSecondaryButtonInterface]="confirmDeleteOverlay.secondaryButtonInterface">
+    {{ confirmDeleteOverlay.text }}
+</terra-overlay>

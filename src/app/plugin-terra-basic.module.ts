@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
+import { NotesModule } from './view/notes.module';
 
 @NgModule({
     imports:      [
@@ -14,10 +15,11 @@ import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
         HttpModule,
         FormsModule,
         HttpClientModule,
-        TerraComponentsModule.forRoot()
+        TerraComponentsModule.forRoot(),
+        NotesModule.forRoot()
     ],
     declarations: [
-        PluginTerraBasicComponent
+        PluginTerraBasicComponent,
     ],
     providers:    [
     ],
