@@ -7,4 +7,26 @@ import { Component } from '@angular/core';
 })
 export class PluginTerraBasicComponent
 {
+    private parentText:string;
+
+    constructor()
+    {
+        this.parentText = 'Input test';
+    }
+    private toggleText():void
+    {
+        if(this.parentText === '')
+        {
+            this.parentText = 'Input test';
+        }
+        else
+        {
+            this.parentText = '';
+        }
+    }
+
+    private handleString(stringParam:string):void
+    {
+        console.log(stringParam);
+    }
 }
