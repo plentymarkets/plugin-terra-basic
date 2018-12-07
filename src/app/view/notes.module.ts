@@ -12,6 +12,7 @@ import { NotesComponent } from './notes.component';
 import { CommentsService } from '../api-service/comments.api-service';
 import { UsersService } from '../api-service/user.api-service';
 import { UserDataService } from '../api-service/user-data.api-service';
+import { ApiHelper } from '../helper/api.helper';
 
 @NgModule({
     imports:      [
@@ -33,7 +34,8 @@ export class NotesModule
             providers: [
                 CommentsService,
                 UsersService,
-                UserDataService
+                UserDataService,
+                ApiHelper
             ]
         };
     }
