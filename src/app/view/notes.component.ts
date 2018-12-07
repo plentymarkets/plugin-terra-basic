@@ -47,12 +47,11 @@ export class NotesComponent extends AlertHelper implements OnInit
     private notes:Array<CommentInterface> = [];
     private userData:UserData;
 
-    constructor(translation:TranslationService,
-                private commentsService:CommentsService,
+    constructor(private commentsService:CommentsService,
                 private usersService:UsersService,
                 private userDataService:UserDataService)
     {
-        super(translation);
+        super();
 
         this.confirmDeleteOverlay = {
             title:                    '',
@@ -74,10 +73,10 @@ export class NotesComponent extends AlertHelper implements OnInit
         this.setupConfirmationDialog();
     }
 
-    public deleteNote(note:CommentInterface):void
+    protected deleteNote(note:CommentInterface):void
     {
         // change overlay text
-        this.confirmDeleteOverlay.text = this.translation.translate('crm.notes.confirmationDialogDelete', {id: note.id});
+        this.confirmDeleteOverlay.text = 'Really delete note ' + note.id + '?';
 
         // re-define click function
         this.confirmDeleteOverlay.primaryButtonInterface.clickFunction = ():void =>
@@ -86,11 +85,11 @@ export class NotesComponent extends AlertHelper implements OnInit
             this.commentsService.deleteNote(note).subscribe(
                 () =>
                 {
-                    this.handleMessage(this.translation.translate('crm.notes.deleteSuccessful'));
+                    this.handleMessage('Note deleted');
                 },
                 () =>
                 {
-                    this.handleError(this.translation.translate('crm.notes.deleteError'));
+                    this.handleError('Note not deleted');
                 }
             );
 

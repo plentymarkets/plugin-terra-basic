@@ -1,7 +1,4 @@
-import {
-    Language,
-    TranslationService
-} from 'angular-l10n';
+import { Language } from 'angular-l10n';
 import { TerraAlertComponent } from '@plentymarkets/terra-components';
 import { isNullOrUndefined } from 'util';
 
@@ -12,9 +9,8 @@ export class AlertHelper
 
     private alert:TerraAlertComponent = TerraAlertComponent.getInstance();
 
-    constructor(public translation:TranslationService)
-    {
-    }
+    constructor()
+    {}
 
     protected handleMessage(message:string, identifier?:string):void
     {
