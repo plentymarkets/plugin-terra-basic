@@ -23,44 +23,44 @@ export class CommentsService extends TerraBaseService
     {
         this.setHeader();
 
-        return this.handleLocalDataModelGet(this.http.get(this.url + '/' + referenceType + '/' + referenceId,
+        return this.mapRequest(this.http.get(this.url + '/' + referenceType + '/' + referenceId,
             {
                 headers: this.headers,
                 body:    ''
-            }), referenceId);
+            }));
     }
 
     public createNote(note:CommentInterface, contactId:number):Observable<CommentInterface>
     {
         this.setHeader();
-        return this.handleLocalDataModelPost(this.http.post(this.url,
+        return this.mapRequest(this.http.post(this.url,
             {},
             {
                 headers: this.headers,
                 body:    note
             }
-        ), contactId);
+        ));
     }
 
     public updateNote(note:CommentInterface, contactId:number):Observable<CommentInterface>
     {
         this.setHeader();
-        return this.handleLocalDataModelPut(this.http.put(this.url + '/' + note.id,
+        return this.mapRequest(this.http.put(this.url + '/' + note.id,
             {},
             {
                 headers: this.headers,
                 body:    note
             }
-        ), contactId);
+        ));
     }
 
     public deleteNote(note:CommentInterface):Observable<void>
     {
         this.setHeader();
-        return this.handleLocalDataModelDelete(this.http.delete(this.url + '/' + note.id,
+        return this.mapRequest(this.http.delete(this.url + '/' + note.id,
             {
                 headers: this.headers
-            }), note.id);
+            }));
     }
 
     private setHeader():void
