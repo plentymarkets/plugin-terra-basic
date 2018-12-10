@@ -2,20 +2,25 @@ import {
     Component,
     Input,
     EventEmitter,
-    Output
+    Output,
+    OnInit
 } from '@angular/core';
+import { BasicContactService } from './basic-contact.service';
+import { ContactInterface } from './contact.interface';
 
 @Component({
     selector: 'basic-contact',
     template: require('./basic-contact.component.html'),
     styles:   [require('./basic-contact.component.scss')]
 })
-export class BasicContactComponent
+export class BasicContactComponent implements OnInit
 {
     @Output()
     public stringEmitter:EventEmitter<string> = new EventEmitter<string>();
 
     private pageText:string;
+
+    private contact:any;
 
     @Input()
     public set pageTextValue(pageText:string)
@@ -24,8 +29,24 @@ export class BasicContactComponent
         this.stringEmitter.emit(pageText);
     }
 
-    constructor()
+    constructor(private basicContactService:BasicContactService)
     {
+        this.contact = {
+            firstName: '',
+            lastName:  ''
+        };
+
         this.stringEmitter.emit();
+    }
+
+    public ngOnInit():void
+    {
+        this.basicContactService.getContactById(102).subscribe((contact:ContactInterface) =>
+        {
+            this.contact.firstName = contact.firstName;
+            this.contact.lastName = contact.lastName;
+
+            console.log(contact);
+        });
     }
 }
