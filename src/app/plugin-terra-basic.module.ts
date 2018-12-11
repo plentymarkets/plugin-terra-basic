@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
 import { BasicContactComponent } from './contact/basic-contact.component';
 import { BasicContactService } from './contact/basic-contact.service';
-
+import { LargeDirective } from './directives/large.directive';
 @NgModule({
     imports:      [
         BrowserModule,
@@ -19,7 +19,8 @@ import { BasicContactService } from './contact/basic-contact.service';
     ],
     declarations: [
         PluginTerraBasicComponent,
-        BasicContactComponent
+        BasicContactComponent,
+        LargeDirective
     ],
     providers:    [
         BasicContactService
