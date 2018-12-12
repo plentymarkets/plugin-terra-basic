@@ -31,4 +31,13 @@ import { LargeDirective } from './directives/large.directive';
 })
 export class PluginTerraBasicModule
 {
+    constructor(public l10nLoader:L10nLoader)
+    {
+        this.l10nLoader.load();
+    }
+}
+
+function initL10n(l10nLoader:L10nLoader):Function
+{
+    return ():Promise<void> => l10nLoader.load();
 }
