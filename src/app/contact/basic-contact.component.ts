@@ -25,8 +25,8 @@ export class BasicContactComponent implements OnInit
 
     private contact:any;
 
-    @Language
-    
+    @Language()
+    public lang:string;
 
     @Input()
     public set pageTextValue(pageText:string)
