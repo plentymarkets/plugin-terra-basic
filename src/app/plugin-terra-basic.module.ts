@@ -6,17 +6,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import {
+    L10nLoader,
+    TranslationModule
+} from 'angular-l10n';
+
 import { HttpClientModule } from '@angular/common/http';
 import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
 import { BasicContactComponent } from './contact/basic-contact.component';
 import { BasicContactService } from './contact/basic-contact.service';
 import { LargeDirective } from './directives/large.directive';
+import { l10nConfig } from './core/localization/l10n.config';
 @NgModule({
     imports:      [
         BrowserModule,
         HttpModule,
         HttpClientModule,
-        TerraComponentsModule.forRoot()
+        TerraComponentsModule.forRoot(),
+        TranslationModule.forRoot(l10nConfig),
     ],
     declarations: [
         PluginTerraBasicComponent,
