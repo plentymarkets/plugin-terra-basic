@@ -7,6 +7,9 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
+import { BasicContactComponent } from './contact/basic-contact.component';
+import { LargeDirective } from './contact/large.directive';
+import { BasicContactService } from './contact/basic-contact.service';
 
 @NgModule({
     imports:      [
@@ -17,9 +20,12 @@ import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
         TerraComponentsModule.forRoot()
     ],
     declarations: [
-        PluginTerraBasicComponent
+        PluginTerraBasicComponent,
+        BasicContactComponent,
+        LargeDirective
     ],
     providers:    [
+        BasicContactService
     ],
     bootstrap:    [
         PluginTerraBasicComponent

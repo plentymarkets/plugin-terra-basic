@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
 })
 export class PluginTerraBasicComponent
 {
-    
+    private parentText:string = 'This is our parent text';
+
+    private handleEmitter(eventValue:string):void
+    {
+        console.log(eventValue);
+    }
 }
