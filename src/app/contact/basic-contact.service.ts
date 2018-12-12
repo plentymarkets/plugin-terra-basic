@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
     TerraBaseService,
-    TerraLoadingSpinnerService
+    TerraLoadingSpinnerService,
+    TerraPagerInterface
 } from '@plentymarkets/terra-components';
 import {
     Http,
@@ -14,19 +15,19 @@ import { ContactInterface } from './contact.interface';
 @Injectable()
 export class BasicContactService extends TerraBaseService
 {
-    private bearer:string = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImRmYjIxYTFmNGVjZTM3MzgzYjFlNzFiM2U3Y2M4YzhiNmJhNDg5MDI5ZWQyMzIyMTFhNTUxZWVhNzNiYjc1OWQ0N2I3N2Y2ZTBmN2M2Yjk1In0.eyJhdWQiOiIxIiwianRpIjoiZGZiMjFhMWY0ZWNlMzczODNiMWU3MWIzZTdjYzhjOGI2YmE0ODkwMjllZDIzMjIxMWE1NTFlZWE3M2JiNzU5ZDQ3Yjc3ZjZlMGY3YzZiOTUiLCJpYXQiOjE1NDQ1MDI3NDMsIm5iZiI6MTU0NDUwMjc0MywiZXhwIjoxNTQ0NTg5MTQzLCJzdWIiOiIzIiwic2NvcGVzIjpbIioiXX0.nNuSfNLHIbPJPk9zRmjOM35XsJ4afX3a0VVImWmyEcbelKbmQ6xX4zMO3vtQLVeCioUBXvIKPw_3fvs4CzOn4_6esxBu4zD8uAzcTKYKH4zQGX8YV7BT2eDpDV29KDrnK37uIg4OQ7Kyas8jaGn8kvVB1l2tzcRJ7bQdT6dc3xl5Sb22VQ2S5FkkrLptgMJkdPmeVmXzCVxJop5skoRQ3ZNqbNQheyyH5-R6SqKjRFd5m4LLHLSVUJRphVl36nMtBOfSpUH3g4hgSbjU0qsscSC4BrbvegjFBwIomQpZFm8ApBWpyfQ5XuL65n0Wz6AYvT1p6BdZWGzPXwT9LMzQX7sj37gqieFM_HGU3xs3DU5Izb62PeuoL8eWn184rJXm2TTGbeEilHt88nD9g9JPQLPMa9ntXV47OXpQ83EeQpb9Dqh9xPEuZAzSLV2dlPX-RIx7OwjvDb6maom17ZzLBPP8Zybdp0SPzxmFE_ONyaNluIs--4E5YdlQftrvEHUHyUJmfKagQneeYHcD-znPH_EaVy9V-C-aObXUZysguW7HyxqFvgO062EaN7OwE_wkpTmb3tAFHfthlz3GY4NZGNXEJIInDNTTne0IIQoVrPxutPPkMBnvAcumGy4ezqY383xjIbJIv3s55ueKmqnaZ8-E-sMc0UfGXMAOV6H_6k8';
+    private bearer:string = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjUzNzI4MmQ3ODcyZjBiODJiYWVkZTFiNjk4YzA1OWUyNTM3M2EwYzJiYmRmOWM0NWY3NWJmOTQ3MWYwM2FkNzgxNWNmZWM0NmQ5ZTQ2YmRkIn0.eyJhdWQiOiIxIiwianRpIjoiNTM3MjgyZDc4NzJmMGI4MmJhZWRlMWI2OThjMDU5ZTI1MzczYTBjMmJiZGY5YzQ1Zjc1YmY5NDcxZjAzYWQ3ODE1Y2ZlYzQ2ZDllNDZiZGQiLCJpYXQiOjE1NDQ2MjQ4NDUsIm5iZiI6MTU0NDYyNDg0NSwiZXhwIjoxNTQ0NzExMjQ1LCJzdWIiOiIzIiwic2NvcGVzIjpbIioiXX0.qHHMkHUaxKDlrpSnLVK_c1I2_PkE49IJbzrPv9KmxPybWgNqzqyrPf-HMaP0a3PzM6eBIzNz6H4VRaWpM3BxJTXc0UvFeY8Fvp9snw4IZWSzHrclSnD5xTFdMziuEUZ9DRMNXu0CrPBzYSrFv-eg0WUzziqGyHm3utsWioH0dEQtp9dHlYz0l2Ngwj8MD91XnjsG7W6T1KmwjtHWu6I07lcakfSMFboY_GNRwV5nlmF6EJZbYqkSbfAXTT3FHFwmTJOqXTze3Xydi5j14tytvVvlHKbTpCPTfRoQgWKXOOmjVcBJQ14ftvmbgpMOnXZvJ8OQUBlqrBhjBKZCaRZoM_Pi_KXxPGYOJA78hLzldKwnvckDXNM3ePRdlbh5Rl5OyG2qs6iKtoKzypMlOwl5WhtzympsNnXApMAuCrmoh7a2Lcbxii8h2X8CmLbrvkq62hj4yrOEeC-t0xLhZN5oioE4RQiRJ-whpzHatC6jagOh_0Dt3Po2Cmr14Fv0iKuu52ZKNoODWNfPxKVIOIPk0pP046Rh6jCAxfP93yFUvuB69lrHWFeFJo6jn12Jv7tkz3rO9qQGhpkXmMsy5HUVjE1BOrgp4hyqsN3_ucS9A8g-bmn3S2TIi42QJrc_Jc-iDJzR7sKpglAQcQxADLlTi6_BEDMFFsLAX4vSUUAEL90';
     constructor(loadingSpinnerService:TerraLoadingSpinnerService,
                 http:Http)
     {
         super(loadingSpinnerService, http, 'http://master.login.plentymarkets.com/rest/accounts/contacts');
     }
 
-    public getContactById(contactId:number):Observable<ContactInterface>
+    public getContactById():Observable<TerraPagerInterface<ContactInterface>>
     {
         this.setHeader();
 
         return this.mapRequest(this.http.get(
-            this.url + '/' + contactId,
+            this.url + '/',
             {
                 headers: this.headers,
                 body:    ''
