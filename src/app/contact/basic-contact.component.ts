@@ -8,7 +8,8 @@ import {
 import { BasicContactService } from './basic-contact.service';
 import { ContactInterface } from './contact.interface';
 import { TerraPagerInterface } from '@plentymarkets/terra-components';
-import { TranslationService } from "angular-l10n/src/angular-l10n";
+import { TranslationService } from 'angular-l10n';
+import { Language } from 'angular-l10n';
 
 @Component({
     selector: 'basic-contact',
@@ -23,6 +24,9 @@ export class BasicContactComponent implements OnInit
     private pageText:string;
 
     private contact:any;
+
+    @Language
+    
 
     @Input()
     public set pageTextValue(pageText:string)
