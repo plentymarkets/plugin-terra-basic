@@ -41,6 +41,10 @@ export class BasicContactComponent implements OnInit
     private handleButton():void
     {
         this.stringEmitter.emit('Button has been clicked');
+
+        let newCount:number = this.basicContactService.getCounter() + 1;
+        console.log('new Count ' + newCount + ' set');
+        this.basicContactService.setCounter(newCount);
     }
 
     public ngOnInit():void
