@@ -1,5 +1,6 @@
 import {
-    NgModule
+    NgModule,
+    APP_INITIALIZER
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
@@ -23,6 +24,12 @@ import { LargeDirective } from './directives/large.directive';
         LargeDirective
     ],
     providers:    [
+        {
+            provide:    APP_INITIALIZER,
+            useFactory: initL10n,
+            deps:       [L10nLoader],
+            multi:      true
+        },
         BasicContactService
     ],
     bootstrap:    [
