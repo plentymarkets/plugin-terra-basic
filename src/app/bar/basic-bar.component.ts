@@ -16,10 +16,5 @@ export class BasicBarComponent implements OnInit
 
     public ngOnInit():void
     {
-        this.basicBeerService.getBeers().subscribe((beer:BasicBeerInterface) =>
-        {
-            console.log('Basic Bar Component:');
-            console.log(beer);
-        });
     }
 }

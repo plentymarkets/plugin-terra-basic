@@ -21,29 +21,5 @@ export class BasicBeerService
 
     public getBeers():Observable<BasicBeerInterface>
     {
-        return this.basicBeerSource.get().pipe(
-            // tap(() =>
-            // {
-            //     console.log('tap triggered');
-            // }),
-            // map((beer:BasicBeerInterface) =>
-            // {
-            //     beer.rating = 10;
-            //     return beer;
-            // }),
-            // filter((beer:BasicBeerInterface) =>
-            // {
-            //     return beer.rating > 8;
-            // }),
-            // distinctUntilChanged((beerOne:BasicBeerInterface, beerTwo:BasicBeerInterface) =>
-            // {
-            //     return JSON.stringify(beerOne) === JSON.stringify(beerTwo);
-            // })
-        );
-    }
-
-    public getBeerByName(beerName:string):Observable<BasicBeerInterface>
-    {
-        return this.basicBeerSource.getByName(beerName);
     }
 }

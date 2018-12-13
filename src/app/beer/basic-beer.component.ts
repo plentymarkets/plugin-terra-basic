@@ -35,52 +35,5 @@ export class BasicBeerComponent implements OnInit
 
     public ngOnInit():void
     {
-        this.basicBeerService.getBeers().subscribe((beer:BasicBeerInterface) =>
-            {
-                console.log('Basic Beer Component:');
-                console.log(beer);
-            },
-            (error:string) =>
-            {
-                console.log(error);
-            },
-            () =>
-            {
-            });
-
-        // this.beerForm.valueChanges
-        //     .pipe(
-        //         debounceTime(400),
-        //         distinctUntilChanged())
-        //     .subscribe(
-        //         (formValue:string) =>
-        //         {
-        //             console.log(formValue);
-        //
-        //             this.basicBeerService.getBeerByName(formValue).subscribe((beer:BasicBeerInterface) =>
-        //             {
-        //                 //handle response
-        //             });
-        //         }
-        //     );
-
-        let $stringInputObservable:Observable<string> = this.beerForm.valueChanges
-            .pipe(
-                debounceTime(400),
-                distinctUntilChanged());
-
-        let $beerObservable:Observable<BasicBeerInterface> =
-            $stringInputObservable.pipe(
-                switchMap((beer:any) => this.getBeerByName(beer.beerName)));
-
-        $beerObservable.subscribe((beer:BasicBeerInterface) =>
-        {
-            console.log('Found beer: ' + beer.name);
-        });
-    }
-
-    private getBeerByName(beerName:string):Observable<BasicBeerInterface>
-    {
-        return this.basicBeerService.getBeerByName(beerName);
     }
 }
