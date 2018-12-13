@@ -9,6 +9,13 @@ import {
     FormGroup,
     Validators
 } from '@angular/forms';
+import {
+    debounceTime,
+    distinctUntilChanged,
+    switchMap,
+    tap
+} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'basic-beer',
@@ -41,17 +48,39 @@ export class BasicBeerComponent implements OnInit
             {
             });
 
-        this.beerForm.valueChanges
-            .subscribe(
-                (formValue:string) =>
-                {
-                    console.log(formValue);
+        // this.beerForm.valueChanges
+        //     .pipe(
+        //         debounceTime(400),
+        //         distinctUntilChanged())
+        //     .subscribe(
+        //         (formValue:string) =>
+        //         {
+        //             console.log(formValue);
+        //
+        //             this.basicBeerService.getBeerByName(formValue).subscribe((beer:BasicBeerInterface) =>
+        //             {
+        //                 //handle response
+        //             });
+        //         }
+        //     );
 
-                    this.basicBeerService.getBeerByName(formValue).subscribe((beer:BasicBeerInterface) =>
-                    {
-                        //handle response
-                    });
-                }
-            );
+        let $stringInputObservable:Observable<string> = this.beerForm.valueChanges
+            .pipe(
+                debounceTime(400),
+                distinctUntilChanged());
+
+        let $beerObservable:Observable<BasicBeerInterface> =
+            $stringInputObservable.pipe(
+                switchMap((beer:any) => this.getBeerByName(beer.beerName)));
+
+        $beerObservable.subscribe((beer:BasicBeerInterface) =>
+        {
+            console.log('Found beer: ' + beer.name);
+        });
+    }
+
+    private getBeerByName(beerName:string):Observable<BasicBeerInterface>
+    {
+        return this.basicBeerService.getBeerByName(beerName);
     }
 }
