@@ -7,6 +7,10 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
+import { BasicBeerComponent } from './beer/basic-beer.component';
+import { BasicBeerService } from './beer/basic-beer.service';
+import { BasicBeerSource } from './beer/basic-beer.source';
+import { BasicBarComponent } from './bar/basic-bar.component';
 
 @NgModule({
     imports:      [
@@ -17,9 +21,13 @@ import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
         TerraComponentsModule.forRoot()
     ],
     declarations: [
-        PluginTerraBasicComponent
+        PluginTerraBasicComponent,
+        BasicBeerComponent,
+        BasicBarComponent
     ],
     providers:    [
+        BasicBeerService,
+        BasicBeerSource
     ],
     bootstrap:    [
         PluginTerraBasicComponent
