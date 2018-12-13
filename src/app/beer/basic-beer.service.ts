@@ -41,4 +41,9 @@ export class BasicBeerService
             // })
         );
     }
+
+    public getBeerByName(beerName:string):Observable<BasicBeerInterface>
+    {
+        return this.basicBeerSource.getByName(beerName);
+    }
 }
