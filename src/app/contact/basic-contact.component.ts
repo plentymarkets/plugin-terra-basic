@@ -45,6 +45,17 @@ export class BasicContactComponent implements OnInit
 
     public ngOnInit():void
     {
+        // this.basicContactService.getContactById(102).subscribe(
+        //     (contact:ContactInterface) =>
+        //     {
+        //         this.contact.firstName = contact.firstName;
+        //         this.contact.lastName = contact.lastName;
+        //         this.contact.rating = contact.rating;
+        //     });
+    }
+
+    private handleRequestButton():void
+    {
         this.basicContactService.getContactById(102).subscribe(
             (contact:ContactInterface) =>
             {

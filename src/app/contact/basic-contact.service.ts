@@ -23,13 +23,22 @@ export class BasicContactService extends TerraBaseService
     {
         this.setHeader();
 
-        return this.mapRequest(this.http.get(
-            this.url + '/' + contactId,
-            {
-                headers: this.headers,
-                body:    ''
-            }
-        ));
+        // return this.mapRequest(this.http.get(
+        //     this.url + '/' + contactId,
+        //     {
+        //         headers: this.headers,
+        //         body:    ''
+        //     }
+        // ));
+
+        return this.handleLocalDataModelGet(
+            this.http.get(
+                this.url + '/' + contactId,
+                {
+                    headers: this.headers,
+                    body:    ''
+                }
+            ), contactId);
     }
 
     public getText():string
