@@ -44,65 +44,8 @@ export class BasicContactComponent implements OnInit
     {
         this.basicContactService.getContactById().subscribe((contacts:TerraPagerInterface<ContactInterface>) =>
         {
-            contacts.entries.forEach((contact:ContactInterface) => {
-                if(contact.lastName === 'Waits')
-                {
-                    //console.log(contact);
-                    //console.log('_______________________');
-                }
-            });
 
-            let contact:ContactInterface = contacts.entries.find((contact:ContactInterface) => {
-                return contact.lastName === 'Waits';
-            });
-
-            //console.log('This should be Joseph');
-            //console.log(contact);
-            //console.log('_______________________');
-
-            let contactsToBeEdited:Array<ContactInterface> = contacts.entries.filter((contact:ContactInterface) => {
-               return contact.lastName != 'Waits';
-            });
-
-            //console.log('These Contacts shall be edited: ');
-            //console.log( contactsToBeEdited);
-            //console.log('_______________________');
-
-
-            let changedArray:Array<ContactInterface> = contacts.entries.map((contact:ContactInterface) =>
-            {
-                if(contact.lastName === 'Waits')
-                {
-                    contact.lastName = 'Griesel';
-                }
-                return contact;
-            });
-
-            //console.log('These are the changed contacts');
-            //console.log(changedArray);
-            //console.log('_______________________');
-
-            this.contactFunctionsObject(contact);
         });
     }
-
-    private contactFunctionsObject(contact:Object)
-    {
-        // Object Keys
-        Object.keys(contact).forEach((key:string) => {
-            //console.warn(key);
-            //console.warn(contact[key]);
-        });
-
-        // Object Values
-        Object.values(contact).forEach((value:string) =>
-        {
-            //console.warn(value);
-        });
-
-        // Object entries
-        let map:Map<string, string> = new Map(Object.entries(contact));
-
-        //console.log(map.get('lastName'));
-    }
+    
 }
