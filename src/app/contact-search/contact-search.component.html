@@ -1,6 +1,5 @@
-<form #form [formGroup]="beerForm">
-    <terra-text-input [inputIsRequired]="true"
-                      [inputName]="beerName"
-                      formControlName="beerName">
+<form #form [formGroup]="form">
+    <terra-text-input [inputName]="'name'"
+                      formControlName="name">
     </terra-text-input>
 </form>
