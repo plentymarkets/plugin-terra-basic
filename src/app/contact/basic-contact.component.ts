@@ -45,14 +45,14 @@ export class BasicContactComponent implements OnInit
     {
         this.basicContactService.getContactById().subscribe((contacts:TerraPagerInterface<ContactInterface>) =>
         {
-            console.log(contacts);
+            //console.log(contacts);
 
             contacts.entries.forEach((contact:ContactInterface) =>
             {
                 if(contact.lastName === 'Griesel')
                 {
-                    console.log(contact);
-                    console.log('_____________________');
+                    //console.log(contact);
+                    //console.log('_____________________');
                 }
             });
 
@@ -61,8 +61,10 @@ export class BasicContactComponent implements OnInit
                 return contactToFind.lastName === 'Waits';
             });
 
-            console.log(contact);
-            console.log('_____________________');
+            //console.log(contact);
+            //console.log('_____________________');
+
+            this.objectFunctions(contact);
 
             let contactsToBeEdited:ContactInterface = contacts.entries.filter((contactToFilter:ContactInterface) =>
             {
@@ -70,24 +72,22 @@ export class BasicContactComponent implements OnInit
             })
 
 
-
-
                                                               .filter((contactToFilterFilter:ContactInterface) =>
-            {
-                return contactToFilterFilter.firstName.startsWith('Jo');
-            }).find((contactToFilterFilterFind:ContactInterface) =>
-            {
-                return contactToFilterFilterFind.firstName === 'Joseph';
-            });
+                                                              {
+                                                                  return contactToFilterFilter.firstName.startsWith('Jo');
+                                                              }).find((contactToFilterFilterFind:ContactInterface) =>
+                {
+                    return contactToFilterFilterFind.firstName === 'Joseph';
+                });
 
-            console.log(contactsToBeEdited);
-            console.log('_____________________');
+            //console.log(contactsToBeEdited);
+            //console.log('_____________________');
 
             let firstEntry:ContactInterface = contacts.entries[200];
 
             if(!isNullOrUndefined(firstEntry))
             {
-                console.log('Doch nicht');
+                //console.log('Doch nicht');
             }
 
             console.log('This should be undefined');
@@ -103,24 +103,41 @@ export class BasicContactComponent implements OnInit
                 return mappedContact;
             });
 
-            console.log('There should be some agains now');
-            console.log(changedContacts);
+            //console.log('There should be some agains now');
+            //console.log(changedContacts);
 
             const nonUniqueArray = ['foo', 'foo', 'bar'];
 
-            console.log(nonUniqueArray);
+            //console.log(nonUniqueArray);
 
-            console.log(nonUniqueArray.filter((entry:string, index:number, selfArray:Array<string>) => {
-                return selfArray.indexOf(entry) === index;
-            }));
+            //console.log(nonUniqueArray.filter((entry:string, index:number, selfArray:Array<string>) => {
+            //    return selfArray.indexOf(entry) === index;
+            //}));
 
             const numbers: Array<number> = [1, 2, 3, 4, 5];
 
-            console.log(numbers);
+            // console.log(numbers);
 
         });
     }
 
+    private objectFunctions(contact:ContactInterface)
+    {
+        Object.keys(contact).forEach((key:string) =>
+        {
+            //console.log(key);
+        });
+
+        Object.values(contact).forEach((value:any) =>
+        {
+            //console.log(value);
+        });
+
+        let contactMap:Map<string, string > = new Map(Object.entries(contact));
+
+        //console.log(contactMap.get('lastName'));
+        console.log(contactMap);
+    }
 
 
 }
