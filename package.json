@@ -17,6 +17,7 @@
 		"@plentymarkets/terra-components": "^3.0.0-beta.14"
 	},
 	"devDependencies": {
+		"@angular/cli": "^7.3.2",
 		"@types/jasmine": "^2.8.6",
 		"@types/jquery": "^3.3.1",
 		"@types/node": "^9.6.5",

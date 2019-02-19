@@ -10,6 +10,7 @@ import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
 import { BasicContactComponent } from './contact/basic-contact.component';
 import { BasicContactService } from './contact/basic-contact.service';
 import { LargeDirective } from './directives/large.directive';
+import { ContactSearchComponent } from './contact-search/contact-search.component';
 @NgModule({
     imports:      [
         BrowserModule,
@@ -20,7 +21,8 @@ import { LargeDirective } from './directives/large.directive';
     declarations: [
         PluginTerraBasicComponent,
         BasicContactComponent,
-        LargeDirective
+        LargeDirective,
+        ContactSearchComponent
     ],
     providers:    [
         BasicContactService
