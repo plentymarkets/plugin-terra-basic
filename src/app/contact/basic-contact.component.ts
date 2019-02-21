@@ -18,6 +18,10 @@ export class BasicContactComponent implements OnInit
     @Output()
     public stringEmitter:EventEmitter<string> = new EventEmitter<string>();
 
+    protected stringArray:Array<string> = ['first', 'second', 'third'];
+
+    protected ourBool:boolean = false;
+
     private pageText:string;
 
     private contact:any;

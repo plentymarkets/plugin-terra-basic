@@ -1,4 +1,10 @@
-firstName: {{ contact.firstName }}<br>
-lastName: {{ contact.lastName }}
+<!--firstName: {{ contact.firstName }}<br>-->
+<!--lastName: {{ contact.lastName }}-->
 
-<p terraLarge>Large text !!</p>
+<!--<p terraLarge>Large text !!</p>-->
+
+<ng-container *ngIf="ourBool">
+    <terra-portlet *ngFor="let string of stringArray">
+        {{string}}
+    </terra-portlet>
+</ng-container>
