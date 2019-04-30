@@ -1,8 +1,12 @@
 import {
     Component,
-    OnInit
+    OnInit,
+    Input,
+    EventEmitter,
+    Output
 } from "@angular/core";
 import { BasicContactService } from './basic-contact.service';
+import { BasicContactInterface } from './basic-contact.interface';
 
 @Component({
         selector: 'basic-contact',
@@ -11,6 +15,12 @@ import { BasicContactService } from './basic-contact.service';
     })
 export class BasicContactComponent implements OnInit
 {
+    @Input()
+    private contactJost:BasicContactInterface;
+
+    @Output()
+    private contactJostChange:EventEmitter<BasicContactInterface> = new EventEmitter();
+
     constructor(private basicContactService:BasicContactService)
     {
 
@@ -18,9 +28,14 @@ export class BasicContactComponent implements OnInit
 
     public ngOnInit():void
     {
-        this.basicContactService.getContacts().subscribe((result:any) =>
-        {
-          console.log(result);
-        })
+        this.basicContactService.getSingleContact(107).subscribe(
+            (result:BasicContactInterface) =>
+            {
+                this.contactJostChange.emit(result);
+            },
+            (error:any) =>
+            {
+                console.warn(error);
+            })
     }
 }

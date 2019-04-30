@@ -1,1 +1,6 @@
-<h1>Hello World</h1>
+<terra-text-input *ngIf="contactJost"
+    inputCaption="Name"
+    [(ngModel)]="contactJost.firstName">
+</terra-text-input>
+
+{{ contactJost?.firstName }}

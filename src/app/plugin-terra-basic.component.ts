@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class PluginTerraBasicComponent
 {
+    private newContact:any =
+        {
+            firstName: 'Tim',
+            lastName: 'Wieder'
+        };
+
 }
