@@ -7,15 +7,4 @@ import { Component } from '@angular/core';
 })
 export class PluginTerraBasicComponent
 {
-    protected parentText:string = 'unchangedText';
-
-    protected ToggleTextMethod():void
-    {
-        this.parentText = 'changedText';
-    }
-
-    protected eventMethod(eventString:string):void
-    {
-        this.parentText = eventString;
-    }
 }

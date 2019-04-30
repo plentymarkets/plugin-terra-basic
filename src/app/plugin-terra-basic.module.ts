@@ -18,8 +18,7 @@ import { BasicContactComponent } from './contact/basic-contact.component';
         TerraComponentsModule.forRoot()
     ],
     declarations: [
-        PluginTerraBasicComponent,
-        BasicContactComponent
+        PluginTerraBasicComponent
     ],
     providers:    [
     ],
