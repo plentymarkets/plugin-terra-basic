@@ -22,7 +22,10 @@ import {
 import { StartViewComponent } from './views/start-view.component';
 import { RouterViewComponent } from './views/router/router-view.component';
 import { MainMenuComponent } from './views/menu/main-menu.component';
-import { TerraNodeTreeConfig } from '@plentymarkets/terra-components';
+import {
+    httpInterceptorProviders,
+    TerraNodeTreeConfig
+} from '@plentymarkets/terra-components';
 import { ExampleViewComponent } from './views/example/example-view.component';
 import { TableComponent } from './views/example/overview/table/table.component';
 import { FilterComponent } from './views/example/overview/filter/filter.component';
@@ -57,6 +60,7 @@ import { OverviewViewComponent } from './views/example/overview/overview-view.co
             deps:       [L10nLoader],
             multi:      true
         },
+        httpInterceptorProviders,
         appRoutingProviders,
         TerraNodeTreeConfig
     ],
