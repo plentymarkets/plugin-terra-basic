@@ -3,7 +3,7 @@ import {
     ViewEncapsulation,
     OnInit
 } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector:      'terra-basic-app',
@@ -15,7 +15,7 @@ export class PluginTerraBasicComponent implements OnInit
 {
     private readonly domain:string = 'http://master.login.plentymarkets.com';
     /*tslint:disable-next-line:max-line-length*/
-    private readonly accessToken:string = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjA2MWM3NDA0YmZmMDlhZTNmMjkzNjFjOWIwZDJiNzNiY2FjYzkyZGFlODAxYjhmMTAyOTIyZGZlOGNlYjFiMTUzYmRkY2M1NjczMGVhYjMzIn0.eyJhdWQiOiIxIiwianRpIjoiMDYxYzc0MDRiZmYwOWFlM2YyOTM2MWM5YjBkMmI3M2JjYWNjOTJkYWU4MDFiOGYxMDI5MjJkZmU4Y2ViMWIxNTNiZGRjYzU2NzMwZWFiMzMiLCJpYXQiOjE1NTkxMTU1NDAsIm5iZiI6MTU1OTExNTU0MCwiZXhwIjoxNTU5MjAxOTQwLCJzdWIiOiIzIiwic2NvcGVzIjpbIioiXX0.KpBODDe-ZbDxOUSujxkRK1iUHDvt7mQKPkZyX7cxvQ93Oaf6HN5UXQKmYPP9WQpOZOYoNJzsIyaWcPzcU0-YRcT4QOaFm6OSpA4DepscW7XK3zy0AVMm0IpUJVHDa6bcRSKl9TramsfpLfDmbkkeLuMvnYtJKnpC7z3GEPmzVfDXwYJ3kwt2kd4mMyX90cWBe2uBWs5SaLofreU6AMQ2KBQ6maEq0CxSxJXjfZoLXt_lM2KcJiwpmBxWV9MX8FLEUuyFwx1O6isIDFsC2JfkW54IICeQgKCyON4wdMkB-z9XilRqICTrQCQFITwnNzkUJBYPqMQou_fwxSL8hmJ1Gi6N8ezxfctNZEn-FSk02vbXNP8m3YrGpJxV7KcpU99QEF6ZygKxDFLRvSI_4SF_nxYzsuiq1E1x8cw1gMuo5NoCeEqZPg_vTdcgcARPOnZcB-Z5Lz1h-iywPxBYm2-6qd1jvaEP9AtaeOOVbn2NmlbKsJGJwDdXlQ05vW35smS4jSff9xBTKhyPfLDMhWJEGlRNbkXo9efP19cZ2LoBawiW6IdJbpp6WXIGqmJcofPZ8c8mUWY2Dh85sbkMXNy0hb4JvtUrjMMaJ5QuAJt-qs5mYEy4h8XBAL2rjKpQsQ8G2J2b8pSL_bfocqV5Bc9l92aTKu0Afeug_uvi6BlgcY8';
+    private readonly accessToken:string = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjQ1OTEwMjg4MDEwMjFlMGVjMjE0MDAxZDBhMWZkZTRlZmY1NWI1MzlkYjZiMTIyNDQ1ZmY1MDkxNGQzZWEzMjM5MWU1ZWQ5ZTk1ZDY5Mzc1In0.eyJhdWQiOiIxIiwianRpIjoiNDU5MTAyODgwMTAyMWUwZWMyMTQwMDFkMGExZmRlNGVmZjU1YjUzOWRiNmIxMjI0NDVmZjUwOTE0ZDNlYTMyMzkxZTVlZDllOTVkNjkzNzUiLCJpYXQiOjE1NTkwNTAyNTcsIm5iZiI6MTU1OTA1MDI1NywiZXhwIjoxNTU5MTM2NjU3LCJzdWIiOiIxMSIsInNjb3BlcyI6WyIqIl19.UqAcClGc-6q9aSb_mkX8kKlNaZa1ViNgJY_c5Nb0aAAsU16tcn0Om3n9HRKK0H8W1-9tUG1GEy95_0A0L8GXr0GLqFpwrWn-POi7i0JplYYGEN4Mrrwn0eMdpWd5tlrrJhfhjn5NxnFVWAnKqAVMgsxD7t2JnBUq9pUnNWMtqZFMIOxtEZWMJSG2kHh8MB_dofPiuv1oqELLItYKIZcLBKT67tyfWJcYuUIhWl15CXlfg6eb3oe3Vbwr7j1o4xiES6qOhvziA7XuBaeCe3NJGLtIK9_6lzp_8ib7tZRtdcux8kZM3pEesY885eh0OFDvK3xlJlajP4wvQUhENeI2QZYhrWq9NxfOX68cyMNEB8S1HqyJnX9rraVbYim7Iql0GhfAuLzMY72cJ3NFFcoi5oCw_MZRaEPmlDiCCobKBRzgi91BXFjtHdnXIf4sEL2wQxAuFTlCOiW36LqS6ZSVjirAneI7OcJShAZT5_lGsJdhHwzR23X_vsT8LdV8QmKxxCoBD1YB8IjooCaWxD7oJQ3WjAR7l8NOr9ff_d0n-foiDjIcCte-mpo3tOKMdICIx_K87xcJJlyQo-qrbiuxAsEGv5s8qAew0K3GZSdjcYnGnX43W_U-QQWMjASTC0WnKMFZi4AeulQ8LBrs48YKYtWSEVv8X7ASFTa-Pp5rCOc';
 
     constructor(private httpClient:HttpClient)
     {}
@@ -27,10 +27,6 @@ export class PluginTerraBasicComponent implements OnInit
             // store accessToken in localStorage since it is taken from there to be added to the Authorization header of any request
             localStorage.setItem('accessToken', this.accessToken);
         }
-
-        let httpHeader:HttpHeaders = new HttpHeaders();
-        httpHeader.append('Access-Control-Allow-Origin', 'http://master.login.plentymarkets.com');
-
-        this.httpClient.get(`${this.domain}/rest/items`, {headers:httpHeader}).subscribe(console.log);
+        this.httpClient.get(`${this.domain}/rest/items`).subscribe(console.log);
     }
 }
