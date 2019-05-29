@@ -13,7 +13,7 @@
 	},
 	"private": true,
 	"dependencies": {
-		"@plentymarkets/terra-components": "^3.13.1",
+		"@plentymarkets/terra-components": "^3.14.0",
 		"core-js": "^2.6.5"
 	},
 	"devDependencies": {
