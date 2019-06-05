@@ -12,8 +12,8 @@ import {
 } from 'angular-l10n';
 import { FormsModule } from '@angular/forms';
 import { l10nConfig } from './core/localization/l10n.config';
-import { HttpClientModule } from '@angular/common/http';
 import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {
     appRoutingProviders,
