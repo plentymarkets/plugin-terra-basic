@@ -86,7 +86,7 @@ module.exports = {
     },
     plugins: [
         new webpack.ContextReplacementPlugin(
-            /\@angular(\\|\/)core(\\|\/)esm5/,
+            /\@angular(\\|\/)core(\\|\/)fesm5/,
             helpers.root('./src'),
             {}
         ),
