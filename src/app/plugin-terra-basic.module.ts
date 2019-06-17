@@ -39,7 +39,7 @@ import { OverviewViewComponent } from './views/example/overview/overview-view.co
         HttpClientModule,
         TranslationModule.forRoot(l10nConfig),
         RouterModule.forRoot([]),
-        TerraComponentsModule.forRoot(),
+        TerraComponentsModule,
         routing
     ],
     declarations: [
