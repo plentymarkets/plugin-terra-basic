@@ -3,6 +3,7 @@ import {
     ProviderType,
     StorageStrategy
 } from 'angular-l10n';
+import { environment } from '../../../environments/environment';
 
 export const l10nConfig:L10nConfig = getL10nConfig();
 
@@ -31,7 +32,7 @@ function getL10nConfig():L10nConfig
     let terraComponentsLocalePrefix:string = null;
 
     // Definitions for i18n
-    if(process.env.ENV === 'production')
+    if(environment.production)
     {
         prefix = 'assets/lang/locale-';
         terraComponentsLocalePrefix = 'assets/lang/terra-components/locale-';
