@@ -62,7 +62,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "plugin-terra-basic:build"
+            "browserTarget": "plugin-terra-basic:build",
+            "port": 3002
           },
           "configurations": {
             "production": {
