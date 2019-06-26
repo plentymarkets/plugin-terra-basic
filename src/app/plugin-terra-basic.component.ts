@@ -8,8 +8,8 @@ import { environment } from '../environments/environment';
 
 @Component({
     selector:      'terra-basic-app',
-    template:      require('./plugin-terra-basic.component.html'),
-    styles:        [require('./plugin-terra-basic.component.scss')],
+    templateUrl:      './plugin-terra-basic.component.html',
+    styleUrls:        ['./plugin-terra-basic.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class PluginTerraBasicComponent implements OnInit

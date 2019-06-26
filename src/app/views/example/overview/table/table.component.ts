@@ -8,7 +8,7 @@ import { Language } from 'angular-l10n';
 
 @Component({
     selector: 'table',
-    template: require('./table.component.html')
+    templateUrl: './table.component.html'
 })
 export class TableComponent implements OnInit
 {
