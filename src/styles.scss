@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@plentymarkets/terra-components/app/styles/themes/theme-loader";
+
+// global component styles
+@import "~@plentymarkets/terra-components/app/components/forms/input/date-picker/terra-date-picker.component.glob";
+@import "~@plentymarkets/terra-components/app/components/file-browser/terra-file-browser.component.glob";
+@import "~@plentymarkets/terra-components/app/components/editors/base-editor/terra-base-editor.component.glob";
