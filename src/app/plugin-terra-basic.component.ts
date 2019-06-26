@@ -4,6 +4,7 @@ import {
     OnInit
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Component({
     selector:      'terra-basic-app',
@@ -22,7 +23,7 @@ export class PluginTerraBasicComponent implements OnInit
 
     public ngOnInit():void
     {
-        if(process.env.ENV === 'development')
+        if(!environment.production)
         {
             // store accessToken in localStorage since it is taken from there to be added to the Authorization header of any request
             localStorage.setItem('accessToken', this.accessToken);
