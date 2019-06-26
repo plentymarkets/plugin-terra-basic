@@ -7,8 +7,8 @@ import { Language } from 'angular-l10n';
 
 @Component({
     selector: 'start',
-    template: require('./start.component.html'),
-    styles:   [require('./start.component.scss')],
+    templateUrl: './start.component.html',
+    styleUrls:   ['./start.component.scss'],
 })
 export class StartComponent implements OnInit
 {

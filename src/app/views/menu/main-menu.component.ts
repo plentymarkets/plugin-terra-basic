@@ -11,7 +11,7 @@ import { TranslationService } from 'angular-l10n';
 
 @Component({
     selector: 'main-menu',
-    template: require('./main-menu.component.html')
+    templateUrl: './main-menu.component.html'
 })
 export class MainMenuComponent implements OnInit
 {

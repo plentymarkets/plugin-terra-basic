@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'filter',
-    template: require('./filter.component.html')
+    templateUrl: './filter.component.html'
 })
 export class FilterComponent
 {
