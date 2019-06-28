@@ -26,11 +26,16 @@
 							"src/favicon.ico",
 							"src/assets"
 						],
+						"stylePreprocessorOptions": {
+							"includePaths": [
+								"../node_modules/@plentymarkets/terra-components/app/styles/"
+							]
+						},
 						"styles": [
 							"src/styles.scss"
 						],
 						"scripts": [],
-						"es5BrowserSupport": true
+						"es5BrowserSupport": true,
 					},
 					"configurations": {
 						"production": {
