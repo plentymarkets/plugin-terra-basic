@@ -6,11 +6,11 @@ import {
 import { Language } from 'angular-l10n';
 
 @Component({
-    selector: 'start',
-    templateUrl: './start.component.html',
-    styleUrls:   ['./start.component.scss'],
+    selector:    'start',
+    templateUrl: './ptb-start.component.html',
+    styleUrls:   ['./ptb-start.component.scss'],
 })
-export class StartComponent implements OnInit
+export class PtbStartComponent implements OnInit
 {
     @Language()
     public lang:string;

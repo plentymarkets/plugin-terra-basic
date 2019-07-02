@@ -7,10 +7,10 @@ import { TranslationService } from 'angular-l10n';
 import { Language } from 'angular-l10n';
 
 @Component({
-    selector: 'table',
-    templateUrl: './table.component.html'
+    selector:    'table',
+    templateUrl: './ptb-table.component.html'
 })
-export class TableComponent implements OnInit
+export class PtbTableComponent implements OnInit
 {
     @Language()
     public lang:string;

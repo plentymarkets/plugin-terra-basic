@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'router-view',
-    templateUrl: ('./router-view.component.html')
+    templateUrl: ('./ptb-router-view.component.html')
 })
-export class RouterViewComponent
+export class PtbRouterViewComponent
 {
 }
