@@ -6,7 +6,7 @@ import {
 import { Language } from 'angular-l10n';
 
 @Component({
-    selector: 'start',
+    selector:    'ptb-start',
     templateUrl: './start.component.html',
     styleUrls:   ['./start.component.scss'],
 })

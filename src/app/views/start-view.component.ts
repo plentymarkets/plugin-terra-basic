@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'start-view',
+    selector:    'ptb-start-view',
     templateUrl: './start-view.component.html'
 })
 export class StartViewComponent
