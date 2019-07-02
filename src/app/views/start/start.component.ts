@@ -1,7 +1,6 @@
 import {
     Component,
-    Input,
-    OnInit
+    Input
 } from '@angular/core';
 import { Language } from 'angular-l10n';
 
@@ -10,21 +9,13 @@ import { Language } from 'angular-l10n';
     templateUrl: './start.component.html',
     styleUrls:   ['./start.component.scss'],
 })
-export class StartComponent implements OnInit
+export class StartComponent
 {
     @Language()
     public lang:string;
 
     @Input()
     public myTitle:string;
-
-    constructor()
-    {
-    }
-
-    public ngOnInit():void
-    {
-    }
 
     public redirectToDevelopersTutorial():void
     {
