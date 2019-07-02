@@ -10,7 +10,7 @@ import { Language } from 'angular-l10n';
     templateUrl: './ptb-start.component.html',
     styleUrls:   ['./ptb-start.component.scss'],
 })
-export class PtbStartComponent implements OnInit
+export class StartComponent implements OnInit
 {
     @Language()
     public lang:string;

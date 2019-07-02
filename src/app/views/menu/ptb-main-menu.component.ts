@@ -13,7 +13,7 @@ import { TranslationService } from 'angular-l10n';
     selector:    'main-menu',
     templateUrl: './ptb-main-menu.component.html'
 })
-export class PtbMainMenuComponent implements OnInit
+export class MainMenuComponent implements OnInit
 {
     @Language()
     public lang:string;

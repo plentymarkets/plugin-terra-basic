@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     selector:    'filter',
     templateUrl: './ptb-filter.component.html'
 })
-export class PtbFilterComponent
+export class FilterComponent
 {
 }

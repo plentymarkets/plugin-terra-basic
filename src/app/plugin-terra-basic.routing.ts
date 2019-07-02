@@ -3,9 +3,9 @@ import {
     RouterModule,
     Routes
 } from '@angular/router';
-import { PtbStartViewComponent } from './views/ptb-start-view.component';
-import { PtbRouterViewComponent } from './views/router/ptb-router-view.component';
-import { PtbExampleViewComponent } from './views/example/ptb-example-view.component';
+import { StartViewComponent } from './views/ptb-start-view.component';
+import { RouterViewComponent } from './views/router/ptb-router-view.component';
+import { ExampleViewComponent } from './views/example/ptb-example-view.component';
 
 const appRoutes:Routes = [
     {
@@ -15,7 +15,7 @@ const appRoutes:Routes = [
     },
     {
         path:      'plugin',
-        component: PtbRouterViewComponent,
+        component: RouterViewComponent,
         children:  [
             {
                 path: '',
@@ -27,14 +27,14 @@ const appRoutes:Routes = [
             },
             {
                 path:      'start',
-                component: PtbStartViewComponent,
+                component: StartViewComponent,
                 data:      {
                     label: 'start'
                 }
             },
             {
                 path:      'example',
-                component: PtbExampleViewComponent,
+                component: ExampleViewComponent,
                 data:      {
                     label: 'example'
                 }

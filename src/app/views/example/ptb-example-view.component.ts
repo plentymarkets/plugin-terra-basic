@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     selector:    'example-view',
     templateUrl: './ptb-example-view.component.html'
 })
-export class PtbExampleViewComponent
+export class ExampleViewComponent
 {
 }

@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     selector:    'overview-view',
     templateUrl: './ptb-overview-view.component.html'
 })
-export class PtbOverviewViewComponent
+export class OverviewViewComponent
 {
 }

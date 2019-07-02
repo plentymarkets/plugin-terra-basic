@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     selector:    'start-view',
     templateUrl: './ptb-start-view.component.html'
 })
-export class PtbStartViewComponent
+export class StartViewComponent
 {
 }
