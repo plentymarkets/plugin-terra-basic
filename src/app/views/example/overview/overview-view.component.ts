@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector:    'overview-view',
-    templateUrl: './ptb-overview-view.component.html'
+    selector:    'ptb-overview-view',
+    templateUrl: './overview-view.component.html'
 })
 export class OverviewViewComponent
 {

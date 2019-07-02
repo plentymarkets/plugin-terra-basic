@@ -6,9 +6,9 @@ import {
 import { Language } from 'angular-l10n';
 
 @Component({
-    selector:    'start',
-    templateUrl: './ptb-start.component.html',
-    styleUrls:   ['./ptb-start.component.scss'],
+    selector:    'ptb-start',
+    templateUrl: './start.component.html',
+    styleUrls:   ['./start.component.scss'],
 })
 export class StartComponent implements OnInit
 {

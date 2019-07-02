@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 import { TranslationService } from 'angular-l10n';
 
 @Component({
-    selector:    'main-menu',
-    templateUrl: './ptb-main-menu.component.html'
+    selector:    'ptb-main-menu',
+    templateUrl: './main-menu.component.html'
 })
 export class MainMenuComponent implements OnInit
 {

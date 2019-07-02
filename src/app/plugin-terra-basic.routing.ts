@@ -3,9 +3,9 @@ import {
     RouterModule,
     Routes
 } from '@angular/router';
-import { StartViewComponent } from './views/ptb-start-view.component';
-import { RouterViewComponent } from './views/router/ptb-router-view.component';
-import { ExampleViewComponent } from './views/example/ptb-example-view.component';
+import { StartViewComponent } from './views/start-view.component';
+import { RouterViewComponent } from './views/router/router-view.component';
+import { ExampleViewComponent } from './views/example/example-view.component';
 
 const appRoutes:Routes = [
     {
