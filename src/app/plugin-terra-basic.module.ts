@@ -12,7 +12,6 @@ import {
 } from 'angular-l10n';
 import { FormsModule } from '@angular/forms';
 import { l10nConfig } from './core/localization/l10n.config';
-import { TerraComponentsModule } from '@plentymarkets/terra-components/app';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {
@@ -24,6 +23,7 @@ import { RouterViewComponent } from './views/router/router-view.component';
 import { MainMenuComponent } from './views/menu/main-menu.component';
 import {
     httpInterceptorProviders,
+    TerraComponentsModule,
     TerraNodeTreeConfig
 } from '@plentymarkets/terra-components';
 import { ExampleViewComponent } from './views/example/example-view.component';
