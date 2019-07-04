@@ -39,7 +39,7 @@ function getL10nConfig():L10nConfig
     else
     {
         prefix = 'src/app/assets/lang/locale-';
-        terraComponentsLocalePrefix = 'node_modules/@plentymarkets/terra-components/app/assets/lang/locale-';
+        terraComponentsLocalePrefix = 'node_modules/@plentymarkets/terra-components/assets/lang/locale-';
     }
 
     return {
