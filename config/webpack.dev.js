@@ -23,6 +23,6 @@ module.exports = merge(commonConfig, {
             'process.env': {
                 'ENV': JSON.stringify(ENV)
             }
-        }),
+        })
     ]
 });
