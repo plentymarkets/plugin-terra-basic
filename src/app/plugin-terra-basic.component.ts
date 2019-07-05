@@ -1,7 +1,6 @@
 import {
     Component,
-    OnInit,
-    ViewEncapsulation
+    OnInit
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
@@ -10,7 +9,6 @@ import { environment } from '../environments/environment';
     selector:      'ptb-basic-app',
     templateUrl:   './plugin-terra-basic.component.html',
     styleUrls:     ['./plugin-terra-basic.component.scss'],
-    encapsulation: ViewEncapsulation.None
 })
 export class PluginTerraBasicComponent implements OnInit
 {
