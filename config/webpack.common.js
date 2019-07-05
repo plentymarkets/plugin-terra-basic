@@ -59,12 +59,6 @@ module.exports = {
                         query: {
                             sourceMap: true
                         }
-                    },
-                    {
-                        loader: 'sass-resources-loader',
-                        options: {
-                            resources: helpers.root('./node_modules/@plentymarkets/terra-components/styles/_variables.scss')
-                        }
                     }
                 ]
             },
