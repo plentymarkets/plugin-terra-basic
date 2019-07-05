@@ -30,10 +30,12 @@ import { ExampleViewComponent } from './views/example/example-view.component';
 import { TableComponent } from './views/example/overview/table/table.component';
 import { FilterComponent } from './views/example/overview/filter/filter.component';
 import { OverviewViewComponent } from './views/example/overview/overview-view.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     imports:      [
         BrowserModule,
+        BrowserAnimationsModule,
         HttpModule,
         FormsModule,
         HttpClientModule,

@@ -3,7 +3,6 @@ import {
     ProviderType,
     StorageStrategy
 } from 'angular-l10n';
-import { environment } from '../../../environments/environment';
 
 export const l10nConfig:L10nConfig = getL10nConfig();
 
