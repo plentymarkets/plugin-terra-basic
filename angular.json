@@ -28,7 +28,12 @@
 						"tsConfig": "src/tsconfig.app.json",
 						"assets": [
 							"src/favicon.ico",
-							"src/assets"
+							"src/assets",
+							{
+								"glob": "*.json",
+								"input": "./node_modules/@plentymarkets/terra-components/assets/lang/",
+								"output": "./assets/lang/terra-components/"
+							}
 						],
 						"stylePreprocessorOptions": {
 							"includePaths": [

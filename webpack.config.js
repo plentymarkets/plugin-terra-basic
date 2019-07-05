@@ -1,14 +1,19 @@
-const webpack = require('webpack');
+webpack = require('webpack');
 
-const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+module.exports = function(config, options) {
+    var env = process.env.ENV = process.env.NODE_ENV = options.fileReplacements.length > 0 ? 'production' : 'development';
 
+    console.log('------- Webpack Configuration -------');
+    console.log('\'process.env.ENV\' is set to: ' + env);
+    console.log('-------------------------------------');
 
-module.exports = {
-    plugins: [
+    config.plugins.push(
         new webpack.DefinePlugin({
             'process.env': {
-                'ENV': JSON.stringify(ENV)
+                'ENV': JSON.stringify(env)
             }
         })
-    ]
+    );
+
+    return config;
 };
