@@ -46,6 +46,7 @@
 		"karma-jasmine": "~1.1.2",
 		"karma-jasmine-html-reporter": "^0.2.2",
 		"ts-node": "~7.0.0",
+		"tslib": "^1.10.0",
 		"tslint": "~5.18.0",
 		"tslint-eslint-rules": "^5.4.0",
 		"typescript": "~3.2.4"
