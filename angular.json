@@ -35,11 +35,6 @@
 								"output": "./assets/lang/terra-components/"
 							}
 						],
-						"stylePreprocessorOptions": {
-							"includePaths": [
-								"../node_modules/@plentymarkets/terra-components/app/styles/"
-							]
-						},
 						"styles": [
 							"src/styles.scss"
 						],
