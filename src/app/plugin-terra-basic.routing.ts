@@ -14,9 +14,9 @@ const appRoutes:Routes = [
         pathMatch: 'full',
     },
     {
-        path: 'plugin',
+        path:      'plugin',
         component: RouterViewComponent,
-        children:[
+        children:  [
             {
                 path: '',
                 data:        {
@@ -26,16 +26,16 @@ const appRoutes:Routes = [
                 pathMatch: 'full'
             },
             {
-                path: 'start',
+                path:      'start',
                 component: StartViewComponent,
-                data: {
+                data:      {
                     label: 'start'
                 }
             },
             {
-                path: 'example',
+                path:      'example',
                 component: ExampleViewComponent,
-                data: {
+                data:      {
                     label: 'example'
                 }
             }

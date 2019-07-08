@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'example-view',
-    template: require('./example-view.component.html')
+    selector:    'ptb-example-view',
+    templateUrl: './example-view.component.html'
 })
 export class ExampleViewComponent
 {

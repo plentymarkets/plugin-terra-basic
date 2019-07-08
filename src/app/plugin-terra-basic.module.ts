@@ -31,6 +31,7 @@ import { TableComponent } from './views/example/overview/table/table.component';
 import { FilterComponent } from './views/example/overview/filter/filter.component';
 import { OverviewViewComponent } from './views/example/overview/overview-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslationProvider } from './core/localization/translation-provider';
 
 @NgModule({
     imports:      [
@@ -39,7 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         HttpModule,
         FormsModule,
         HttpClientModule,
-        TranslationModule.forRoot(l10nConfig),
+        TranslationModule.forRoot(l10nConfig, { translationProvider: TranslationProvider }),
         RouterModule.forRoot([]),
         TerraComponentsModule,
         routing

@@ -1,30 +1,21 @@
 import {
     Component,
-    Input,
-    OnInit
+    Input
 } from '@angular/core';
 import { Language } from 'angular-l10n';
 
 @Component({
-    selector: 'start',
-    template: require('./start.component.html'),
-    styles:   [require('./start.component.scss')],
+    selector:    'ptb-start',
+    templateUrl: './start.component.html',
+    styleUrls:   ['./start.component.scss'],
 })
-export class StartComponent implements OnInit
+export class StartComponent
 {
     @Language()
     public lang:string;
 
     @Input()
     public myTitle:string;
-
-    constructor()
-    {
-    }
-
-    public ngOnInit():void
-    {
-    }
 
     public redirectToDevelopersTutorial():void
     {
