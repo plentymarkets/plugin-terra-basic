@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 
 @Component({
-    selector:      'ptb-basic-app',
+    selector:      'ptb-app',
     templateUrl:   './plugin-terra-basic.component.html',
     styleUrls:     ['./plugin-terra-basic.component.scss'],
 })
