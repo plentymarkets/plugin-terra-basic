@@ -14,9 +14,9 @@ import {
 } from '@angular/common/http';
 
 /**
- * @description A custom TranslationProvider alà angular-l10n which creates a clean instance of the HttpClient.
- * The HttpClient instance then "dispatches the requests directly to the backend without going through the interceptor chain" .
- * See https://angular.io/api/common/http/HttpBackend#description for details.
+ * @description A custom TranslationProvider alà angular-l10n which uses a clean instance of the HttpClient.
+ * The HttpClient instance then "dispatches the requests directly to the backend without going through the interceptor chain" attached to the root
+ * injector. See https://angular.io/api/common/http/HttpBackend#description for details.
  */
 @Injectable()
 export class TranslationProvider extends L10nTranslationProvider
