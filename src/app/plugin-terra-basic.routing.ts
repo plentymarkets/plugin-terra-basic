@@ -5,7 +5,6 @@ import {
 } from '@angular/router';
 import { StartViewComponent } from './views/start-view.component';
 import { RouterViewComponent } from './views/router/router-view.component';
-import { ExampleViewComponent } from './views/example/example-view.component';
 
 const appRoutes:Routes = [
     {
@@ -30,13 +29,6 @@ const appRoutes:Routes = [
                 component: StartViewComponent,
                 data:      {
                     label: 'start'
-                }
-            },
-            {
-                path:      'example',
-                component: ExampleViewComponent,
-                data:      {
-                    label: 'example'
                 }
             }
         ]

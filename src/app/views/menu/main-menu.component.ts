@@ -36,16 +36,5 @@ export class MainMenuComponent implements OnInit
                            this.router.navigateByUrl('plugin/start');
                        }
         });
-
-        this.treeConfig.addNode({
-            id:        'example',
-            name:      this.translation.translate('example'),
-            isVisible: true,
-            isActive:  this.router.isActive('plugin/example', true),
-            onClick:   ():void =>
-                       {
-                           this.router.navigateByUrl('plugin/example');
-                       }
-        });
     }
 }
