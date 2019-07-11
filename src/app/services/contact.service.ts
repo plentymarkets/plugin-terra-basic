@@ -17,9 +17,6 @@ export class ContactService
     {
         let url:string = 'http://master.login.plentymarkets.com/rest/accounts/contacts';
 
-        return this.http.get(url).pipe(map((response:TerraPagerInterface<ContactInterface>) =>
-        {
-            return response;
-        }));
+        return this.http.get<TerraPagerInterface<ContactInterface>>(url);
     }
 }
