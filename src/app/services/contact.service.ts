@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { ContactInterface } from '../interfaces/contact.interface';
 import { Observable } from 'rxjs/internal/Observable';
 import { TerraPagerInterface } from '@plentymarkets/terra-components';
-import { map } from 'rxjs/operators';
 
 
 @Injectable()
