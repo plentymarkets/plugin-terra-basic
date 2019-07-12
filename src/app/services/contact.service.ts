@@ -4,7 +4,6 @@ import { ContactInterface } from '../interfaces/contact.interface';
 import { Observable } from 'rxjs/internal/Observable';
 import { TerraPagerInterface } from '@plentymarkets/terra-components';
 
-
 @Injectable()
 export class ContactService
 {
