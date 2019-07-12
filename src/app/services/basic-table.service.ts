@@ -33,7 +33,7 @@ export class BasicTableService
 
     public dataToRowMapping(rowData:ContactInterface):TerraDataTableRowInterface<ContactInterface>
     {
-        let cellList:Array<TerraDataTableCellInterface> = [
+        const cellList:Array<TerraDataTableCellInterface> = [
             {
                 data: rowData.id
             },
