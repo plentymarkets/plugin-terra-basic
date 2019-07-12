@@ -13,7 +13,7 @@ export class ContactService
 
     public getContacts():Observable<TerraPagerInterface<ContactInterface>>
     {
-        let url:string = 'http://master.login.plentymarkets.com/rest/accounts/contacts';
+        const url:string = 'http://master.login.plentymarkets.com/rest/accounts/contacts';
 
         return this.http.get<TerraPagerInterface<ContactInterface>>(url);
     }
