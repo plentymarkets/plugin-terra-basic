@@ -1,4 +1,6 @@
-<terra-data-table>
+<terra-data-table
+    [inputService]="tableService"
+    [inputHeaderList]="headerList">
     <terra-no-result-notice [inputButtons]="noResultButtons"
                      [inputTextPrimary]="'noResult' | translate:lang"
                      [inputTextSecondary]="'test' | translate:lang">

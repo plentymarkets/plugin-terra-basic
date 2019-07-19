@@ -30,6 +30,8 @@ import { TableComponent } from './views/example/overview/table/table.component';
 import { FilterComponent } from './views/example/overview/filter/filter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslationProvider } from './core/localization/translation-provider';
+import { BasicTableService } from './services/basic-table.service';
+import { PlaceHolderService } from './core/placeholder/place-holder.service';
 
 @NgModule({
     imports:      [
@@ -61,7 +63,9 @@ import { TranslationProvider } from './core/localization/translation-provider';
         },
         httpInterceptorProviders,
         appRoutingProviders,
-        TerraNodeTreeConfig
+        TerraNodeTreeConfig,
+        BasicTableService,
+        PlaceHolderService
     ],
     bootstrap:    [
         PluginTerraBasicComponent
