@@ -34,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslationProvider } from './core/localization/translation-provider';
 import { ContactService } from './services/contact.service';
 import { BasicTableService } from './services/basic-table.service';
+import { PlaceHolderService } from './core/placeholder/placeholder.service';
 
 @NgModule({
     imports:      [
@@ -69,7 +70,8 @@ import { BasicTableService } from './services/basic-table.service';
         appRoutingProviders,
         TerraNodeTreeConfig,
         ContactService,
-        BasicTableService
+        BasicTableService,
+        PlaceHolderService
     ],
     bootstrap:    [
         PluginTerraBasicComponent
