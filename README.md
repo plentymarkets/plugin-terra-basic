@@ -14,15 +14,19 @@ This repository is based on the [Angular CLI](https://cli.angular.io/)
 ## Run developer mode [docu](https://angular.io/cli/serve) 
 
 1. **Start project**
-    1. `npm start`
+    1. `ng serve`
 2. **Open plugin in your Browser**
     1. http://localhost:3002/
     
 ## Build productive [docu](https://angular.io/cli/build) 
 
-1. **Build plugin**
-    1. `npm run build`
+**Build plugin**  `ng build --prod`
     
 ## Unit testing [docu](https://angular.io/cli/test)
-1. **Run the test suite**
-	1. `ng test`
+
+ **Run the test suite** `ng test`
+
+## Cross origin problems
+
+if you getting some error relating to CORS you can use this [Chrome Plugin](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)
+
