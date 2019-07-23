@@ -9,9 +9,9 @@ import { BasicContactService } from './basic-contact.service';
 import { ContactInterface } from './contact.interface';
 
 @Component({
-    selector: 'basic-contact',
-    template: require('./basic-contact.component.html'),
-    styles:   [require('./basic-contact.component.scss')]
+    selector: 'ptb-basic-contact',
+    templateUrl: './basic-contact.component.html',
+    styleUrls:   ['./basic-contact.component.scss']
 })
 export class BasicContactComponent implements OnInit
 {

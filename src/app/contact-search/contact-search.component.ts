@@ -13,17 +13,16 @@ import {
     map,
     tap,
     filter,
-    switchMap,
-    catchError
+    switchMap
 } from 'rxjs/operators';
+import {
+    Observable,
+    zip
+} from 'rxjs';
 
-import { zip } from 'rxjs/operators/zip';
-import { combineLatest } from 'rxjs/operators/combineLatest';
-import { of } from 'rxjs/observable/of';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
-    selector:    'terra-contact-search',
+    selector:    'ptb-contact-search',
     templateUrl: './contact-search.component.html',
     styleUrls:   ['./contact-search.component.scss']
 })
@@ -57,8 +56,8 @@ export class ContactSearchComponent implements OnInit
 
         let array$:Array<Observable<any>> = [changes$, filtered$];
 
-        Observable.zip(array$, (zipped:[any, string]) => zipped[0]).subscribe((zipped:any) => console.log('zipped', zipped));
+        zip(array$, (zipped:[any, string]) => zipped[0]).subscribe((zipped:any) => console.log('zipped', zipped));
 
-        Observable.combineLatest(changes$, filtered$, () => ).subscribe((combined:any) => console.log('combined', combined))
+        // Observable.combineLatest(changes$, filtered$, () => ).subscribe((combined:any) => console.log('combined', combined))
     }
 }

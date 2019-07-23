@@ -1,19 +1,22 @@
-/**
- * @author: @AngularClass
- */
+webpack = require('webpack');
 
-// Look in ./config folder for webpack.dev.js
-switch (process.env.NODE_ENV) {
-    case 'prod':
-    case 'production':
-        module.exports = require('./config/webpack.prod')({env: 'production'});
-        break;
-    case 'test':
-    case 'testing':
-        module.exports = require('./config/webpack.test')({env: 'test'});
-        break;
-    case 'dev':
-    case 'development':
-    default:
-        module.exports = require('./config/webpack.dev')({env: 'development'});
-}
+module.exports = function(config, options) {
+    const env = process.env.ENV = process.env.NODE_ENV = options && options.fileReplacements.length > 0 ? 'production' : 'development';
+
+    // console.log('Environment: ' + env);
+
+    if(config && config.plugins) {
+        const definePlugin = new webpack.DefinePlugin({
+            'process.env': {
+                'ENV': JSON.stringify(env)
+            }
+        });
+        if (config.plugins) {
+            config.plugins.push(definePlugin);
+        } else {
+            config.plugins = [definePlugin];
+        }
+    }
+
+    return config;
+};
