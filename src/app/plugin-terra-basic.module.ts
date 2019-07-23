@@ -25,7 +25,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslationProvider } from './core/localization/translation-provider';
 import { ContactService } from './services/contact.service';
 import { BasicTableService } from './services/basic-table.service';
-import { PlaceHolderService } from './core/placeholder/placeholder.service';
 import { ContactSearchComponent } from './contact-search/contact-search.component';
 
 @NgModule({
@@ -54,8 +53,7 @@ import { ContactSearchComponent } from './contact-search/contact-search.componen
         httpInterceptorProviders,
         TerraNodeTreeConfig,
         ContactService,
-        BasicTableService,
-        PlaceHolderService
+        BasicTableService
     ],
     bootstrap:    [
         PluginTerraBasicComponent
