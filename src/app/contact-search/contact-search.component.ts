@@ -2,7 +2,6 @@ import {
     Component,
     OnInit
 } from '@angular/core';
-import { BasicContactService } from '../contact/basic-contact.service';
 import {
     FormControl,
     FormGroup
@@ -10,17 +9,16 @@ import {
 import {
     debounceTime,
     distinctUntilKeyChanged,
-    map,
-    tap,
     filter,
+    map,
     switchMap,
-    catchError
+    tap
 } from 'rxjs/operators';
 import {
     Observable,
-    zip,
-    combineLatest
+    zip
 } from 'rxjs';
+import { ContactService } from '../services/contact.service';
 
 @Component({
     selector:    'ptb-contact-search',
@@ -31,7 +29,7 @@ export class ContactSearchComponent implements OnInit
 {
     private form:FormGroup;
 
-    constructor(private contactService:BasicContactService)
+    constructor(private contactService:ContactService)
     {
         this.form = new FormGroup({
             name: new FormControl('')

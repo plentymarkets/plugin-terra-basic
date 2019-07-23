@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { BasicContactService } from './basic-contact.service';
 import { ContactInterface } from './contact.interface';
+import { ContactService } from '../services/contact.service';
 
 @Component({
     selector: 'ptb-basic-contact',
@@ -29,7 +30,7 @@ export class BasicContactComponent implements OnInit
         this.stringEmitter.emit(pageText);
     }
 
-    constructor(private basicContactService:BasicContactService)
+    constructor(private contactService:ContactService)
     {
         this.contact = {
             firstName: '',
@@ -41,7 +42,7 @@ export class BasicContactComponent implements OnInit
 
     public ngOnInit():void
     {
-        this.basicContactService.getContactById(102).subscribe((contact:ContactInterface) =>
+        this.contactService.getContactById(102).subscribe((contact:ContactInterface) =>
         {
             this.contact.firstName = contact.firstName;
             this.contact.lastName = contact.lastName;
