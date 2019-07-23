@@ -1,6 +1,21 @@
-<terra-text-input *ngIf="contactJost"
-    inputCaption="Name"
-    [(ngModel)]="contactJost.firstName">
-</terra-text-input>
+<!--<terra-text-input *ngIf="contactJost"-->
+    <!--inputCaption="Name"-->
+    <!--[(ngModel)]="contactJost.firstName">-->
+<!--</terra-text-input>-->
+
+
+<input [(ngModel)]="contactJost.firstName">
 
 {{ contactJost?.firstName }}
+
+<p>blablabla</p>
+<p otherDirective [ngStyle]="{'color': 'red'}">foo</p>
+
+
+<!--<p *ngFor="let name of nameArray">name</p>-->
+
+<!--<p otherDirective ngClass="test">foo</p>-->
+<!--<p otherDirective [ngStyle]="{'color': 'red'}">foo</p>-->
+
+{{restContact.firstName}}
+
