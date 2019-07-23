@@ -13,13 +13,14 @@ import {
     map,
     tap,
     filter,
-    switchMap
+    switchMap,
+    catchError
 } from 'rxjs/operators';
 import {
     Observable,
-    zip
+    zip,
+    combineLatest
 } from 'rxjs';
-
 
 @Component({
     selector:    'ptb-contact-search',
