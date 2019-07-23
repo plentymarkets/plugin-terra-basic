@@ -49,10 +49,4 @@ export class BasicContactComponent implements OnInit
         });
     }
 
-    private objectFunctions(contact:ContactInterface)
-    {
-
-    }
-
-
 }
