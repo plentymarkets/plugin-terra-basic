@@ -1,11 +1,10 @@
 import {
     Component,
-    Input,
     EventEmitter,
-    Output,
-    OnInit
+    Input,
+    OnInit,
+    Output
 } from '@angular/core';
-import { BasicContactService } from './basic-contact.service';
 import { ContactInterface } from './contact.interface';
 import { ContactService } from '../services/contact.service';
 
