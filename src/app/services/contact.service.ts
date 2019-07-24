@@ -8,9 +8,9 @@ import { TerraPagerInterface } from '@plentymarkets/terra-components';
 export class ContactService
 {
     private readonly url:string = 'http://master.login.plentymarkets.com/rest/accounts/contacts';
+
     constructor(private http:HttpClient)
-    {
-    }
+    {}
 
     public getContacts():Observable<TerraPagerInterface<ContactInterface>>
     {
