@@ -22,7 +22,7 @@ install:
 jobs:
   include:
     - stage: "Lint"
-      name: "Lint"
+      name: "Linting"
       script: ng lint
     - stage: "Build"
       name: "Build"
