@@ -1,0 +1,29 @@
+dist: trusty
+sudo: false
+
+language: node_js
+node_js:
+  - '12'
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+cache:
+  directories:
+    - ./node_modules
+
+install:
+  - npm run reinstall
+
+jobs:
+  include:
+    - stage: "Lint"
+      name: "Lint"
+      script: ng lint
+    - stage: "Build"
+      name: "Build"
+      script: ng build --prod
