@@ -43,7 +43,8 @@ function getL10nConfig():L10nConfig
                 }
             ],
             language:  lang,
-            storage:   StorageStrategy.Cookie
+            storage:       StorageStrategy.Local,
+            storageNames:  {defaultLocale: 'plentymarkets_lang_'}
         },
         translation: {
             providers:            [
