@@ -15,8 +15,14 @@ import { BasicContactInterface } from './basic-contact.interface';
     })
 export class BasicContactComponent implements OnInit
 {
+    protected restContact:BasicContactInterface;
+
+    protected class:string = 'test';
+
+    protected nameArray:Array<string> = ['Joe', 'Jim', 'Jacob'];
+
     @Input()
-    private contactJost:BasicContactInterface;
+    private contactJost:BasicContactInterface = {id:0, firstName: '', lastName:''};
 
     @Output()
     private contactJostChange:EventEmitter<BasicContactInterface> = new EventEmitter();
@@ -31,11 +37,12 @@ export class BasicContactComponent implements OnInit
         this.basicContactService.getSingleContact(107).subscribe(
             (result:BasicContactInterface) =>
             {
+                this.restContact = result;
                 this.contactJostChange.emit(result);
             },
             (error:any) =>
             {
                 console.warn(error);
-            })
+            });
     }
 }
