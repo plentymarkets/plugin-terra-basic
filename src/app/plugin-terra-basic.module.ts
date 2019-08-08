@@ -16,7 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {
     appRoutingProviders,
-    routing
 } from './plugin-terra-basic.routing';
 import {
     httpInterceptorProviders,
