@@ -1,1 +1,0 @@
-{"version":3,"file":"large.directive.js","sourceRoot":"","sources":["large.directive.ts"],"names":[],"mappings":";;;;;;;;;;;AAAA,sCAGuB;AAKvB;IAEI,wBAAY,EAAa;QAErB,EAAE,CAAC,aAAa,CAAC,KAAK,CAAC,QAAQ,GAAG,UAAU,CAAC;IACjD,CAAC;IALQ,cAAc;QAH1B,gBAAS,CAAC;YACP,QAAQ,EAAE,cAAc;SAC3B,CAAC;yCAGiB,iBAAU;OAFhB,cAAc,CAM1B;IAAD,qBAAC;CAAA,AAND,IAMC;AANY,wCAAc"}
