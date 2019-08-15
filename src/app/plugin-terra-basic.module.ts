@@ -35,6 +35,7 @@ import { TranslationProvider } from './core/localization/translation-provider';
 import { ContactService } from './services/contact.service';
 import { BasicTableService } from './services/basic-table.service';
 import { PlaceHolderService } from './core/placeholder/placeholder.service';
+import { MatSelectModule } from '@angular/material';
 
 @NgModule({
     imports:      [
@@ -46,7 +47,8 @@ import { PlaceHolderService } from './core/placeholder/placeholder.service';
         TranslationModule.forRoot(l10nConfig, { translationProvider: TranslationProvider }),
         RouterModule.forRoot([]),
         TerraComponentsModule,
-        routing
+        routing,
+        MatSelectModule
     ],
     declarations: [
         PluginTerraBasicComponent,
