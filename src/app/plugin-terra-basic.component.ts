@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import {
+    Component,
+    OnInit
+} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Component({
-    selector: 'terra-basic-app',
-    template: require('./plugin-terra-basic.component.html'),
-    styles:   [require('./plugin-terra-basic.component.scss')],
+    selector:      'ptb-app',
+    templateUrl:   './plugin-terra-basic.component.html',
+    styleUrls:     ['./plugin-terra-basic.component.scss'],
 })
-export class PluginTerraBasicComponent
+export class PluginTerraBasicComponent implements OnInit
 {
     private parentText:string;
 

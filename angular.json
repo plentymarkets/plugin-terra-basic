@@ -1,0 +1,116 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "src",
+	"projects": {
+		"plugin-terra-basic": {
+			"root": "",
+			"sourceRoot": "src",
+			"projectType": "application",
+			"prefix": "ptb",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				}
+			},
+			"architect": {
+				"build": {
+					"builder": "@angular-builders/custom-webpack:browser",
+					"options": {
+						"customWebpackConfig": {
+							"path": "./webpack.config.js"
+						},
+						"outputPath": "dist",
+						"deleteOutputPath": true,
+						"index": "src/index.html",
+						"main": "src/main.ts",
+						"polyfills": "src/polyfills.ts",
+						"tsConfig": "src/tsconfig.app.json",
+						"assets": [
+							"src/favicon.ico",
+							"src/assets",
+							{
+								"glob": "*.json",
+								"input": "./node_modules/@plentymarkets/terra-components/assets/lang/",
+								"output": "./assets/lang/terra-components/"
+							}
+						],
+						"styles": [
+							"src/styles.scss"
+						],
+						"scripts": [],
+						"es5BrowserSupport": true
+					},
+					"configurations": {
+						"production": {
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.prod.ts"
+								}
+							],
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"extractCss": true,
+							"namedChunks": false,
+							"aot": false,
+							"vendorChunk": true,
+							"buildOptimizer": false,
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "5mb",
+									"maximumError": "10mb"
+								}
+							]
+						}
+					}
+				},
+				"serve": {
+					"builder": "@angular-builders/dev-server:generic",
+					"options": {
+						"browserTarget": "plugin-terra-basic:build",
+						"port": 3002
+					},
+					"configurations": {
+						"production": {
+							"browserTarget": "plugin-terra-basic:build:production"
+						}
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "src/test.ts",
+						"polyfills": "src/polyfills.ts",
+						"tsConfig": "src/tsconfig.spec.json",
+						"karmaConfig": "src/karma.conf.js",
+						"styles": [
+							"src/styles.scss"
+						],
+						"scripts": [],
+						"assets": [
+							"src/favicon.ico",
+							"src/assets"
+						]
+					}
+				},
+				"lint": {
+					"builder": "@angular-devkit/build-angular:tslint",
+					"options": {
+						"tsConfig": [
+							"src/tsconfig.app.json",
+							"src/tsconfig.spec.json"
+						],
+						"exclude": [
+							"**/node_modules/**",
+							"src/environments/**"
+						]
+					}
+				}
+			}
+		}
+	},
+	"defaultProject": "plugin-terra-basic"
+}
