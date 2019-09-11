@@ -10,7 +10,7 @@ import { environment } from '../environments/environment';
     templateUrl:   './plugin-terra-basic.component.html',
     styleUrls:     ['./plugin-terra-basic.component.scss'],
 })
-export class PluginTerraBasicComponent implements OnInit
+export class PluginTerraBasicComponent
 {
     private parentText:string;
 
