@@ -24,6 +24,9 @@ import {
 } from '@plentymarkets/terra-components';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslationProvider } from './core/localization/translation-provider';
+import { BasicContactComponent } from './contact/basic-contact.component';
+import { BasicContactService } from './contact/basic-contact.service';
+import { LargeDirective } from './directives/large.directive';
 
 @NgModule({
     imports:      [

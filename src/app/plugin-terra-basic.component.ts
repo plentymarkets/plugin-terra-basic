@@ -14,28 +14,13 @@ export class PluginTerraBasicComponent implements OnInit
 {
     private parentText:string;
 
-    //private readonly domain:string = 'http://master.login.plentymarkets.com';
-    /*tslint:disable-next-line:max-line-length*/
-    //private readonly accessToken:string = '';
-
-    //constructor(private httpClient:HttpClient)
-    //{
-    //}
-
-    //public ngOnInit():void
-    //{
-    //    if(!environment.production)
-    //    {
-            // store accessToken in localStorage since it is taken from there to be added to the Authorization header of any request
-      //      localStorage.setItem('accessToken', this.accessToken);
-        //}
-        // this.httpClient.get(`${this.domain}/rest/items`).subscribe(console.log);
-    //}
-    
-
     constructor()
     {
         this.parentText = 'Input test';
+    }
+
+    public ngOnInit():void
+    {
     }
 
     private toggleText():void
@@ -49,6 +34,24 @@ export class PluginTerraBasicComponent implements OnInit
             this.parentText = '';
         }
     }
+
+    //private readonly domain:string = 'http://master.login.plentymarkets.com';
+    /*tslint:disable-next-line:max-line-length*/
+    //private readonly accessToken:string = '';
+
+    //constructor(private httpClient:HttpClient)
+    //{
+    //}
+
+    //public ngOnInit():void
+    //{
+    //    if(!environment.production)
+    //    {
+    // store accessToken in localStorage since it is taken from there to be added to the Authorization header of any request
+    //      localStorage.setItem('accessToken', this.accessToken);
+    //}
+    // this.httpClient.get(`${this.domain}/rest/items`).subscribe(console.log);
+    //}
 
     private handleString(stringParam:string):void
     {

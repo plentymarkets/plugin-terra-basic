@@ -1,9 +1,9 @@
 import {
     Component,
-    Input,
     EventEmitter,
-    Output,
-    OnInit
+    Input,
+    OnInit,
+    Output
 } from '@angular/core';
 import { BasicContactService } from './basic-contact.service';
 import { ContactInterface } from './contact.interface';
@@ -11,8 +11,8 @@ import { TerraPagerInterface } from '@plentymarkets/terra-components';
 
 @Component({
     selector: 'basic-contact',
-    template: require('./basic-contact.component.html'),
-    styles:   [require('./basic-contact.component.scss')]
+    templateUrl: './basic-contact.component.html',
+    styleUrls:   ['./basic-contact.component.scss']
 })
 export class BasicContactComponent implements OnInit
 {
