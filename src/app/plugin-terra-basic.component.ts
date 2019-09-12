@@ -49,7 +49,7 @@ export class PluginTerraBasicComponent implements OnInit
 
     public sortArray(array:Array<number>):Array<number>
     {
-        return array.sort();
+        return array.sort((a:number,b:number) => a - b);
     }
 
     public mapArray(array:Array<number>):Array<number>
