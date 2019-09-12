@@ -1,0 +1,9 @@
+<div>ID:{{contact | mod:4}}</div>
+<div *ngIf="contact">
+    <terra-text-input inputName="firstName" [(ngModel)]="contact.firstName"></terra-text-input>
+    <terra-text-input inputName="lastName" [(ngModel)]="contact.lastName"></terra-text-input>
+</div>
+<div>firstName:{{contact?.firstName}}</div>
+<div [class.active]="contact?.id === 1" [style.fontSize]="'large'">lastName:{{contact?.lastName}}</div>
+
+<button (click)="buttonClicked.emit($event); contact.id = 15">Click Me!</button>

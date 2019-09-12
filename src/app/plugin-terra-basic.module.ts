@@ -24,6 +24,7 @@ import {
 } from '@plentymarkets/terra-components';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslationProvider } from './core/localization/translation-provider';
+import { ContactModule } from './contact/contact.module';
 
 @NgModule({
     imports:      [
@@ -34,7 +35,8 @@ import { TranslationProvider } from './core/localization/translation-provider';
         HttpClientModule,
         TranslationModule.forRoot(l10nConfig, { translationProvider: TranslationProvider }),
         RouterModule.forRoot([]),
-        TerraComponentsModule
+        TerraComponentsModule,
+        ContactModule
     ],
     declarations: [
         PluginTerraBasicComponent
