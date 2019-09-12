@@ -23,14 +23,18 @@ export class PluginTerraBasicComponent implements OnInit
 
     public ngOnInit():void
     {
+        this.allIndices(this.fruits);
+        console.log('-----');
         this.objectKeys(this.banana);
+        console.log('-----');
         this.objectValues(this.banana);
+        console.log('-----');
         this.objectEntries(this.banana);
     }
 
-    public allIndices(array:Array<string>):Array<string>
+    public allIndices(array:Array<string>):void
     {
-        return null;
+
     }
 
     public allFruits(array:Array<string>):Array<string>
