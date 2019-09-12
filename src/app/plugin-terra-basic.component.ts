@@ -23,53 +23,61 @@ export class PluginTerraBasicComponent implements OnInit
 
     public ngOnInit():void
     {
+        this.allIndices(this.fruits);
+        console.log('-----');
         this.objectKeys(this.banana);
+        console.log('-----');
         this.objectValues(this.banana);
+        console.log('-----');
         this.objectEntries(this.banana);
     }
 
-    public allIndices(array:Array<string>):Array<string>
+    public allIndices(array:Array<string>):void
     {
-        return null;
+        array.forEach((entry:string) => console.log(array.indexOf(entry)));
     }
 
     public allFruits(array:Array<string>):Array<string>
     {
-        return null;
+        return array.filter((entry:string) => this.fruits.includes(entry));
     }
 
-    public fruitWith(array:Array<string>, letter:string):Array<string>
+    public fruitWith(array:Array<string>, letter:string):string
     {
-        return null;
+        return array.find((entry:string) => entry.includes(letter));
     }
 
     public sortArray(array:Array<number>):Array<number>
     {
-        return null;
+        return array.sort();
     }
 
     public mapArray(array:Array<number>):Array<number>
     {
-        return null;
+        return array.map((entry:number) => entry * entry);
     }
 
     public mapAndFilterArray(array:Array<number>):Array<number>
     {
-        return null;
+        return array.map((entry:number) => entry * entry).filter((entry:number) => entry % 2);
     }
 
     private objectKeys(object:Object):void
     {
-
+        Object.keys(object).forEach((key:string) => console.log(key));
     }
 
     private objectValues(object:Object):void
     {
-
+        Object.values(object).forEach((value:string) => console.log(value));
     }
 
     private objectEntries(object:Object):void
     {
-
+        Object.entries(object).forEach(([key, value]) =>
+        {
+            console.log(key);
+            console.log(value);
+        })
     }
 }
