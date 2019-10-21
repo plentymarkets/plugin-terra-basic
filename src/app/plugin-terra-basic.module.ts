@@ -7,6 +7,8 @@ import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
 import { StartComponent } from './views/start/start.component';
 import { HttpModule } from '@angular/http';
 import {
+    L10N_CONFIG,
+    L10nConfig,
     L10nLoader,
     TranslationModule
 } from 'angular-l10n';
@@ -65,7 +67,7 @@ import { MatSelectModule } from '@angular/material';
         {
             provide:    APP_INITIALIZER,
             useFactory: initL10n,
-            deps:       [L10nLoader],
+            deps:       [L10nLoader, L10N_CONFIG],
             multi:      true
         },
         httpInterceptorProviders,
@@ -81,13 +83,37 @@ import { MatSelectModule } from '@angular/material';
 })
 export class PluginTerraBasicModule
 {
-    constructor(public l10nLoader:L10nLoader)
-    {
-        this.l10nLoader.load();
-    }
 }
 
-function initL10n(l10nLoader:L10nLoader):Function
+export function getLanguage():string
 {
-    return ():Promise<void> => l10nLoader.load();
+    let langInLocalStorage:string = localStorage.getItem('plentymarkets_lang_');
+    let lang:string = null;
+
+    if(langInLocalStorage !== null)
+    {
+        lang = langInLocalStorage;
+    }
+    else
+    {
+        lang = navigator.language.slice(0, 2).toLocaleLowerCase();
+
+        if(lang !== 'de' && lang !== 'en')
+        {
+            lang = 'en';
+        }
+
+        localStorage.setItem('plentymarkets_lang_', lang);
+    }
+
+    return lang;
+}
+
+export function initL10n(l10nLoader:L10nLoader, config:L10nConfig):Function
+{
+    return ():Promise<void> =>
+    {
+        config.locale.language = getLanguage();
+        return l10nLoader.load();
+    };
 }
