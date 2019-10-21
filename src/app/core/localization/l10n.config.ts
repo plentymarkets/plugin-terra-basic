@@ -16,6 +16,7 @@ export const l10nConfig:L10nConfig = {
                 dir:  'ltr'
             }
         ],
+        language:     'en',
         storage:      StorageStrategy.Local,
         storageNames: {defaultLocale: 'plentymarkets_lang_'}
     },
