@@ -6,6 +6,7 @@ import {
 import { StartViewComponent } from './views/start-view.component';
 import { RouterViewComponent } from './views/router/router-view.component';
 import { ExampleViewComponent } from './views/example/example-view.component';
+import { SplitViewComponent } from './views/split-view/split-view.component';
 
 const appRoutes:Routes = [
     {
@@ -37,6 +38,13 @@ const appRoutes:Routes = [
                 component: ExampleViewComponent,
                 data:      {
                     label: 'example'
+                }
+            },
+            {
+                path: 'split-view',
+                component: SplitViewComponent,
+                data: {
+                    label: 'Split view'
                 }
             }
         ]

@@ -47,5 +47,16 @@ export class MainMenuComponent implements OnInit
                            this.router.navigateByUrl('plugin/example');
                        }
         });
+
+        this._treeConfig.addNode({
+            id:        'split-view',
+            name:      'Split view',
+            isVisible: true,
+            isActive:  this.router.isActive('plugin/split-view', true),
+            onClick:   ():void =>
+                       {
+                           this.router.navigateByUrl('plugin/split-view');
+                       }
+        });
     }
 }

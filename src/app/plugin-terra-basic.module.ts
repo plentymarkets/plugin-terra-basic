@@ -36,6 +36,7 @@ import { ContactService } from './services/contact.service';
 import { BasicTableService } from './services/basic-table.service';
 import { PlaceHolderService } from './core/placeholder/placeholder.service';
 import { MatSelectModule } from '@angular/material';
+import { SplitViewComponent } from './views/split-view/split-view.component';
 
 export function initL10n(l10nLoader:L10nLoader):Function
 {
@@ -64,7 +65,8 @@ export function initL10n(l10nLoader:L10nLoader):Function
         ExampleViewComponent,
         TableComponent,
         FilterComponent,
-        OverviewViewComponent
+        OverviewViewComponent,
+        SplitViewComponent
     ],
     providers:    [
         {

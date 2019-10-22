@@ -27,6 +27,6 @@ export class PluginTerraBasicComponent implements OnInit
             // store accessToken in localStorage since it is taken from there to be added to the Authorization header of any request
             localStorage.setItem('accessToken', this.accessToken);
         }
-        this.httpClient.get(`${this.domain}/rest/items`).subscribe(console.log);
+        // this.httpClient.get(`${this.domain}/rest/items`).subscribe(console.log);
     }
 }
