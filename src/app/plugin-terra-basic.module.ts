@@ -37,6 +37,11 @@ import { BasicTableService } from './services/basic-table.service';
 import { PlaceHolderService } from './core/placeholder/placeholder.service';
 import { MatSelectModule } from '@angular/material';
 
+export function initL10n(l10nLoader:L10nLoader):Function
+{
+    return ():Promise<any> => l10nLoader.load();
+}
+
 @NgModule({
     imports:      [
         BrowserModule,
@@ -80,14 +85,6 @@ import { MatSelectModule } from '@angular/material';
     ]
 })
 export class PluginTerraBasicModule
-{
-    constructor(public l10nLoader:L10nLoader)
-    {
-        this.l10nLoader.load();
-    }
-}
+{}
 
-function initL10n(l10nLoader:L10nLoader):Function
-{
-    return ():Promise<void> => l10nLoader.load();
-}
+
