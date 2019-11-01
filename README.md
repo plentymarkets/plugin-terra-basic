@@ -28,5 +28,5 @@ This repository is based on the [Angular CLI](https://cli.angular.io/)
 
 ## Cross origin problems
 
-if you getting some error relating to CORS you can use this [Chrome Plugin](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)
+if you getting some error relating to CORS you can use this [Chrome Plugin](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf)
 
