@@ -20,7 +20,4 @@ jobs:
   include:
     - name: 'Test Build'
       script: npm run build
-    - name: 'Headless Unit Tests'
-      script: npm run test-headless
-    - name: 'TSlint'
-      script: npm run lint
+
