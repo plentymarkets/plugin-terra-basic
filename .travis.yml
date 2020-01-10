@@ -20,4 +20,5 @@ jobs:
   include:
     - name: 'Test Build'
       script: npm run build
-
+    - name: 'TSlint'
+      script: npm run lint
