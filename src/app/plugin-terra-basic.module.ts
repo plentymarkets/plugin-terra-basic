@@ -35,6 +35,12 @@ import { TranslationProvider } from './core/localization/translation-provider';
 import { ContactService } from './services/contact.service';
 import { BasicTableService } from './services/basic-table.service';
 import { PlaceHolderService } from './core/placeholder/placeholder.service';
+import { MatSelectModule } from '@angular/material';
+
+export function initL10n(l10nLoader:L10nLoader):Function
+{
+    return ():Promise<any> => l10nLoader.load();
+}
 
 @NgModule({
     imports:      [
@@ -46,7 +52,8 @@ import { PlaceHolderService } from './core/placeholder/placeholder.service';
         TranslationModule.forRoot(l10nConfig, { translationProvider: TranslationProvider }),
         RouterModule.forRoot([]),
         TerraComponentsModule,
-        routing
+        routing,
+        MatSelectModule
     ],
     declarations: [
         PluginTerraBasicComponent,
@@ -78,14 +85,6 @@ import { PlaceHolderService } from './core/placeholder/placeholder.service';
     ]
 })
 export class PluginTerraBasicModule
-{
-    constructor(public l10nLoader:L10nLoader)
-    {
-        this.l10nLoader.load();
-    }
-}
+{}
 
-function initL10n(l10nLoader:L10nLoader):Function
-{
-    return ():Promise<void> => l10nLoader.load();
-}
+

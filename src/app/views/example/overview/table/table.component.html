@@ -1,7 +1,7 @@
 <terra-data-table
-    [inputService]="tableService"
-    [inputHeaderList]="headerList">
-    <terra-no-result-notice [inputButtons]="noResultButtons"
+    [inputService]="_tableService"
+    [inputHeaderList]="_headerList">
+    <terra-no-result-notice [inputButtons]="_noResultButtons"
                      [inputTextPrimary]="'noResult' | translate:lang"
                      [inputTextSecondary]="'test' | translate:lang">
     </terra-no-result-notice>
