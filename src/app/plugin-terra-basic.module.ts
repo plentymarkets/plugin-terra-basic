@@ -5,7 +5,6 @@ import {
 import { BrowserModule } from '@angular/platform-browser';
 import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
 import { StartComponent } from './views/start/start.component';
-import { HttpModule } from '@angular/http';
 import {
     L10nLoader,
     TranslationModule
@@ -46,7 +45,6 @@ export function initL10n(l10nLoader:L10nLoader):Function
     imports:      [
         BrowserModule,
         BrowserAnimationsModule,
-        HttpModule,
         FormsModule,
         HttpClientModule,
         TranslationModule.forRoot(l10nConfig, { translationProvider: TranslationProvider }),
