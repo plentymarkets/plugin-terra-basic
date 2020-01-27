@@ -22,7 +22,6 @@ import { StartViewComponent } from './views/start-view.component';
 import { RouterViewComponent } from './views/router/router-view.component';
 import { MainMenuComponent } from './views/menu/main-menu.component';
 import {
-    httpInterceptorProviders,
     TerraComponentsModule,
     TerraNodeTreeConfig
 } from '@plentymarkets/terra-components';
@@ -36,6 +35,7 @@ import { ContactService } from './services/contact.service';
 import { BasicTableService } from './services/basic-table.service';
 import { PlaceHolderService } from './core/placeholder/placeholder.service';
 import { MatSelectModule } from '@angular/material';
+import { interceptorProviders } from './core/http';
 
 export function initL10n(l10nLoader:L10nLoader):Function
 {
@@ -73,7 +73,7 @@ export function initL10n(l10nLoader:L10nLoader):Function
             deps:       [L10nLoader],
             multi:      true
         },
-        httpInterceptorProviders,
+        interceptorProviders,
         appRoutingProviders,
         TerraNodeTreeConfig,
         ContactService,
