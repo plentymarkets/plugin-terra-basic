@@ -5,7 +5,6 @@ import {
 import { BrowserModule } from '@angular/platform-browser';
 import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
 import { StartComponent } from './views/start/start.component';
-import { HttpModule } from '@angular/http';
 import {
     L10nLoader,
     TranslationModule
@@ -34,7 +33,7 @@ import { TranslationProvider } from './core/localization/translation-provider';
 import { ContactService } from './services/contact.service';
 import { BasicTableService } from './services/basic-table.service';
 import { PlaceHolderService } from './core/placeholder/placeholder.service';
-import { MatSelectModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
 import { interceptorProviders } from './core/http';
 
 export function initL10n(l10nLoader:L10nLoader):Function
@@ -46,7 +45,6 @@ export function initL10n(l10nLoader:L10nLoader):Function
     imports:      [
         BrowserModule,
         BrowserAnimationsModule,
-        HttpModule,
         FormsModule,
         HttpClientModule,
         TranslationModule.forRoot(l10nConfig, { translationProvider: TranslationProvider }),
