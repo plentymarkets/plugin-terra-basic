@@ -17,6 +17,8 @@ export class StartComponent
     @Input()
     public myTitle:string;
 
+    public _tt:string = 'Start here';
+
     public redirectToDevelopersTutorial():void
     {
         window.open('https://developers.plentymarkets.com/tutorials/angular-plugin', '_blank');
