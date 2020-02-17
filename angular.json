@@ -33,13 +33,13 @@
 							}
 						],
 						"styles": [
-							"node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+							"src/styles.scss",
 							"node_modules/tippy.js/dist/tippy.css",
+							"node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
 							"node_modules/bootstrap/dist/css/bootstrap.css",
 							"node_modules/@plentymarkets/terra-components/styles/styles.css",
 							"node_modules/@plentymarkets/terra-components/styles/icons.css",
-							"node_modules/@plentymarkets/terra-components/styles/theme-loader.css",
-							"src/styles.scss"
+							"node_modules/@plentymarkets/terra-components/styles/theme-loader.css"
 						],
 						"scripts": [
 							"node_modules/jquery/dist/jquery.min.js"
