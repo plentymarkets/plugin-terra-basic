@@ -8,7 +8,7 @@
 		"build": "ng build --prod",
 		"test": "ng test",
 		"lint": "ng lint",
-		"reinstall": "rm -rf node_modules/ && npm i"
+		"reinstall": "npm ci"
 	},
 	"private": true,
 	"dependencies": {
@@ -22,7 +22,7 @@
 		"@angular/platform-browser": "^8.2.14",
 		"@angular/platform-browser-dynamic": "^8.2.14",
 		"@angular/router": "^8.2.14",
-		"@plentymarkets/terra-components": "^5.0.0-beta.12",
+		"@plentymarkets/terra-components": "^5.2.0",
 		"angular-l10n": "^8.1.2",
 		"bootstrap": "^4.4.1",
 		"ckeditor4-angular": "^1.0.1",
