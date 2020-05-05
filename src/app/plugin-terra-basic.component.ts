@@ -12,6 +12,7 @@ import { environment } from '../environments/environment';
 })
 export class PluginTerraBasicComponent implements OnInit
 {
+    public readonly production:boolean = environment.production;
     private readonly domain:string = 'http://master.login.plentymarkets.com';
     /*tslint:disable-next-line:max-line-length*/
     private readonly accessToken:string = '';

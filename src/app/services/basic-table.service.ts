@@ -3,6 +3,7 @@ import {
     Injectable
 } from '@angular/core';
 import {
+    AlertService,
     TerraDataTableBaseService,
     TerraDataTableCellInterface,
     TerraDataTableRowInterface,
@@ -12,7 +13,6 @@ import {
 import { ContactInterface } from '../interfaces/contact.interface';
 import { ContactService } from './contact.service';
 import { Observable } from 'rxjs/internal/Observable';
-import { tap } from 'rxjs/operators';
 
 
 @Injectable()
@@ -21,13 +21,15 @@ export class BasicTableService
 {
     public dataLoaded:EventEmitter<TerraPagerInterface<ContactInterface>> = new EventEmitter<TerraPagerInterface<ContactInterface>>();
 
-    constructor(private contactService:ContactService)
+    constructor(private contactService:ContactService,
+                private alert:AlertService)
     {
         super();
     }
 
     public requestTableData():Observable<TerraPagerInterface<ContactInterface>>
     {
+        this.alert.info('Loading..');
         return this.contactService.getContacts();
     }
 
