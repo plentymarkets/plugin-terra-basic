@@ -32,7 +32,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslationProvider } from './core/localization/translation-provider';
 import { ContactService } from './services/contact.service';
 import { BasicTableService } from './services/basic-table.service';
-import { PlaceHolderService } from './core/placeholder/placeholder.service';
 import { MatSelectModule } from '@angular/material/select';
 import { interceptorProviders } from './core/http';
 
@@ -75,8 +74,7 @@ export function initL10n(l10nLoader:L10nLoader):Function
         appRoutingProviders,
         TerraNodeTreeConfig,
         ContactService,
-        BasicTableService,
-        PlaceHolderService
+        BasicTableService
     ],
     bootstrap:    [
         PluginTerraBasicComponent
