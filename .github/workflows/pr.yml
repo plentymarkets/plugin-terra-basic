@@ -16,15 +16,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    # Clean install of the node packages
-    - name: Install
-      run: npm ci
+      # Clean install of the node dependencies
+      - name: Clean install
+        run: npm ci
 
-    # Runs integration tests in parallel
-    - name: Integration tests
-      run: |
-        npm run build
-        npm run lint
+      # Runs the set of integrity checks concurrently
+      - name: Run checks
+        run: |
+          npm run lint
+          npm run build
