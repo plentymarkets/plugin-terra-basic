@@ -41,9 +41,7 @@
 							"node_modules/@plentymarkets/terra-components/styles/icons.css",
 							"node_modules/@plentymarkets/terra-components/styles/theme-loader.css"
 						],
-						"scripts": [
-							"node_modules/jquery/dist/jquery.min.js"
-						],
+						"scripts": [],
 						"es5BrowserSupport": true
 					},
 					"configurations": {
