@@ -31,10 +31,12 @@ import { OverviewViewComponent } from './views/example/overview/overview-view.co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslationProvider } from './core/localization/translation-provider';
 import { ContactService } from './services/contact.service';
-import { BasicTableService } from './services/basic-table.service';
 import { PlaceHolderService } from './core/placeholder/placeholder.service';
 import { MatSelectModule } from '@angular/material/select';
 import { interceptorProviders } from './core/http';
+import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 export function initL10n(l10nLoader:L10nLoader):Function
 {
@@ -42,16 +44,19 @@ export function initL10n(l10nLoader:L10nLoader):Function
 }
 
 @NgModule({
-    imports:      [
+    imports: [
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
         HttpClientModule,
-        TranslationModule.forRoot(l10nConfig, { translationProvider: TranslationProvider }),
+        TranslationModule.forRoot(l10nConfig, {translationProvider: TranslationProvider}),
         RouterModule.forRoot([]),
         TerraComponentsModule,
         routing,
-        MatSelectModule
+        MatSelectModule,
+        MatTableModule,
+        MatCheckboxModule,
+        MatPaginatorModule
     ],
     declarations: [
         PluginTerraBasicComponent,
@@ -75,7 +80,6 @@ export function initL10n(l10nLoader:L10nLoader):Function
         appRoutingProviders,
         TerraNodeTreeConfig,
         ContactService,
-        BasicTableService,
         PlaceHolderService
     ],
     bootstrap:    [

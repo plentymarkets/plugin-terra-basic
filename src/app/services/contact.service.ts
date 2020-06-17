@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ContactInterface } from '../interfaces/contact.interface';
 import { Observable } from 'rxjs/internal/Observable';
-import { TerraPagerInterface } from '@plentymarkets/terra-components';
+import {
+    createHttpParams,
+    TerraPagerInterface
+} from '@plentymarkets/terra-components';
 
 @Injectable()
 export class ContactService
@@ -12,8 +15,9 @@ export class ContactService
     constructor(private http:HttpClient)
     {}
 
-    public getContacts():Observable<TerraPagerInterface<ContactInterface>>
+    public getContacts(requestParams:any):Observable<TerraPagerInterface<ContactInterface>>
     {
-        return this.http.get<TerraPagerInterface<ContactInterface>>(this.url);
+        return this.http.get<TerraPagerInterface<ContactInterface>>(this.url, {params:  createHttpParams(requestParams)
+        });
     }
 }

@@ -1,8 +1,40 @@
-<terra-data-table
-    [inputService]="_tableService"
-    [inputHeaderList]="_headerList">
-    <terra-no-result-notice [inputButtons]="_noResultButtons"
-                     [inputTextPrimary]="'noResult' | translate:lang"
-                     [inputTextSecondary]="'test' | translate:lang">
-    </terra-no-result-notice>
-</terra-data-table>
+<terra-no-result-notice *ngIf="_dataSource.data.length === 0"
+                        [inputButtons]="_noResultButtons"
+                        [inputTextPrimary]="'noResult' | translate:lang"
+                        [inputTextSecondary]="'test' | translate:lang">
+</terra-no-result-notice>
+
+<!--<div *ngIf="_dataSource.data.length > 0" class="mat-table-container">-->
+<div [hidden]="_dataSource.data.length === 0" class="mat-table-container">
+    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
+    <table mat-table [dataSource]="_dataSource" matSort matSortActive="id" matSortDirection="desc" matSortDisableClear>
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? _masterToggle() : null"
+                              [checked]="_selection.hasValue() && _isAllSelected()"
+                              [indeterminate]="_selection.hasValue() && !_isAllSelected()">
+                </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let contact">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                              (change)="$event ? _selection.toggle(contact) : null"
+                              [checked]="_selection.isSelected(contact)">
+                </mat-checkbox>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="id">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let contact">{{contact.id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef>First name</th>
+            <td mat-cell *matCellDef="let contact">{{contact.firstName}}</td>
+        </ng-container>
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef>Last name</th>
+            <td mat-cell *matCellDef="let contact">{{contact.lastName}}</td>
+        </ng-container>
+        <tr *matHeaderRowDef="_columnList"></tr>
+        <tr *matRowDef="let contact; columns: _columnList"></tr>
+    </table>
+</div>
