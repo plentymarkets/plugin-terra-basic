@@ -35,6 +35,6 @@
             <td mat-cell *matCellDef="let contact">{{contact.lastName}}</td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="_columnList"></tr>
-        <tr mat-row *matRowDef="let contact; columns: _columnList"></tr>
+        <tr mat-row *matRowDef="let contact; columns: _columnList" [class.selected]="_selection.isSelected(contact)"></tr>
     </table>
 </div>
