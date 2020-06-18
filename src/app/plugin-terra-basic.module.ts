@@ -38,6 +38,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 export function initL10n(l10nLoader:L10nLoader):Function
 {
@@ -58,7 +59,8 @@ export function initL10n(l10nLoader:L10nLoader):Function
         MatTableModule,
         MatCheckboxModule,
         MatPaginatorModule,
-        MatSortModule
+        MatSortModule,
+        MatSlideToggleModule
     ],
     declarations: [
         PluginTerraBasicComponent,

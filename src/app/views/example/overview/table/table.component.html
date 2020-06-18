@@ -1,3 +1,7 @@
+<terra-base-toolbar>
+    <mat-slide-toggle #toggle>{{toggle.checked ? 'no flex active' : 'flex is now active'}}</mat-slide-toggle>
+</terra-base-toolbar>
+
 <terra-no-result-notice *ngIf="_dataSource.data.length === 0"
                         [inputButtons]="_noResultButtons"
                         [inputTextPrimary]="'noResult' | translate:lang"
@@ -7,7 +11,7 @@
 <!--<div *ngIf="_dataSource.data.length > 0" class="mat-table-container">-->
 <div [hidden]="_dataSource.data.length === 0" class="mat-table-container">
     <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
-    <table mat-table class="w-100" [dataSource]="_dataSource" matSort matSortActive="id" matSortDirection="desc" matSortDisableClear>
+    <table mat-table class="w-100" [dataSource]="_dataSource" matSort matSortActive="id" matSortDirection="desc" matSortDisableClear [hidden]="!toggle.checked">
         <ng-container matColumnDef="select">
             <th mat-header-cell *matHeaderCellDef>
                 <mat-checkbox (change)="$event ? _masterToggle() : null"
@@ -37,4 +41,35 @@
         <tr mat-header-row *matHeaderRowDef="_columnList"></tr>
         <tr mat-row *matRowDef="let contact; columns: _columnList" [class.selected]="_selection.isSelected(contact)"></tr>
     </table>
+    
+    <mat-table class="w-100" [dataSource]="_dataSource" [hidden]="toggle.checked">
+        <ng-container matColumnDef="select">
+            <mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? _masterToggle() : null"
+                              [checked]="_selection.hasValue() && _isAllSelected()"
+                              [indeterminate]="_selection.hasValue() && !_isAllSelected()">
+                </mat-checkbox>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let contact">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                              (change)="$event ? _selection.toggle(contact) : null"
+                              [checked]="_selection.isSelected(contact)">
+                </mat-checkbox>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+            <mat-cell *matCellDef="let contact">{{contact.id}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef>First name</mat-header-cell>
+            <mat-cell *matCellDef="let contact">{{contact.firstName}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="lastName">
+            <mat-header-cell *matHeaderCellDef>Last name</mat-header-cell>
+            <mat-cell *matCellDef="let contact">{{contact.lastName}}</mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="_columnList"></mat-header-row>
+        <mat-row *matRowDef="let contact; columns: _columnList" [class.selected]="_selection.isSelected(contact)"></mat-row>
+    </mat-table>
 </div>
