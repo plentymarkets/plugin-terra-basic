@@ -37,6 +37,7 @@ import { interceptorProviders } from './core/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 export function initL10n(l10nLoader:L10nLoader):Function
 {
@@ -56,7 +57,8 @@ export function initL10n(l10nLoader:L10nLoader):Function
         MatSelectModule,
         MatTableModule,
         MatCheckboxModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatSortModule
     ],
     declarations: [
         PluginTerraBasicComponent,
