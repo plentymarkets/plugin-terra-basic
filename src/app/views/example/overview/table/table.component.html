@@ -2,8 +2,6 @@
     <mat-slide-toggle #toggle>{{toggle.checked ? 'no flex active' : 'flex is now active'}}</mat-slide-toggle>
 </terra-base-toolbar>
 
-<!--<div *ngIf="_dataSource.data.length > 0" class="mat-table-container">-->
-<!--<div [hidden]="_dataSource.data.length === 0" class="mat-table-container">-->
 <div class="mat-table-container">
     <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]" [disabled]="_dataSource.data.length === 0"></mat-paginator>
     <table mat-table class="w-100" [dataSource]="_dataSource" matSort matSortActive="id" matSortDirection="desc" matSortDisableClear [hidden]="!toggle.checked">
@@ -37,7 +35,7 @@
         <tr mat-row *matRowDef="let contact; columns: _columnList" [class.selected]="_selection.isSelected(contact)"></tr>
     </table>
     
-    <mat-table class="w-100" [dataSource]="_dataSource" [hidden]="toggle.checked">
+    <mat-table class="w-100" [dataSource]="_dataSource" matSort matSortActive="id" matSortDirection="desc" matSortDisableClear [hidden]="toggle.checked">
         <ng-container matColumnDef="select">
             <mat-header-cell *matHeaderCellDef>
                 <mat-checkbox (change)="$event ? _masterToggle() : null"
@@ -53,7 +51,7 @@
             </mat-cell>
         </ng-container>
         <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
             <mat-cell *matCellDef="let contact">{{contact.id}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="firstName">
