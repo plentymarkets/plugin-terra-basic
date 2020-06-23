@@ -7,7 +7,8 @@ import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
 import { StartComponent } from './views/start/start.component';
 import {
     L10nLoader,
-    TranslationModule
+    TranslationModule,
+    TranslationService
 } from 'angular-l10n';
 import { FormsModule } from '@angular/forms';
 import { l10nConfig } from './core/localization/l10n.config';
@@ -22,6 +23,7 @@ import { RouterViewComponent } from './views/router/router-view.component';
 import { MainMenuComponent } from './views/menu/main-menu.component';
 import {
     TerraComponentsModule,
+    TerraMatPaginatorIntl,
     TerraNodeTreeConfig
 } from '@plentymarkets/terra-components';
 import { ExampleViewComponent } from './views/example/example-view.component';
@@ -36,7 +38,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { interceptorProviders } from './core/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import {
+    MatPaginatorIntl,
+    MatPaginatorModule
+} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
@@ -79,6 +84,11 @@ export function initL10n(l10nLoader:L10nLoader):Function
             useFactory: initL10n,
             deps:       [L10nLoader],
             multi:      true
+        },
+        {
+            provide: MatPaginatorIntl,
+            useClass: TerraMatPaginatorIntl,
+            deps: [TranslationService]
         },
         interceptorProviders,
         appRoutingProviders,
