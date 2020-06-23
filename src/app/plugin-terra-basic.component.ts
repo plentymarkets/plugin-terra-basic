@@ -15,7 +15,7 @@ export class PluginTerraBasicComponent implements OnInit
     private readonly domain:string = 'http://master.login.plentymarkets.com';
     /*tslint:disable-next-line:max-line-length*/
     private readonly accessToken:string = '';
-    
+
     constructor(private httpClient:HttpClient)
     {
     }
