@@ -1,17 +1,23 @@
 import {
     Component,
-    OnInit
+    Input,
+    OnInit,
+    ViewChild
 } from '@angular/core';
 import {
     TerraButtonInterface,
-    TerraDataTableHeaderCellInterface,
-    TerraTextAlignEnum
+    TerraFilter
 } from '@plentymarkets/terra-components';
 import {
     Language,
     TranslationService
 } from 'angular-l10n';
-import { BasicTableService } from '../../../../services/basic-table.service';
+import { ContactsDataSource } from './contacts-data-source';
+import { ContactService } from '../../../../services/contact.service';
+import { SelectionModel } from '@angular/cdk/collections';
+import { ContactInterface } from '../../../../interfaces/contact.interface';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
     selector:    'ptb-table',
@@ -22,13 +28,33 @@ export class TableComponent implements OnInit
     @Language()
     public lang:string;
 
-    public readonly _headerList:Array<TerraDataTableHeaderCellInterface>;
+    @Input()
+    public filter:TerraFilter<any>;
+
+
+    @ViewChild(MatPaginator, {static: true})
+    public paginator:MatPaginator;
+
+    @ViewChild(MatSort, {static: true})
+    public sort:MatSort;
+
+    public _columnList:Array<string> = ['select',
+                                        'id',
+                                        'firstName',
+                                        'lastName'];
+    /**
+     * @param _multiple defines if multiple selections are possible or not
+     * @param initiallySelectedValues is an array of ContactInterfaces, which are preselected
+     */
+    public _selection:SelectionModel<ContactInterface> = new SelectionModel<ContactInterface>(true, []);
+
+    public _dataSource:ContactsDataSource = new ContactsDataSource(this._contactService);
+
     public _noResultButtons:Array<TerraButtonInterface>;
 
     constructor(private translation:TranslationService,
-                public _tableService:BasicTableService)
+                private _contactService:ContactService)
     {
-        this._headerList = this.createHeaderList();
     }
 
     public ngOnInit():void
@@ -39,29 +65,30 @@ export class TableComponent implements OnInit
             icon:          'icon-search',
             clickFunction: ():void => this._onSearchBtnClicked()
         }];
+
+        this._dataSource.filter = this.filter;
+        this._dataSource.paginator = this.paginator;
+        this._dataSource.sort = this.sort;
     }
 
     public _onSearchBtnClicked():void
     {
-        this._tableService.getResults(true);
+        this._dataSource.search();
     }
 
-    private createHeaderList():Array<TerraDataTableHeaderCellInterface>
+    /** Whether the number of selected elements matches the total number of rows. */
+    public _isAllSelected():boolean
     {
-        return [
-            {
-                caption: 'ID',
-                width:   20
-            },
-            {
-                caption:   'firstName',
-                width:     20,
-                textAlign: TerraTextAlignEnum.LEFT
-            },
-            {
-                caption: 'lastName',
-                width:   20
-            }
-        ];
+        const numSelected:number = this._selection.selected.length;
+        const numRows:number = this._dataSource.data.length;
+        return numSelected === numRows;
+    }
+
+    /** Selects all rows if they are not all selected; otherwise clear selection. */
+    public _masterToggle():void
+    {
+        this._isAllSelected() ?
+            this._selection.clear() :
+            this._dataSource.data.forEach((contact:ContactInterface) => this._selection.select(contact));
     }
 }
