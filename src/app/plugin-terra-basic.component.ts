@@ -12,13 +12,8 @@ import { environment } from '../environments/environment';
 })
 export class PluginTerraBasicComponent implements OnInit
 {
-    private readonly domain:string = 'http://master.login.plentymarkets.com';
     /*tslint:disable-next-line:max-line-length*/
     private readonly accessToken:string = '';
-
-    constructor(private httpClient:HttpClient)
-    {
-    }
 
     public ngOnInit():void
     {
@@ -27,6 +22,5 @@ export class PluginTerraBasicComponent implements OnInit
             // store accessToken in localStorage since it is taken from there to be added to the Authorization header of any request
             localStorage.setItem('accessToken', this.accessToken);
         }
-        this.httpClient.get(`${this.domain}/rest/items`).subscribe(console.log);
     }
 }

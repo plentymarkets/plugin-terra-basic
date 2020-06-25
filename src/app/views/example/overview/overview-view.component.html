@@ -1,4 +1,4 @@
 <terra-2-col mobileRouting>
-    <ptb-filter left></ptb-filter>
-    <ptb-table style="width: 100%" right></ptb-table>
+    <ptb-filter #filter left></ptb-filter>
+    <ptb-table [filter]="filter?.filter" right></ptb-table>
 </terra-2-col>
