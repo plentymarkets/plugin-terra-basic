@@ -1,4 +1,5 @@
 <div class="mat-table-container">
+    <terra-column-settings [columns]="columns" [selectedColumns]="_columnList" (selectedColumnsChanged)="_columnList = $event"></terra-column-settings>
     <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]" [disabled]="_dataSource.data.length === 0"></mat-paginator>
     <table mat-table class="w-100" [dataSource]="_dataSource" matSort matSortActive="id" matSortDirection="desc" matSortDisableClear>
         <ng-container matColumnDef="select">

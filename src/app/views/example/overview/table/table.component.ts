@@ -2,7 +2,9 @@ import {
     Component,
     Input,
     OnInit,
-    ViewChild
+    QueryList,
+    ViewChild,
+    ViewChildren
 } from '@angular/core';
 import {
     TerraButtonInterface,
@@ -18,6 +20,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { ContactInterface } from '../../../../interfaces/contact.interface';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatColumnDef } from '@angular/material/table';
 
 @Component({
     selector:    'ptb-table',
@@ -37,6 +40,9 @@ export class TableComponent implements OnInit
 
     @ViewChild(MatSort, {static: true})
     public sort:MatSort;
+
+    @ViewChildren(MatColumnDef)
+    public columns:QueryList<MatColumnDef>;
 
     public _columnList:Array<string> = ['select',
                                         'id',
@@ -69,6 +75,7 @@ export class TableComponent implements OnInit
         this._dataSource.filter = this.filter;
         this._dataSource.paginator = this.paginator;
         this._dataSource.sort = this.sort;
+
     }
 
     public _onSearchBtnClicked():void
