@@ -69,7 +69,6 @@ export class TableComponent implements OnInit
         this._dataSource.filter = this.filter;
         this._dataSource.paginator = this.paginator;
         this._dataSource.sort = this.sort;
-
     }
 
     public _onSearchBtnClicked():void
