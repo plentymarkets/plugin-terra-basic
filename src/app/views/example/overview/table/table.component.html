@@ -1,7 +1,7 @@
 <div class="mat-table-container">
     <terra-column-settings [table]="table" [(selectedColumns)]="_columnList"></terra-column-settings>
     <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]" [disabled]="_dataSource.data.length === 0"></mat-paginator>
-    <table #table mat-table class="w-100" [dataSource]="_dataSource" matSort matSortActive="id" matSortDirection="desc" matSortDisableClear>
+    <table #table="matTable" mat-table class="w-100" [dataSource]="_dataSource" matSort matSortActive="id" matSortDirection="desc" matSortDisableClear>
         <ng-container matColumnDef="select">
             <th mat-header-cell *matHeaderCellDef>
                 <mat-checkbox (change)="$event ? _masterToggle() : null"
