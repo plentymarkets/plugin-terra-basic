@@ -1,6 +1,13 @@
 <div class="mat-table-container">
-    <tc-table-settings [columns]="_columns" [(selectedColumns)]="_columnList"></tc-table-settings>
-    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]" [disabled]="_dataSource.data.length === 0"></mat-paginator>
+    
+    <tc-table-settings [columns]="_columns" [(selectedColumns)]="_columnList">
+        <terra-group-function [disableExecution]="false"
+                              (executeGroupFunction)="_doSomething(input.value)">
+            <terra-text-input #input [inputName]="'Text'"></terra-text-input>
+        </terra-group-function>
+        <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]" [disabled]="_dataSource.data.length === 0"></mat-paginator>
+    </tc-table-settings>
+   
     <table #table="matTable" mat-table class="w-100" [dataSource]="_dataSource" matSort matSortActive="id" matSortDirection="desc" matSortDisableClear>
         <ng-container *ngFor="let column of _columns">
             <ng-container [matColumnDef]="column.key" [ngSwitch]="column.key">

@@ -107,4 +107,9 @@ export class TableComponent implements OnInit
             this._selection.clear() :
             this._dataSource.data.forEach((contact:ContactInterface) => this._selection.select(contact));
     }
+
+    public _doSomething(text:string):void
+    {
+        console.log(`Group function executed with text "${text ? text : ''}"`);
+    }
 }
