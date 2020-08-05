@@ -18,6 +18,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { ContactInterface } from '../../../../interfaces/contact.interface';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { ColumnInterface } from '@plentymarkets/terra-components/components/table/table-settings/interface/column.interface';
 
 @Component({
     selector:    'ptb-table',
@@ -38,10 +39,25 @@ export class TableComponent implements OnInit
     @ViewChild(MatSort, {static: true})
     public sort:MatSort;
 
-    public _columnList:Array<string> = ['select',
-                                        'id',
-                                        'firstName',
-                                        'lastName'];
+    public _columns:Array<ColumnInterface> = [
+        {
+            key:      'select',
+            label:  'Auswahl'
+        },
+        {
+            key: 'id',
+            label: 'ID'
+        },
+        {
+            key:      'firstName',
+            label:  'Vorname'
+        },
+        {
+            key:      'lastName',
+            label:  'Nachname'
+        }];
+
+    public _columnList:Array<string> = ['select', 'firstName', 'lastName'];
     /**
      * @param _multiple defines if multiple selections are possible or not
      * @param initiallySelectedValues is an array of ContactInterfaces, which are preselected
@@ -90,5 +106,10 @@ export class TableComponent implements OnInit
         this._isAllSelected() ?
             this._selection.clear() :
             this._dataSource.data.forEach((contact:ContactInterface) => this._selection.select(contact));
+    }
+
+    public _doSomething(text:string):void
+    {
+        console.log(`Group function executed with text "${text ? text : ''}"`);
     }
 }
