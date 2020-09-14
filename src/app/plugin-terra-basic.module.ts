@@ -1,31 +1,17 @@
-import {
-    APP_INITIALIZER,
-    NgModule
-} from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
 import { StartComponent } from './views/start/start.component';
-import {
-    L10nLoader,
-    TranslationModule,
-    TranslationService
-} from 'angular-l10n';
+import { L10nLoader, TranslationModule, TranslationService } from 'angular-l10n';
 import { FormsModule } from '@angular/forms';
 import { l10nConfig } from './core/localization/l10n.config';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import {
-    appRoutingProviders,
-    routing
-} from './plugin-terra-basic.routing';
+import { appRoutingProviders, routing } from './plugin-terra-basic.routing';
 import { StartViewComponent } from './views/start-view.component';
 import { RouterViewComponent } from './views/router/router-view.component';
 import { MainMenuComponent } from './views/menu/main-menu.component';
-import {
-    TerraComponentsModule,
-    TerraMatPaginatorIntl,
-    TerraNodeTreeConfig
-} from '@plentymarkets/terra-components';
+import { TerraComponentsModule, TerraMatPaginatorIntl, TerraNodeTreeConfig } from '@plentymarkets/terra-components';
 import { ExampleViewComponent } from './views/example/example-view.component';
 import { TableComponent } from './views/example/overview/table/table.component';
 import { FilterComponent } from './views/example/overview/filter/filter.component';
@@ -38,16 +24,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { interceptorProviders } from './core/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {
-    MatPaginatorIntl,
-    MatPaginatorModule
-} from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-export function initL10n(l10nLoader:L10nLoader):Function
-{
-    return ():Promise<any> => l10nLoader.load();
+export function initL10n(l10nLoader: L10nLoader): Function {
+    return (): Promise<any> => l10nLoader.load();
 }
 
 @NgModule({
@@ -56,7 +38,7 @@ export function initL10n(l10nLoader:L10nLoader):Function
         BrowserAnimationsModule,
         FormsModule,
         HttpClientModule,
-        TranslationModule.forRoot(l10nConfig, {translationProvider: TranslationProvider}),
+        TranslationModule.forRoot(l10nConfig, { translationProvider: TranslationProvider }),
         RouterModule.forRoot([]),
         TerraComponentsModule,
         routing,
@@ -78,12 +60,12 @@ export function initL10n(l10nLoader:L10nLoader):Function
         FilterComponent,
         OverviewViewComponent
     ],
-    providers:    [
+    providers: [
         {
-            provide:    APP_INITIALIZER,
+            provide: APP_INITIALIZER,
             useFactory: initL10n,
-            deps:       [L10nLoader],
-            multi:      true
+            deps: [L10nLoader],
+            multi: true
         },
         {
             provide: MatPaginatorIntl,
@@ -96,11 +78,6 @@ export function initL10n(l10nLoader:L10nLoader):Function
         ContactService,
         PlaceHolderService
     ],
-    bootstrap:    [
-        PluginTerraBasicComponent
-    ]
+    bootstrap: [PluginTerraBasicComponent]
 })
-export class PluginTerraBasicModule
-{}
-
-
+export class PluginTerraBasicModule {}
