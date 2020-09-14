@@ -1,3 +1,5 @@
+package-lock.json
+
 # ignore generated folders
 dist
 coverage
