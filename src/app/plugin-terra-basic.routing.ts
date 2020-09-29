@@ -1,50 +1,45 @@
 import { ModuleWithProviders } from '@angular/core';
-import {
-    RouterModule,
-    Routes
-} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { StartViewComponent } from './views/start-view.component';
 import { RouterViewComponent } from './views/router/router-view.component';
 import { ExampleViewComponent } from './views/example/example-view.component';
 
-const appRoutes:Routes = [
+const appRoutes: Routes = [
     {
         path: '',
         redirectTo: 'plugin',
-        pathMatch: 'full',
+        pathMatch: 'full'
     },
     {
-        path:      'plugin',
+        path: 'plugin',
         component: RouterViewComponent,
-        children:  [
+        children: [
             {
                 path: '',
-                data:        {
-                    label:       'menu'
+                data: {
+                    label: 'menu'
                 },
                 redirectTo: 'start',
                 pathMatch: 'full'
             },
             {
-                path:      'start',
+                path: 'start',
                 component: StartViewComponent,
-                data:      {
+                data: {
                     label: 'start'
                 }
             },
             {
-                path:      'example',
+                path: 'example',
                 component: ExampleViewComponent,
-                data:      {
+                data: {
                     label: 'example'
                 }
             }
         ]
-    },
-
+    }
 ];
 
-export const appRoutingProviders:Array<any> = [];
+export const appRoutingProviders: Array<any> = [];
 
-export const routing:ModuleWithProviders =
-    RouterModule.forRoot(appRoutes, {useHash:true});
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: true });

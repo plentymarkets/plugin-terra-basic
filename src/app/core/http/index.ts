@@ -7,27 +7,24 @@ import {
     LoadingInterceptor,
     TerraLoadingSpinnerService
 } from '@plentymarkets/terra-components';
-import {
-    LocaleService,
-    TranslationService
-} from 'angular-l10n';
+import { LocaleService, TranslationService } from 'angular-l10n';
 
-export const interceptorProviders:Array<Provider> = [
+export const interceptorProviders: Array<Provider> = [
     {
-        provide:  HTTP_INTERCEPTORS,
+        provide: HTTP_INTERCEPTORS,
         useClass: AuthInterceptor,
-        multi:    true
+        multi: true
     },
     {
-        provide:  HTTP_INTERCEPTORS,
+        provide: HTTP_INTERCEPTORS,
         useClass: ErrorInterceptor,
-        multi:    true,
-        deps:     [AlertService, TranslationService, LocaleService]
+        multi: true,
+        deps: [AlertService, TranslationService, LocaleService]
     },
     {
-        provide:  HTTP_INTERCEPTORS,
+        provide: HTTP_INTERCEPTORS,
         useClass: LoadingInterceptor,
-        multi:    true,
-        deps:     [TerraLoadingSpinnerService]
+        multi: true,
+        deps: [TerraLoadingSpinnerService]
     }
 ];

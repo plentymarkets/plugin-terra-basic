@@ -1,6 +1,5 @@
-export interface ContactInterface
-{
-    id:number;
-    firstName:string;
-    lastName:string;
+export interface ContactInterface {
+    id: number;
+    firstName: string;
+    lastName: string;
 }

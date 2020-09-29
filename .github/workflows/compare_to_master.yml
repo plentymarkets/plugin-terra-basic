@@ -4,27 +4,28 @@ name: Comparison to master
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  pull_request:
-    branches: [ master ]
+    pull_request:
+        branches: [master]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # Name of the job
-  check-integrity:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    # Name of the job
+    check-integrity:
+        # The type of runner that the job will run on
+        runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+        # Steps represent a sequence of tasks that will be executed as part of the job
+        steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v2
 
-      # Clean install of the node dependencies
-      - name: Clean install
-        run: npm ci
+            # Clean install of the node dependencies
+            - name: Clean install
+              run: npm ci
 
-      # Runs the set of integrity checks concurrently
-      - name: Run checks
-        run: |
-          npm run lint
-          npm run build
+            # Runs the set of integrity checks concurrently
+            - name: Run checks
+              run: |
+                  npm run lint
+                  npm run build
+                  npm run prettier
