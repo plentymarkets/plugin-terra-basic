@@ -1,0 +1,6 @@
+package-lock.json
+
+# ignore generated folders
+dist
+coverage
+node_modules

@@ -8,18 +8,20 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <img src="assets/images/logo_plenty_long.svg">
+            <img src="assets/images/logo_plenty_long.svg" />
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <hr>
-            <h2>{{ 'startNow' | translate:lang }}</h2>
-            <br>
+            <hr />
+            <h2>{{ 'startNow' | translate: lang }}</h2>
+            <br />
             <div class="center">
-                <terra-button [inputCaption]="'startHere' | translate:lang"
-                              (outputClicked)="redirectToDevelopersTutorial()"
-                              [inputTooltipText]="'startHere' | translate:lang">
+                <terra-button
+                    [inputCaption]="'startHere' | translate: lang"
+                    (outputClicked)="redirectToDevelopersTutorial()"
+                    [inputTooltipText]="'startHere' | translate: lang"
+                >
                 </terra-button>
             </div>
         </div>

@@ -1,9 +1,4 @@
-import {
-    Injectable
-} from '@angular/core';
-
+import { Injectable } from '@angular/core';
 
 @Injectable()
-export class PlaceHolderService
-{
-}
+export class PlaceHolderService {}
