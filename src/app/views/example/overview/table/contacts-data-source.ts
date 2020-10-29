@@ -1,13 +1,9 @@
-import {
-    RequestParameterInterface,
-    TablePagingSortingDataSource,
-    TerraPagerInterface
-} from '@plentymarkets/terra-components';
+import { RequestParameterInterface, TerraPagerInterface, TerraTableDataSource } from '@plentymarkets/terra-components';
 import { ContactInterface } from '../../../../interfaces/contact.interface';
 import { Observable } from 'rxjs';
 import { ContactService } from '../../../../services/contact.service';
 
-export class ContactsDataSource extends TablePagingSortingDataSource<ContactInterface> {
+export class ContactsDataSource extends TerraTableDataSource<ContactInterface> {
     constructor(private contactService: ContactService) {
         super();
     }
