@@ -42,8 +42,7 @@
                             "node_modules/@plentymarkets/terra-components/styles/icons.css",
                             "node_modules/@plentymarkets/terra-components/styles/theme-loader.css"
                         ],
-                        "scripts": [],
-                        "es5BrowserSupport": true
+                        "scripts": []
                     },
                     "configurations": {
                         "production": {
