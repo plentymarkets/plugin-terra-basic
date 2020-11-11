@@ -2,7 +2,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
 import { StartComponent } from './views/start/start.component';
-import { L10nLoader, L10nTranslationModule, TranslationService } from 'angular-l10n';
+import { L10nLoader, L10nTranslationModule, L10nTranslationService } from 'angular-l10n';
 import { FormsModule } from '@angular/forms';
 import { l10nConfig } from './core/localization/l10n.config';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,7 +28,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 export function initL10n(l10nLoader: L10nLoader): Function {
-    return (): Promise<any> => l10nLoader.load();
+    return (): Promise<any> => l10nLoader.init();
 }
 
 @NgModule({
@@ -69,7 +69,7 @@ export function initL10n(l10nLoader: L10nLoader): Function {
         {
             provide: MatPaginatorIntl,
             useClass: TerraMatPaginatorIntl,
-            deps: [TranslationService]
+            deps: [L10nTranslationService]
         },
         interceptorProviders,
         appRoutingProviders,
