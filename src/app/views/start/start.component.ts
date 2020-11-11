@@ -1,5 +1,5 @@
 import { Component, Inject, Input } from '@angular/core';
-import { L10N_LOCALE, L10nLocale, Language } from 'angular-l10n';
+import { L10N_LOCALE, L10nLocale } from 'angular-l10n';
 
 @Component({
     selector: 'ptb-start',
@@ -7,7 +7,7 @@ import { L10N_LOCALE, L10nLocale, Language } from 'angular-l10n';
     styleUrls: ['./start.component.scss']
 })
 export class StartComponent {
-    public lang: L10nLocale;
+    public lang: string;
 
     @Input()
     public myTitle: string;
@@ -17,6 +17,6 @@ export class StartComponent {
     }
 
     constructor(@Inject(L10N_LOCALE) locale: L10nLocale) {
-        this.lang = locale;
+        this.lang = locale.language;
     }
 }

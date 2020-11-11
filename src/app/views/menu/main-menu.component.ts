@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
     templateUrl: './main-menu.component.html'
 })
 export class MainMenuComponent implements OnInit {
-    public lang: L10nLocale;
+    public lang: string;
 
     constructor(
         @Inject(L10N_LOCALE) locale: L10nLocale,
@@ -16,7 +16,7 @@ export class MainMenuComponent implements OnInit {
         private router: Router,
         private translation: TranslationService
     ) {
-        this.lang = locale;
+        this.lang = locale.language;
     }
 
     public ngOnInit(): void {

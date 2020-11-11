@@ -1,6 +1,6 @@
 import { Component, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import { TerraButtonInterface, TerraFilter } from '@plentymarkets/terra-components';
-import { L10N_LOCALE, L10nLocale, Language, TranslationService } from 'angular-l10n';
+import { L10N_LOCALE, L10nLocale, TranslationService } from 'angular-l10n';
 import { ContactsDataSource } from './contacts-data-source';
 import { ContactService } from '../../../../services/contact.service';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -14,7 +14,7 @@ import { ColumnInterface } from '@plentymarkets/terra-components/components/tabl
     templateUrl: './table.component.html'
 })
 export class TableComponent implements OnInit {
-    public lang: L10nLocale;
+    public lang: string;
 
     @Input()
     public filter: TerraFilter<any>;
@@ -60,7 +60,7 @@ export class TableComponent implements OnInit {
         private translation: TranslationService,
         private _contactService: ContactService
     ) {
-        this.lang = locale;
+        this.lang = locale.language;
     }
 
     public ngOnInit(): void {
