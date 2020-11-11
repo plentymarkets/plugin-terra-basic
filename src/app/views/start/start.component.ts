@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Language } from 'angular-l10n';
+import { Component, Inject, Input } from '@angular/core';
+import { L10N_LOCALE, L10nLocale, Language } from 'angular-l10n';
 
 @Component({
     selector: 'ptb-start',
@@ -7,13 +7,16 @@ import { Language } from 'angular-l10n';
     styleUrls: ['./start.component.scss']
 })
 export class StartComponent {
-    @Language()
-    public lang: string;
+    public lang: L10nLocale;
 
     @Input()
     public myTitle: string;
 
     public redirectToDevelopersTutorial(): void {
         window.open('https://developers.plentymarkets.com/tutorials/angular-plugin', '_blank');
+    }
+
+    constructor(@Inject(L10N_LOCALE) locale: L10nLocale) {
+        this.lang = locale;
     }
 }
