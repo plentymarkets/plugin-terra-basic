@@ -1,34 +1,17 @@
-import { L10nConfig, ProviderType, StorageStrategy } from 'angular-l10n';
+import { L10nConfig } from 'angular-l10n';
+import { l10nPluginTerraBasic } from '../../translations/l10n-plugin-terra-basic';
 
 export const l10nConfig: L10nConfig = {
-    locale: {
-        languages: [
-            {
-                code: 'en',
-                dir: 'ltr'
-            },
-            {
-                code: 'de',
-                dir: 'ltr'
-            }
-        ],
-        language: 'en',
-        storage: StorageStrategy.Local,
-        storageNames: { defaultLocale: 'plentymarkets_lang_' }
+    defaultLocale: {
+        language: 'de',
+        currency: 'EUR'
     },
-    translation: {
-        providers: [
-            {
-                type: ProviderType.Static,
-                prefix: 'assets/lang/locale-'
-            },
-            {
-                type: ProviderType.Static,
-                prefix: 'assets/lang/terra-components/locale-'
-            }
-        ],
-        caching: true,
-        composedKeySeparator: '.',
-        i18nPlural: false
-    }
+    format: 'language',
+    keySeparator: '.',
+    cache: true,
+    providers: [{ name: 'plugin-terra-basic', asset: l10nPluginTerraBasic }],
+    schema: [
+        { locale: { language: 'de', currency: 'EUR' }, dir: 'ltr', text: 'Deutsch' },
+        { locale: { language: 'en', currency: 'GBP' }, dir: 'ltr', text: 'English' }
+    ]
 };
