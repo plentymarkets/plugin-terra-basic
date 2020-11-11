@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Language, TranslationService } from 'angular-l10n';
+import { Component, Inject, OnInit } from '@angular/core';
+import { L10N_LOCALE, L10nLocale, TranslationService } from 'angular-l10n';
 import { TerraNodeTreeConfig } from '@plentymarkets/terra-components';
 import { Router } from '@angular/router';
 
@@ -8,14 +8,16 @@ import { Router } from '@angular/router';
     templateUrl: './main-menu.component.html'
 })
 export class MainMenuComponent implements OnInit {
-    @Language()
     public lang: string;
 
     constructor(
+        @Inject(L10N_LOCALE) locale: L10nLocale,
         public _treeConfig: TerraNodeTreeConfig<{}>,
         private router: Router,
         private translation: TranslationService
-    ) {}
+    ) {
+        this.lang = locale.language;
+    }
 
     public ngOnInit(): void {
         this._treeConfig.addNode({
