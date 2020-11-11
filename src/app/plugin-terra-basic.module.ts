@@ -2,7 +2,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PluginTerraBasicComponent } from './plugin-terra-basic.component';
 import { StartComponent } from './views/start/start.component';
-import { L10nLoader, TranslationModule, TranslationService } from 'angular-l10n';
+import { L10nLoader, L10nTranslationModule, TranslationService } from 'angular-l10n';
 import { FormsModule } from '@angular/forms';
 import { l10nConfig } from './core/localization/l10n.config';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,7 +17,6 @@ import { TableComponent } from './views/example/overview/table/table.component';
 import { FilterComponent } from './views/example/overview/filter/filter.component';
 import { OverviewViewComponent } from './views/example/overview/overview-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TranslationProvider } from './core/localization/translation-provider';
 import { ContactService } from './services/contact.service';
 import { PlaceHolderService } from './core/placeholder/placeholder.service';
 import { MatSelectModule } from '@angular/material/select';
@@ -38,7 +37,7 @@ export function initL10n(l10nLoader: L10nLoader): Function {
         BrowserAnimationsModule,
         FormsModule,
         HttpClientModule,
-        TranslationModule.forRoot(l10nConfig, { translationProvider: TranslationProvider }),
+        L10nTranslationModule.forRoot(l10nConfig),
         RouterModule.forRoot([]),
         TerraComponentsModule,
         routing,
