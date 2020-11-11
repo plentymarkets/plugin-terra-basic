@@ -26,6 +26,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { UserLanguage } from './core/localization/user-language';
 
 export function initL10n(l10nLoader: L10nLoader): Function {
     return (): Promise<any> => l10nLoader.init();
@@ -37,7 +38,7 @@ export function initL10n(l10nLoader: L10nLoader): Function {
         BrowserAnimationsModule,
         FormsModule,
         HttpClientModule,
-        L10nTranslationModule.forRoot(l10nConfig),
+        L10nTranslationModule.forRoot(l10nConfig, { userLanguage: UserLanguage }),
         RouterModule.forRoot([]),
         TerraComponentsModule,
         routing,
