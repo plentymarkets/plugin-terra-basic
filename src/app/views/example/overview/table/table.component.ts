@@ -1,6 +1,6 @@
 import { Component, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import { TerraButtonInterface, TerraFilter } from '@plentymarkets/terra-components';
-import { L10N_LOCALE, L10nLocale, TranslationService } from 'angular-l10n';
+import { L10N_LOCALE, L10nLocale, L10nTranslationService } from 'angular-l10n';
 import { ContactsDataSource } from './contacts-data-source';
 import { ContactService } from '../../../../services/contact.service';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -57,7 +57,7 @@ export class TableComponent implements OnInit {
 
     constructor(
         @Inject(L10N_LOCALE) locale: L10nLocale,
-        private translation: TranslationService,
+        private translation: L10nTranslationService,
         private _contactService: ContactService
     ) {
         this.lang = locale.language;

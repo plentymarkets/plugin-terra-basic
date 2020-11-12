@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { L10N_LOCALE, L10nLocale, TranslationService } from 'angular-l10n';
+import { L10N_LOCALE, L10nLocale, L10nTranslationService } from 'angular-l10n';
 import { TerraNodeTreeConfig } from '@plentymarkets/terra-components';
 import { Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ export class MainMenuComponent implements OnInit {
         @Inject(L10N_LOCALE) locale: L10nLocale,
         public _treeConfig: TerraNodeTreeConfig<{}>,
         private router: Router,
-        private translation: TranslationService
+        private translation: L10nTranslationService
     ) {
         this.lang = locale.language;
     }
