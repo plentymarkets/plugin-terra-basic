@@ -27,6 +27,7 @@ import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginato
 import { MatSortModule } from '@angular/material/sort';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { UserLanguage } from './core/localization/user-language';
+import { NgxsModule } from '@ngxs/store';
 
 export function initL10n(l10nLoader: L10nLoader): Function {
     return (): Promise<any> => l10nLoader.init();
@@ -41,6 +42,7 @@ export function initL10n(l10nLoader: L10nLoader): Function {
         L10nTranslationModule.forRoot(l10nConfig, { userLanguage: UserLanguage }),
         RouterModule.forRoot([]),
         TerraComponentsModule,
+        NgxsModule.forRoot(),
         routing,
         MatSelectModule,
         MatTableModule,
