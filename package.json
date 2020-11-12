@@ -24,6 +24,7 @@
         "@angular/platform-browser": "^9.1.12",
         "@angular/platform-browser-dynamic": "^9.1.12",
         "@angular/router": "^9.1.12",
+        "@ngxs/store": "^3.7.0",
         "@plentymarkets/terra-components": "6.0.0-alpha.1",
         "angular-l10n": "^9.3.0",
         "bootstrap": "^4.4.1",
