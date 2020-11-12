@@ -12,11 +12,11 @@ export class StartComponent {
     @Input()
     public myTitle: string;
 
-    public redirectToDevelopersTutorial(): void {
-        window.open('https://developers.plentymarkets.com/tutorials/angular-plugin', '_blank');
-    }
-
     constructor(@Inject(L10N_LOCALE) locale: L10nLocale) {
         this.lang = locale.language;
+    }
+
+    public redirectToDevelopersTutorial(): void {
+        window.open('https://developers.plentymarkets.com/tutorials/angular-plugin', '_blank');
     }
 }
