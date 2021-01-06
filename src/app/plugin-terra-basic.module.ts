@@ -28,6 +28,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { UserLanguage } from './core/localization/user-language';
 import { NgxsModule } from '@ngxs/store';
+import { environment } from 'src/environments/environment';
+import { ViewStateState } from './core/ngxs/state/view-state.state';
+import { StartComponentState } from './core/ngxs/state/start-component.state';
+import { ExampleComponentState } from './core/ngxs/state/example-component.state';
 
 export function initL10n(l10nLoader: L10nLoader): Function {
     return (): Promise<any> => l10nLoader.init();
@@ -42,7 +46,8 @@ export function initL10n(l10nLoader: L10nLoader): Function {
         L10nTranslationModule.forRoot(l10nConfig, { userLanguage: UserLanguage }),
         RouterModule.forRoot([]),
         TerraComponentsModule,
-        NgxsModule.forRoot(),
+        // NgxsModule.forRoot([ViewStateState], { developmentMode: !environment.production }),
+        NgxsModule.forRoot([StartComponentState, ExampleComponentState], { developmentMode: true }),
         routing,
         MatSelectModule,
         MatTableModule,
