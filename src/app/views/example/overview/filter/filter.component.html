@@ -1,10 +1,9 @@
 <tc-filter (search)="filter.search()">
     <terra-text-input [(ngModel)]="filter.filterParameter.name"> </terra-text-input>
-    <terra-select-box [inputListBoxValues]="[]"> </terra-select-box>
     <terra-date-picker [(ngModel)]="filter.filterParameter.date"></terra-date-picker>
     <mat-form-field class="w-100">
         <mat-label>Test</mat-label>
-        <mat-select>
+        <mat-select [(ngModel)]="filter.filterParameter.value">
             <mat-option [value]="1">Caption 1</mat-option>
             <mat-option [value]="2">Caption 2</mat-option>
             <mat-option [value]="3">Caption 3</mat-option>
