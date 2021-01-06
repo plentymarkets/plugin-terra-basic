@@ -1,5 +1,9 @@
-<div class="mat-table-container">
-    <tc-table-settings [columns]="_columns" [(selectedColumns)]="_columnList">
+<div class="mat-table-container" *ngIf="columnList$ | async as columnList">
+    <tc-table-settings
+        [columns]="_columns"
+        [selectedColumns]="columnList"
+        (selectedColumnsChange)="updateColumnList({ table: { columnList: $event } })"
+    >
         <terra-group-function [disableExecution]="false" (executeGroupFunction)="_doSomething(input.value)">
             <terra-text-input #input [inputName]="'Text'"></terra-text-input>
         </terra-group-function>
@@ -46,10 +50,10 @@
                 </ng-container>
             </ng-container>
         </ng-container>
-        <tr mat-header-row *matHeaderRowDef="_columnList"></tr>
+        <tr mat-header-row *matHeaderRowDef="columnList"></tr>
         <tr
             mat-row
-            *matRowDef="let contact; columns: _columnList"
+            *matRowDef="let contact; columns: columnList"
             [class.selected]="_selection.isSelected(contact)"
         ></tr>
     </table>

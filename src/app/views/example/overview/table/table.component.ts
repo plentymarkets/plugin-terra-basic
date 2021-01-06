@@ -8,6 +8,12 @@ import { ContactInterface } from '../../../../interfaces/contact.interface';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ColumnInterface } from '@plentymarkets/terra-components/components/table/table-settings/interface/column.interface';
+import { Select, Store } from '@ngxs/store';
+import { ViewStateActions } from 'src/app/core/ngxs/actions/view-state.actions';
+import { ViewStateState } from 'src/app/core/ngxs/state/view-state.state';
+import { Observable } from 'rxjs';
+import { ExampleComponentStateActions } from 'src/app/core/ngxs/actions/example-component.actions';
+import { ExampleComponentState } from 'src/app/core/ngxs/state/example-component.state';
 
 @Component({
     selector: 'ptb-table',
@@ -24,6 +30,9 @@ export class TableComponent implements OnInit {
 
     @ViewChild(MatSort, { static: true })
     public sort: MatSort;
+
+    // @Select(ViewStateState['TableComponent'])
+    // public viewState$: Observable<any>;
 
     public _columns: Array<ColumnInterface> = [
         {
@@ -44,7 +53,12 @@ export class TableComponent implements OnInit {
         }
     ];
 
-    public _columnList: Array<string> = ['select', 'firstName', 'lastName'];
+    /**
+     * Selector to get the columnList as an observable.
+     */
+    @Select(ExampleComponentState.tableColumnList)
+    public columnList$: Observable<Array<string>>;
+
     /**
      * @param _multiple defines if multiple selections are possible or not
      * @param initiallySelectedValues is an array of ContactInterfaces, which are preselected
@@ -58,7 +72,8 @@ export class TableComponent implements OnInit {
     constructor(
         @Inject(L10N_LOCALE) locale: L10nLocale,
         private translation: L10nTranslationService,
-        private _contactService: ContactService
+        private _contactService: ContactService,
+        private _store: Store
     ) {
         this.lang = locale.language;
     }
@@ -98,5 +113,12 @@ export class TableComponent implements OnInit {
 
     public _doSomething(text: string): void {
         console.log(`Group function executed with text "${text ? text : ''}"`);
+    }
+
+    /**
+     * Update the columnList
+     */
+    public updateColumnList(columnList: any): void {
+        this._store.dispatch(new ExampleComponentStateActions.Update(columnList));
     }
 }
