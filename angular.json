@@ -32,7 +32,7 @@
                             "node_modules/bootstrap/dist/css/bootstrap.css",
                             "node_modules/@plentymarkets/terra-icons/dist/style.css",
                             "node_modules/@plentymarkets/terra-components/styles/styles.css",
-                            "node_modules/@plentymarkets/terra-components/styles/icons.css",
+                             "node_modules/@plentymarkets/terra-components/styles/function-groups.css",
                             "node_modules/@plentymarkets/terra-components/styles/theme-loader.css"
                         ],
                         "scripts": []
