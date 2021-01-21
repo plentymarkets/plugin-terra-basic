@@ -24,22 +24,15 @@
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "src/tsconfig.app.json",
-                        "assets": [
-                            "src/favicon.ico",
-                            "src/assets",
-                            {
-                                "glob": "*.json",
-                                "input": "./node_modules/@plentymarkets/terra-components/assets/lang/",
-                                "output": "./assets/lang/terra-components/"
-                            }
-                        ],
+                        "assets": ["src/favicon.ico", "src/assets"],
                         "styles": [
                             "src/styles.scss",
                             "node_modules/tippy.js/dist/tippy.css",
                             "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
                             "node_modules/bootstrap/dist/css/bootstrap.css",
+                            "node_modules/@plentymarkets/terra-icons/dist/style.css",
                             "node_modules/@plentymarkets/terra-components/styles/styles.css",
-                            "node_modules/@plentymarkets/terra-components/styles/icons.css",
+                            "node_modules/@plentymarkets/terra-components/styles/function-groups.css",
                             "node_modules/@plentymarkets/terra-components/styles/theme-loader.css"
                         ],
                         "scripts": []
