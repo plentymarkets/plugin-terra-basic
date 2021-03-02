@@ -6,6 +6,9 @@
         "node_modules/tslint-eslint-rules/dist/rules"
     ],
     "rules": {
-        "component-selector": [true, "element", ["ptb"], "kebab-case"]
+        "component-selector": [true, "element", ["ptb"], "kebab-case"],
+        "deprecation": {
+            "severity": "warning"
+        }
     }
 }
