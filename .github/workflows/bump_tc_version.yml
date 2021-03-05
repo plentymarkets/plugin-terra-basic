@@ -15,6 +15,7 @@ jobs:
 
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
+            - uses: actions/checkout@v2
             - uses: Bruce17/ghaction-package-latest-version@v1.1.0
               with:
                   package: '@plentymarkets/terra-components'
