@@ -39,7 +39,7 @@ export function initL10n(l10nLoader: L10nLoader): Function {
         FormsModule,
         HttpClientModule,
         L10nTranslationModule.forRoot(l10nConfig, { userLanguage: UserLanguage }),
-        RouterModule.forRoot([]),
+        RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }),
         TerraComponentsModule,
         routing,
         MatSelectModule,
