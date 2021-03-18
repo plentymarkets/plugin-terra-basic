@@ -6,7 +6,6 @@ import { L10nLoader, L10nTranslationModule, L10nTranslationService } from 'angul
 import { FormsModule } from '@angular/forms';
 import { l10nConfig } from './core/localization/l10n.config';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 import { appRoutingProviders, routing } from './plugin-terra-basic.routing';
 import { StartViewComponent } from './views/start-view.component';
 import { RouterViewComponent } from './views/router/router-view.component';
@@ -39,7 +38,6 @@ export function initL10n(l10nLoader: L10nLoader): Function {
         FormsModule,
         HttpClientModule,
         L10nTranslationModule.forRoot(l10nConfig, { userLanguage: UserLanguage }),
-        RouterModule.forRoot([]),
         TerraComponentsModule,
         routing,
         MatSelectModule,
