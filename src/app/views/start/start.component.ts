@@ -9,9 +9,6 @@ import { L10N_LOCALE, L10nLocale } from 'angular-l10n';
 export class StartComponent {
     public lang: string;
 
-    @Input()
-    public myTitle: string = '';
-
     public tooltipKey: string = 'startHere';
 
     constructor(@Inject(L10N_LOCALE) locale: L10nLocale) {
