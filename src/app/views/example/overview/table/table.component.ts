@@ -17,13 +17,16 @@ export class TableComponent implements OnInit {
     public lang: string;
 
     @Input()
-    public filter: TerraFilter<any>;
+    public filter: TerraFilter<any> | undefined;
 
     @ViewChild(MatPaginator, { static: true })
-    public paginator: MatPaginator;
+    public paginator: MatPaginator | undefined;
 
     @ViewChild(MatSort, { static: true })
-    public sort: MatSort;
+    public sort: MatSort | undefined;
+
+    public inputTextPrimary: string = 'noResult';
+    public inputTextSecondary: string = 'test';
 
     public _columns: Array<ColumnInterface> = [
         {
@@ -53,7 +56,7 @@ export class TableComponent implements OnInit {
 
     public _dataSource: ContactsDataSource = new ContactsDataSource(this._contactService);
 
-    public _noResultButtons: Array<TerraButtonInterface>;
+    public _noResultButtons: Array<TerraButtonInterface> = [];
 
     constructor(
         @Inject(L10N_LOCALE) locale: L10nLocale,
@@ -73,9 +76,15 @@ export class TableComponent implements OnInit {
             }
         ];
 
-        this._dataSource.filter = this.filter;
-        this._dataSource.paginator = this.paginator;
-        this._dataSource.sort = this.sort;
+        if (this.filter instanceof TerraFilter) {
+            this._dataSource.filter = this.filter;
+        }
+        if (this.paginator instanceof MatPaginator) {
+            this._dataSource.paginator = this.paginator;
+        }
+        if (this.sort instanceof MatSort) {
+            this._dataSource.sort = this.sort;
+        }
     }
 
     public _onSearchBtnClicked(): void {
