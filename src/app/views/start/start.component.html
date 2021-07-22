@@ -17,7 +17,7 @@
             <h2>{{ 'startNow' | translate: lang }}</h2>
             <br />
             <div class="center" [tcTooltip]="(tooltipKey | translate: lang) ?? ''">
-                <button mat-button (click)="redirectToDevelopersTutorial()">
+                <button mat-raised-button color="primary" (click)="redirectToDevelopersTutorial()">
                     {{ 'startHere' | translate: lang }}
                 </button>
             </div>
