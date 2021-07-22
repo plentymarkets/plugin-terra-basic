@@ -26,6 +26,7 @@ import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginato
 import { MatSortModule } from '@angular/material/sort';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { UserLanguage } from './core/localization/user-language';
+import { MatButtonModule } from '@angular/material/button';
 
 export function initL10n(l10nLoader: L10nLoader): Function {
     return (): Promise<any> => l10nLoader.init();
@@ -45,7 +46,8 @@ export function initL10n(l10nLoader: L10nLoader): Function {
         MatCheckboxModule,
         MatPaginatorModule,
         MatSortModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatButtonModule
     ],
     declarations: [
         PluginTerraBasicComponent,

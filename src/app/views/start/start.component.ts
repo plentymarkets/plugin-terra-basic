@@ -10,7 +10,9 @@ export class StartComponent {
     public lang: string;
 
     @Input()
-    public myTitle: string;
+    public myTitle: string = '';
+
+    public tooltipKey: string = 'startHere';
 
     constructor(@Inject(L10N_LOCALE) locale: L10nLocale) {
         this.lang = locale.language;
