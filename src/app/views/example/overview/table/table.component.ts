@@ -17,13 +17,13 @@ export class TableComponent implements OnInit {
     public lang: string;
 
     @Input()
-    public filter: TerraFilter<any> | undefined;
+    public filter!: TerraFilter<any>;
 
     @ViewChild(MatPaginator, { static: true })
-    public paginator: MatPaginator | undefined;
+    public paginator!: MatPaginator;
 
     @ViewChild(MatSort, { static: true })
-    public sort: MatSort | undefined;
+    public sort!: MatSort;
 
     public inputTextPrimary: string = 'noResult';
     public inputTextSecondary: string = 'test';
@@ -76,15 +76,9 @@ export class TableComponent implements OnInit {
             }
         ];
 
-        if (this.filter instanceof TerraFilter) {
-            this._dataSource.filter = this.filter;
-        }
-        if (this.paginator instanceof MatPaginator) {
-            this._dataSource.paginator = this.paginator;
-        }
-        if (this.sort instanceof MatSort) {
-            this._dataSource.sort = this.sort;
-        }
+        this._dataSource.filter = this.filter;
+        this._dataSource.paginator = this.paginator;
+        this._dataSource.sort = this.sort;
     }
 
     public _onSearchBtnClicked(): void {
