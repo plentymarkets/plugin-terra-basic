@@ -57,8 +57,8 @@
     <terra-no-result-notice
         *ngIf="_dataSource.data.length === 0"
         [inputButtons]="_noResultButtons"
-        [inputTextPrimary]="(inputTextPrimary | translate: lang) ?? ''"
-        [inputTextSecondary]="(inputTextSecondary | translate: lang) ?? ''"
+        [inputTextPrimary]="'noResult' | translate: lang"
+        [inputTextSecondary]="'test' | translate: lang"
     >
     </terra-no-result-notice>
 </div>

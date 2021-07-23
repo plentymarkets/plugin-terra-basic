@@ -25,9 +25,6 @@ export class TableComponent implements OnInit {
     @ViewChild(MatSort, { static: true })
     public sort!: MatSort;
 
-    public inputTextPrimary: string = 'noResult';
-    public inputTextSecondary: string = 'test';
-
     public _columns: Array<ColumnInterface> = [
         {
             key: 'select',
