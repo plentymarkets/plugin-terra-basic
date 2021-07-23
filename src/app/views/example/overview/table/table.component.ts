@@ -17,7 +17,7 @@ export class TableComponent implements OnInit {
     public lang: string;
 
     @Input()
-    public filter!: TerraFilter<any>;
+    public filter: TerraFilter<any> | undefined;
 
     @ViewChild(MatPaginator, { static: true })
     public paginator!: MatPaginator;
@@ -73,7 +73,7 @@ export class TableComponent implements OnInit {
             }
         ];
 
-        this._dataSource.filter = this.filter;
+        this._dataSource.filter = this.filter ?? new TerraFilter<any>();
         this._dataSource.paginator = this.paginator;
         this._dataSource.sort = this.sort;
     }
