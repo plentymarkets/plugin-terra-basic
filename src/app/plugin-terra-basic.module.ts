@@ -27,6 +27,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { UserLanguage } from './core/localization/user-language';
 import { MatButtonModule } from '@angular/material/button';
+import { TranslatePipe } from './core/translate.pipe';
 
 export function initL10n(l10nLoader: L10nLoader): Function {
     return (): Promise<any> => l10nLoader.init();
@@ -58,7 +59,8 @@ export function initL10n(l10nLoader: L10nLoader): Function {
         ExampleViewComponent,
         TableComponent,
         FilterComponent,
-        OverviewViewComponent
+        OverviewViewComponent,
+        TranslatePipe
     ],
     providers: [
         {
