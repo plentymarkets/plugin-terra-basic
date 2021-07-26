@@ -17,13 +17,19 @@ export class TableComponent implements OnInit {
     public lang: string;
 
     @Input()
-    public filter: TerraFilter<any>;
+    public set filter(filter: TerraFilter<any>) {
+        this._dataSource.filter = filter;
+    }
 
     @ViewChild(MatPaginator, { static: true })
-    public paginator: MatPaginator;
+    public set paginator(paginator: MatPaginator) {
+        this._dataSource.paginator = paginator;
+    }
 
     @ViewChild(MatSort, { static: true })
-    public sort: MatSort;
+    public set sort(sort: MatSort) {
+        this._dataSource.sort = sort;
+    }
 
     public _columns: Array<ColumnInterface> = [
         {
@@ -53,7 +59,7 @@ export class TableComponent implements OnInit {
 
     public _dataSource: ContactsDataSource = new ContactsDataSource(this._contactService);
 
-    public _noResultButtons: Array<TerraButtonInterface>;
+    public _noResultButtons: Array<TerraButtonInterface> = [];
 
     constructor(
         @Inject(L10N_LOCALE) locale: L10nLocale,
@@ -72,10 +78,6 @@ export class TableComponent implements OnInit {
                 clickFunction: (): void => this._onSearchBtnClicked()
             }
         ];
-
-        this._dataSource.filter = this.filter;
-        this._dataSource.paginator = this.paginator;
-        this._dataSource.sort = this.sort;
     }
 
     public _onSearchBtnClicked(): void {
