@@ -3,12 +3,11 @@
     "env": {
         "jasmine": true
     },
-    "ignorePatterns": ["projects/**/*", "src/assets/lang"],
     "overrides": [
         {
             "files": ["*.ts"],
             "parserOptions": {
-                "project": ["tsconfig.json", "e2e/tsconfig.json"],
+                "project": ["tsconfig.json"],
                 "createDefaultProgram": true
             },
             "extends": [
