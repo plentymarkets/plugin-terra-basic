@@ -8,7 +8,6 @@
         "build": "ng build --configuration production",
         "test": "ng test",
         "lint": "ng lint",
-        "lint-diff": "eslint $(git diff --name-only origin/${DEST:-master}...HEAD | grep '\\.ts$') -- 'src/main.ts'",
         "prettier": "prettier --check .",
         "reinstall": "npm ci"
     },
