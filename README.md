@@ -2,6 +2,10 @@
 
 Learn how to create your first plentymarkets plugin https://developers.plentymarkets.com/tutorials/angular-plugin
 
+# Deprecated
+
+This repository is now deprecated since the Terra-Components repository is no longer supported and also deprecated.
+
 # plugin-terra-basic
 
 This repository is based on the [Angular CLI](https://cli.angular.io/)
